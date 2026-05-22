@@ -1,292 +1,1037 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yalos Indicator | Промышленные температурные индикаторы</title>
-    <style>
-        :root {
-            --dark-bg: #111827;
-            --card-bg: #1f2937;
-            --accent-blue: #3b82f6;
-            --accent-orange: #f97316;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YALOS INDICATOR | Температурные индикаторы для промышленности</title>
+  <meta name="description" content="Прецизионные температурные индикаторы для нефтегазовой и химической промышленности. Надёжность в экстремальных условиях."/>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+  <style>
+    /* ===================================================== */
+    /* RESET & BASE */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0e17;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        header {
-            background-color: rgba(17, 24, 39, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #374151;
-            backdrop-filter: blur(8px);
-        }
+    /* ===================================================== */
+    /* INDUSTRIAL BACKGROUND */
+    /* ===================================================== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at top, rgba(23, 42, 84, 0.4), transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(180, 80, 30, 0.15), transparent 50%),
+        url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      filter: brightness(0.6) contrast(1.1);
+      z-index: -3;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-        }
+    /* Steam/particle animation overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent),
+        radial-gradient(1px 1px at 150px 60px, rgba(255,180,80,0.25), transparent),
+        radial-gradient(2px 2px at 200px 200px, rgba(100,180,255,0.3), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: -2;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px, 200px 500px, 500px 300px; }
+    }
 
-        .logo span {
-            color: var(--accent-blue);
-        }
+    /* ===================================================== */
+    /* NAVBAR */
+    /* ===================================================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 12px 8%;
+      background: rgba(10, 14, 23, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
 
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, #ff6b35, #ff9e5e);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #0a0e17;
+      font-size: 18px;
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .logo-text span { color: #ff6b35; }
 
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ff9e5e;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, #ff6b35, #ff9e5e);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
 
-        .hero {
-            padding: 10rem 2rem 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            min-height: 80vh;
-        }
+    .nav-cta {
+      background: linear-gradient(135deg, #ff6b35, #ff9e5e);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+    }
 
-        .hero-content {
-            max-width: 650px;
-        }
+    /* Mobile menu button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
+    /* ===================================================== */
+    /* HERO SECTION */
+    /* ===================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 80px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .hero h1 span {
-            background: linear-gradient(45deg, var(--accent-blue), #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .hero-content {
+      max-width: 680px;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, background-color 0.3s;
-        }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 107, 53, 0.15);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      color: #ff9e5e;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
 
-        .btn:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-        }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff, #b8c5e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .hero p {
+      font-size: 18px;
+      color: rgba(230, 233, 240, 0.85);
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3.5rem;
-            position: relative;
-        }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent-blue);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b35, #ff9e5e);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(255, 107, 53, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.5);
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: #ff9e5e;
+      background: rgba(255, 158, 94, 0.1);
+    }
 
-        .card {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid #374151;
-            transition: transform 0.3s, border-color 0.3s;
-        }
+    /* Industrial decorative elements */
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -10%; top: 20%;
+      width: 50vw; height: 60vh;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.08), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(100, 180, 255, 0.06), transparent 45%);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-        }
+    /* ===================================================== */
+    /* PRODUCTS SECTION */
+    /* ===================================================== */
+    .section {
+      padding: 100px 8%;
+      position: relative;
+    }
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 70px;
+    }
+    .section-title h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, #a0b0d0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-title p {
+      color: rgba(230, 233, 240, 0.75);
+      font-size: 17px;
+    }
 
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-blue);
-        }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
+    .product-card {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, 
+        rgba(255, 107, 53, 0.03), 
+        transparent 40%, 
+        rgba(100, 180, 255, 0.03) 80%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 158, 94, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .product-card:hover::before { opacity: 1; }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+    .product-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 158, 94, 0.1));
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      font-size: 28px;
+      color: #ff9e5e;
+      position: relative;
+      z-index: 1;
+    }
 
-        .cta-section {
-            background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80') center/cover;
-            text-align: center;
-            padding: 6rem 2rem;
-            border-radius: 16px;
-            margin: 4rem auto;
-            max-width: 1160px;
-            border: 1px solid #374151;
-        }
+    .product-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .product-card p {
+      color: rgba(230, 233, 240, 0.8);
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+    .product-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .spec-item::before {
+      content: "•";
+      color: #ff6b35;
+      font-weight: bold;
+    }
 
-        .cta-section p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .product-cta {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ff9e5e;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: gap 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .product-cta:hover { gap: 10px; }
 
-        footer {
-            background-color: #0b0f19;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid #1f2937;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+    /* ===================================================== */
+    /* APPLICATIONS SECTION */
+    /* ===================================================== */
+    .applications {
+      background: linear-gradient(180deg, transparent, rgba(15, 20, 35, 0.6), transparent);
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .hero { padding-top: 8rem; }
-        }
-    </style>
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .app-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: rgba(20, 26, 42, 0.5);
+      border: 1px solid rgba(100, 180, 255, 0.1);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .app-card:hover {
+      border-color: rgba(255, 158, 94, 0.3);
+      background: rgba(25, 32, 52, 0.7);
+      transform: translateY(-4px);
+    }
+
+    .app-icon {
+      width: 60px; height: 60px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, rgba(100, 180, 255, 0.15), rgba(255, 107, 53, 0.1));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      color: #64b4ff;
+    }
+    .app-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .app-card p {
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+
+    /* ===================================================== */
+    /* BENEFITS SECTION */
+    /* ===================================================== */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .benefit-card {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.4);
+      border-radius: 16px;
+      border-left: 3px solid #ff6b35;
+    }
+    .benefit-icon {
+      min-width: 50px; height: 50px;
+      background: rgba(255, 107, 53, 0.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      color: #ff9e5e;
+      flex-shrink: 0;
+    }
+    .benefit-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .benefit-card p {
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.8);
+    }
+
+    /* ===================================================== */
+    /* CTA SECTION */
+    /* ===================================================== */
+    .cta-section {
+      text-align: center;
+      padding: 120px 8%;
+      background: linear-gradient(135deg, rgba(23, 42, 84, 0.8), rgba(15, 20, 35, 0.9));
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(100, 180, 255, 0.08), transparent 45%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 650px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-content h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .cta-content p {
+      font-size: 17px;
+      color: rgba(230, 233, 240, 0.85);
+      margin-bottom: 36px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #ff9e5e;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: rgba(230, 233, 240, 0.6);
+      margin-top: 8px;
+    }
+
+    /* ===================================================== */
+    /* FOOTER */
+    /* ===================================================== */
+    footer {
+      padding: 50px 8% 30px;
+      background: rgba(8, 11, 20, 0.95);
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .footer-col a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+    .footer-col a:hover { color: #ff9e5e; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+    }
+
+    /* ===================================================== */
+    /* ANIMATIONS ON SCROLL */
+    /* ===================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.17, 0.85, 0.438, 0.99);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================================================== */
+    /* RESPONSIVE */
+    /* ===================================================== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: flex; }
+      
+      .hero { padding-top: 100px; text-align: center; }
+      .hero-content { margin: 0 auto; }
+      .hero-buttons { justify-content: center; }
+      
+      .section { padding: 80px 5%; }
+      .section-title { margin-bottom: 50px; }
+      
+      .product-specs { grid-template-columns: 1fr; }
+      
+      .cta-section { padding: 90px 5%; }
+    }
+
+    @media (max-width: 480px) {
+      .navbar { padding: 14px 5%; }
+      .logo-text { font-size: 18px; }
+      .logo-icon { width: 36px; height: 36px; font-size: 16px; }
+      
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      
+      .btn-primary, .btn-secondary {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+      
+      .product-card { padding: 24px; }
+      .product-icon { width: 60px; height: 60px; font-size: 24px; }
+      
+      footer { padding: 40px 5% 24px; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 14, 23, 0.98);
+      padding: 80px 5% 30px;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    .mobile-menu.active { transform: translateY(0); }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu .nav-cta {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">YALOS<span>INDICATOR</span></div>
-            <nav class="nav-links">
-                <a href="#products">Продукция</a>
-                <a href="#advantages">Преимущества</a>
-                <a href="#contacts">Контакты</a>
-            </nav>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <div class="logo-icon">YI</div>
+      <div class="logo-text">YALOS <span>INDICATOR</span></div>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#products" class="active">Продукция</a></li>
+      <li><a href="#applications">Отрасли</a></li>
+      <li><a href="#benefits">Преимущества</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    
+    <a href="#contact" class="nav-cta">Запросить КП</a>
+    
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products">Продукция</a>
+    <a href="#applications">Отрасли</a>
+    <a href="#benefits">Преимущества</a>
+    <a href="#contact">Контакты</a>
+    <a href="#contact" class="nav-cta">Запросить КП</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🔥 Точность в экстремальных условиях</div>
+      <h1>Температурные индикаторы промышленного класса</h1>
+      <p>Надёжные решения для нефтегазовой, химической и энергетической промышленности. Работают при температурах от -60°С до +650°С.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">
+          <span>▶</span> Каталог продукции
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <span>✉</span> Получить консультацию
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="section-title reveal">
+      <h2>Наша продукция</h2>
+      <p>Прецизионные индикаторы, разработанные для работы в самых суровых промышленных условиях</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card reveal">
+        <div class="product-icon">🌡️</div>
+        <h3>YI-PRO Series</h3>
+        <p>Универсальные биметаллические термометры для трубопроводов и резервуаров.</p>
+        <div class="product-specs">
+          <div class="spec-item">Диапазон: -50…+400°С</div>
+          <div class="spec-item">Точность: ±1.0% ФС</div>
+          <div class="spec-item">Корпус: нерж. сталь 316</div>
+          <div class="spec-item">Защита: IP67</div>
         </div>
-    </header>
+        <a href="#contact" class="product-cta">Запросить спецификацию →</a>
+      </div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Надежный контроль <span>температуры</span> на производстве</h1>
-                <p>Профессиональные температурные индикаторы для оборудования, логистики и технологических процессов. Предотвратите перегрев и аварии до их появления.</p>
-                <a href="#products" class="btn">Смотреть каталог</a>
-            </div>
-        </section>
+      <!-- Product 2 -->
+      <div class="product-card reveal">
+        <div class="product-icon">⚡</div>
+        <h3>YI-EX Series</h3>
+        <p>Взрывозащищённые индикаторы для опасных производственных зон (Ex d IIC T6).</p>
+        <div class="product-specs">
+          <div class="spec-item">Сертификация: ГОСТ Р МЭК</div>
+          <div class="spec-item">Диапазон: -40…+250°С</div>
+          <div class="spec-item">Материал: латунь/нерж. сталь</div>
+          <div class="spec-item">Взрывозащита: 1Ex d IIC T6</div>
+        </div>
+        <a href="#contact" class="product-cta">Запросить сертификат →</a>
+      </div>
 
-        <section id="products" class="section">
-            <h2 class="section-title">Наша продукция</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">🛑</div>
-                    <h3>Необратимые индикаторы</h3>
-                    <p>Фиксируют факт превышения критической температуры. Идеально подходят для контроля гарантийных обязательств и скрытого перегрева узлов.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🔄</div>
-                    <h3>Обратимые термометки</h3>
-                    <p>Меняют цвет в реальном времени, показывая текущий нагрев оборудования. Визуальный мониторинг для безопасности персонала.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📦</div>
-                    <h3>Логистические индикаторы</h3>
-                    <p>Контроль температурного режима при транспортировке и хранении чувствительных грузов (фармацевтика, химия, продукты).</p>
-                </div>
-            </div>
-        </section>
+      <!-- Product 3 -->
+      <div class="product-card reveal">
+        <div class="product-icon">🔗</div>
+        <h3>YI-REMOTE Series</h3>
+        <p>Дистанционные термометры с капилляром до 25 м для труднодоступных точек контроля.</p>
+        <div class="product-specs">
+          <div class="spec-item">Длина капилляра: до 25 м</div>
+          <div class="spec-item">Диапазон: -60…+650°С</div>
+          <div class="spec-item">Заполнение: газ/жидкость</div>
+          <div class="spec-item">Монтаж: универсальный</div>
+        </div>
+        <a href="#contact" class="product-cta">Рассчитать конфигурацию →</a>
+      </div>
 
-        <section id="advantages" class="section">
-            <h2 class="section-title">Почему выбирают Yalos</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Автономность 100%</h3>
-                    <p>Не требуют источников питания, проводов и сложной настройки. Работают в любых труднодоступных местах.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3>Высокая точность</h3>
-                    <p>Четкое и быстрое изменение цвета при достижении пороговых значений с минимальной погрешностью.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Стойкость к среде</h3>
-                    <p>Защищены от воздействия влаги, масел, грязи и агрессивных сред, что критично для тяжелой промышленности.</p>
-                </div>
-            </div>
-        </section>
+      <!-- Product 4 -->
+      <div class="product-card reveal">
+        <div class="product-icon">📊</div>
+        <h3>YI-DIGITAL Series</h3>
+        <p>Цифровые индикаторы с выходом 4-20 мА и протоколом Modbus для интеграции в АСУ ТП.</p>
+        <div class="product-specs">
+          <div class="spec-item">Выходной сигнал: 4-20 мА</div>
+          <div class="spec-item">Протокол: Modbus RTU</div>
+          <div class="spec-item">Дисплей: ЖК с подсветкой</div>
+          <div class="spec-item">Питание: 24 В DC</div>
+        </div>
+        <a href="#contact" class="product-cta">Запросить документацию →</a>
+      </div>
 
-        <section id="contacts" class="cta-section">
-            <h2>Нужно индивидуальное решение?</h2>
-            <p>Мы поможем подобрать индикаторы под конкретные температурные диапазоны и задачи вашего предприятия.</p>
-            <a href="mailto:info@yalosindicator.com" class="btn">Связаться с нами</a>
-        </section>
-    </main>
+      <!-- Product 5 -->
+      <div class="product-card reveal">
+        <div class="product-icon">🛡️</div>
+        <h3>YI-CORR Series</h3>
+        <p>Коррозионностойкие исполнения для агрессивных сред (кислоты, щёлочи, морская вода).</p>
+        <div class="product-specs">
+          <div class="spec-item">Материал: хастеллой, тантал</div>
+          <div class="spec-item">Покрытие: PTFE, PFA</div>
+          <div class="spec-item">Среда: агрессивные жидкости</div>
+          <div class="spec-item">Срок службы: >10 лет</div>
+        </div>
+        <a href="#contact" class="product-cta">Подобрать материал →</a>
+      </div>
 
-    <footer>
-        <p>&copy; 2026 Yalos Indicator. Все права защищены. Промышленные системы термоконтроля.</p>
-    </footer>
+      <!-- Product 6 -->
+      <div class="product-card reveal">
+        <div class="product-icon">🔧</div>
+        <h3>YI-CUSTOM</h3>
+        <p>Индивидуальные решения под ваши технические требования: нестандартные размеры, диапазоны, материалы.</p>
+        <div class="product-specs">
+          <div class="spec-item">Срок разработки: от 14 дней</div>
+          <div class="spec-item">Прототип: бесплатно</div>
+          <div class="spec-item">Сертификация: под ключ</div>
+          <div class="spec-item">Поддержка: 24/7</div>
+        </div>
+        <a href="#contact" class="product-cta">Обсудить проект →</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- APPLICATIONS -->
+  <section class="section applications" id="applications">
+    <div class="section-title reveal">
+      <h2>Отрасли применения</h2>
+      <p>Наши индикаторы обеспечивают надёжный контроль температуры в критически важных процессах</p>
+    </div>
+
+    <div class="apps-grid">
+      <div class="app-card reveal">
+        <div class="app-icon">🛢️</div>
+        <h3>Нефтегазовая</h3>
+        <p>Добыча, транспортировка, переработка нефти и газа. Работают в условиях высоких давлений и вибраций.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">⚗️</div>
+        <h3>Химическая</h3>
+        <p>Производство полимеров, удобрений, фармацевтики. Устойчивость к агрессивным средам.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">⚡</div>
+        <h3>Энергетика</h3>
+        <p>ТЭЦ, АЭС, котельные. Контроль температуры теплоносителей и технологических сред.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">🏭</div>
+        <h3>Металлургия</h3>
+        <p>Плавка, прокат, термообработка. Работа при экстремальных температурах до +650°С.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section" id="benefits">
+    <div class="section-title reveal">
+      <h2>Почему выбирают YALOS</h2>
+      <p>Технологии, которые обеспечивают безопасность и эффективность вашего производства</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Сертификация ГОСТ/ТР ТС</h3>
+          <p>Вся продукция сертифицирована для применения на опасных производственных объектах РФ и ЕАЭС.</p>
+        </div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Гарантия 36 месяцев</h3>
+          <p>Уверенность в надёжности: расширенная гарантия и сервисное обслуживание по всей России.</p>
+        </div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Доставка 3-5 дней</h3>
+          <p>Складская программа и логистика позволяют быстро обеспечить ваше предприятие оборудованием.</p>
+        </div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Техподдержка 24/7</h3>
+          <p>Инженеры-консультанты помогут подобрать решение и решить любой технический вопрос.</p>
+        </div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Индивидуальный подход</h3>
+          <p>Разработка специсполнений под ваши ТЗ: нестандартные диапазоны, материалы, интерфейсы.</p>
+        </div>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">✓</div>
+        <div>
+          <h3>Конкурентные цены</h3>
+          <p>Прямые поставки от производителя без посредников — оптимальное соотношение цены и качества.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section class="cta-section" id="contact">
+    <div class="cta-content reveal">
+      <h2>Готовы повысить надёжность вашего производства?</h2>
+      <p>Оставьте заявку — наш инженер свяжется с вами в течение 2 часов, подберёт решение и подготовит коммерческое предложение.</p>
+      
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.');">
+        <input type="text" placeholder="Ваше имя *" required>
+        <input type="tel" placeholder="Телефон *" required>
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Предприятие / Компания">
+        <textarea placeholder="Какая задача? (опционально)"></textarea>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          Отправить заявку
+        </button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+      </form>
+      
+      <div style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+        Или свяжитесь напрямую:<br>
+        <strong style="color:#fff;">📞 +7 (495) 123-45-67</strong> | 
+        <strong style="color:#fff;">✉️ sales@yalosindicator.com</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>YALOS INDICATOR</h4>
+        <p style="opacity:0.8; margin-top:12px;">
+          Промышленные температурные индикаторы премиум-класса.<br>
+          Надёжность в каждой детали.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Продукция</h4>
+        <a href="#products">YI-PRO Series</a>
+        <a href="#products">YI-EX Series</a>
+        <a href="#products">YI-REMOTE Series</a>
+        <a href="#products">YI-DIGITAL Series</a>
+      </div>
+      <div class="footer-col">
+        <h4>Документация</h4>
+        <a href="#">Каталог 2026 (PDF)</a>
+        <a href="#">Сертификаты</a>
+        <a href="#">Руководства по монтажу</a>
+        <a href="#">Паспорта изделий</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+        <a href="mailto:sales@yalosindicator.com">sales@yalosindicator.com</a>
+        <a href="#">г. Москва, Промзона «Север»</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 YALOS INDICATOR. Все права защищены. | Политика конфиденциальности
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Reveal on scroll animation
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
