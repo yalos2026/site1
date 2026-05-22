@@ -1,235 +1,292 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ИК Ялос — Цветовые индикаторы</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalos Indicator | Промышленные температурные индикаторы</title>
+    <style>
+        :root {
+            --dark-bg: #111827;
+            --card-bg: #1f2937;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+        }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #050505;
-  color: #ffffff;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.8);
-  position: sticky;
-  top: 0;
-}
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-.logo {
-  font-weight: bold;
-  color: #ffffff;
-}
+        header {
+            background-color: rgba(17, 24, 39, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #374151;
+            backdrop-filter: blur(8px);
+        }
 
-nav a {
-  margin-left: 20px;
-  color: #ffffff;
-  text-decoration: none;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
 
-.hero {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: url('https://allwebs.ru/images/2026/04/16/9016529cd8b902ec2bf80b7ca748aa13.jpg') center/cover;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-.hero h1 {
-  font-size: 50px;
-  background: linear-gradient(90deg,#00ffe0,#ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        .logo span {
+            color: var(--accent-blue);
+        }
 
-.hero p {
-  color: #ddd;
-}
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
 
-.btn {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(90deg,#00ffe0,#ff00ff);
-  cursor: pointer;
-  font-weight: bold;
-}
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
 
-.section {
-  padding: 80px 20px;
-  text-align: center;
-}
+        .hero {
+            padding: 10rem 2rem 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+        }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
+        .hero-content {
+            max-width: 650px;
+        }
 
-.card {
-  width: 280px;
-  background: #111;
-  padding: 20px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px #00ffe055;
-}
+        .hero h1 span {
+            background: linear-gradient(45deg, var(--accent-blue), #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
 
-.indicator {
-  font-size: 30px;
-}
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.3s;
+        }
 
-.green {color:#00ff88;}
-.yellow {color:#ffd000;}
-.red {color:#ff3b3b;}
+        .btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
 
-.about {
-  max-width: 700px;
-  margin: auto;
-  color: #aaa;
-}
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-footer {
-  text-align: center;
-  padding: 40px;
-  border-top: 1px solid #222;
-  color: #666;
-}
-</style>
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.85)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80') center/cover;
+            text-align: center;
+            padding: 6rem 2rem;
+            border-radius: 16px;
+            margin: 4rem auto;
+            max-width: 1160px;
+            border: 1px solid #374151;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: #0b0f19;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #1f2937;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .hero { padding-top: 8rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">ИК Ялос</div>
-  <nav>
-    <a href="#">Главная</a>
-    <a href="#">Продукция</a>
-    <a href="#">О нас</a>
-    <a href="#">Контакты</a>
-  </nav>
-</header>
+    <header>
+        <div class="nav-container">
+            <div class="logo">YALOS<span>INDICATOR</span></div>
+            <nav class="nav-links">
+                <a href="#products">Продукция</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
 
-<section class="hero">
-  <div>
-    <h1>Цветовые индикаторы ИК Ялос</h1>
-    <p>Новейшие технологии предупреждения аварийных ситуаций в промышленности</p>
-    <a href="#contacts" class="btn">Связаться</a>
-  </div>
-</section>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Надежный контроль <span>температуры</span> на производстве</h1>
+                <p>Профессиональные температурные индикаторы для оборудования, логистики и технологических процессов. Предотвратите перегрев и аварии до их появления.</p>
+                <a href="#products" class="btn">Смотреть каталог</a>
+            </div>
+        </section>
 
-<section class="section">
-  <h2>Наши решения</h2>
+        <section id="products" class="section">
+            <h2 class="section-title">Наша продукция</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🛑</div>
+                    <h3>Необратимые индикаторы</h3>
+                    <p>Фиксируют факт превышения критической температуры. Идеально подходят для контроля гарантийных обязательств и скрытого перегрева узлов.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <h3>Обратимые термометки</h3>
+                    <p>Меняют цвет в реальном времени, показывая текущий нагрев оборудования. Визуальный мониторинг для безопасности персонала.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📦</div>
+                    <h3>Логистические индикаторы</h3>
+                    <p>Контроль температурного режима при транспортировке и хранении чувствительных грузов (фармацевтика, химия, продукты).</p>
+                </div>
+            </div>
+        </section>
 
-  <div class="cards">
+        <section id="advantages" class="section">
+            <h2 class="section-title">Почему выбирают Yalos</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Автономность 100%</h3>
+                    <p>Не требуют источников питания, проводов и сложной настройки. Работают в любых труднодоступных местах.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Высокая точность</h3>
+                    <p>Четкое и быстрое изменение цвета при достижении пороговых значений с минимальной погрешностью.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Стойкость к среде</h3>
+                    <p>Защищены от воздействия влаги, масел, грязи и агрессивных сред, что критично для тяжелой промышленности.</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-      <img src="https://yalosindicator.com/images/0/6/e/6/3/06e63cd1a8a731ae7e37f940a223f789144bcef5-2.jpeg">
-      <h3>Индикаторы утечек водорода</h3>
-      <p>Контроль утечек и безопасности на производстве</p>
-    </div>
+        <section id="contacts" class="cta-section">
+            <h2>Нужно индивидуальное решение?</h2>
+            <p>Мы поможем подобрать индикаторы под конкретные температурные диапазоны и задачи вашего предприятия.</p>
+            <a href="mailto:info@yalosindicator.com" class="btn">Связаться с нами</a>
+        </section>
+    </main>
 
-    <div class="card">
-      <img src="https://yalosindicator.com/images/6/9/6/e/b/696eb5741d73bd9c238f02fbcabd8b563679bf41-3-----.jpeg">
-      <h3>Индикаторы утечек газа, кислот, щелочей и растворителей</h3>
-      <p>Точный мониторинг условий среды</p>
-    </div>
-
-    <div class="card">
-      <img src="https://yalosindicator.com/images/0/3/f/e/e/03fee501a9c63191e7794d3b8052260ba854e16b-4.jpeg">
-      <h3>Индикаторы температуры</h3>
-      <p>Технология контроля перегревов оборудования</p>
-    </div>
-    
-    <div class="card">
-      <img src="https://yalosindicator.com/images/0/6/e/6/3/06e63cd1a8a731ae7e37f940a223f789144bcef5-2.jpeg">
-      <h3>Индикаторы параметров внешней среды для спецодежды</h3>
-      <p>Цветовая индикация процессов</p>
-    </div>
-
-    
-
-  </div>
-</section>
-
-<section class="section">
-  <h2>Наши проекты</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="indicator green">●</div>
-      <h3>Индикаторы</h3>
-      <p>ООО "Инновационная компания «Ялос»
-         представляет на российском рынке широкую
-         серию химических термоиндикаторов, активно
-         используемые  в разных отраслях промышленности и энергетике. </p>
-    </div>
-
-    <div class="card">
-      <div class="indicator yellow">●</div>
-      <h3>Стрим</h3>
-      <p>Технология коллективной, звуковой виртуальной реальности "Yalos Stream"</p>
-    </div>
-
-    <div class="card">
-      <div class="indicator red">●</div>
-      <h3>Дискон</h3>
-      <p>Автоматизированная система контроля тепловых параметров оборудования</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="section">
-  <h2>О компании</h2>
-  <p class="about">
-    Инновационная компания "ЯЛОС" разработчик перспективных, разнопрофильных <br>
-    проектов. Наша компания основана в 2013 году, для разработки и внедрения <br>
-    на российском рынке передовых технологий в промышленности, индустрии <br>
-    развлечений, IT технологий и роботизированных методов обучения для детей <br>
-    младшего школьного возраста.Нами получены патенты и разработаны прототипы <br>
-    новых технологических решений. <br>
-    <br>
-    Мы имеем собственную технологическую базу для проведения научных исследований,<br>
-    мы сотрудничаем с лучшими научными лабораториями России для решения <br>
-    поставленных задач. У нас есть договорные научные отношения с Центром <br>
-    фотохимии,отделением Федерального научно-исследовательского центра <br>
-    "Кристаллография и фотоника" РАН и ФГБУН, Межведомственного центра <br>
-    аналитических исследований в области физики, химии и биологии при <br>
-    Президиуме Российской академии наук.
-  </p>
-</section>
-
-<section id="contacts" class="section">
-  <h2>Контакты</h2>
-  <p> ООО "Инновационная компания "ЯЛОС" <br>
-125222, г.Москва, ул.Генерала Белобородова д.17/22 <br>
-E-mail: info@yalos-project.com <br>
-Телефон: +7 (495) 118-09-80 </p>
-</section>
-
-<footer>
-  © 2026 ИК Ялос
-</footer>
+    <footer>
+        <p>&copy; 2026 Yalos Indicator. Все права защищены. Промышленные системы термоконтроля.</p>
+    </footer>
 
 </body>
 </html>
