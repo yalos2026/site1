@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ООО ИК ЯЛОС | Температурные индикаторы для промышленности</title>
-  <meta name="description" content="Прецизионные температурные индикаторы для нефтегазовой и химической промышленности. Надёжность в экстремальных условиях."/>
+  <meta name="description" content="Индикация.Контроль.Безопасность."/>
 
   <!-- Fonts -->
-  <link href="images/water.png" rel="stylesheet">
+  <link href="/images/water.png" rel="stylesheet">
 
   <style>
     /* ===================================================== */
@@ -15,47 +15,53 @@
     /* ===================================================== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      background: #0a0e17;
-      color: #e6e9f0;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    /* 1. Делаем body прозрачным */
+body {
+  background: transparent; /* ← БЫЛО: background: #0a0e17; */
+  color: #e6e9f0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    /* ===================================================== */
-    /* INDUSTRIAL BACKGROUND */
-    /* ===================================================== */
-    body::before {
+/* 2. Настраиваем слой с картинкой */
+body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -3;
+  z-index: -1;          /* ← БЫЛО: -3 (слишком глубоко) */
 
-  background-image: url('images/ваша-картинка.jpg');
-  background-size: cover;          /* ← Заполняет экран, сохраняя пропорции */
-  background-position: center center; /* ← Центрирует (можно изменить на top/bottom) */
+  /* Добавляем темный цвет сюда как подложку, на случай если картинка не загрузится */
+  background-color: #0a0e17;
+
+  background-image: url('/images/water.png'); /* Убедитесь, что тут слэш в начале */
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
-  
-  filter: brightness(0.6) contrast(1.1);
+
+  /* ⚠️ ВНИМАНИЕ: filter: brightness(0.5) делает темные фото ЧЕРНЫМИ */
+  /* Попробуйте сначала убрать filter или поставить 0.8, чтобы убедиться, что фото видно */
+  filter: brightness(0.8) contrast(1.1);
 }
 
-    /* Steam/particle animation overlay */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: 
-        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
-        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent),
-        radial-gradient(1px 1px at 150px 60px, rgba(255,180,80,0.25), transparent),
-        radial-gradient(2px 2px at 200px 200px, rgba(100,180,255,0.3), transparent);
-      background-size: 400px 400px;
-      animation: steam 25s linear infinite;
-      opacity: 0.4;
-      pointer-events: none;
-      z-index: -2;
-    }
+/* 3. Настраиваем слой с частицами (дымом) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* Тоже -1, но он идет после before в коде, значит будет СВЕРХУ картинки */
+
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+    radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent),
+    radial-gradient(1px 1px at 150px 60px, rgba(255,180,80,0.25), transparent),
+    radial-gradient(2px 2px at 200px 200px, rgba(100,180,255,0.3), transparent);
+
+  background-size: 400px 400px;
+  animation: steam 25s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
 
     @keyframes steam {
       0% { background-position: 0 0, 0 0, 0 0, 0 0; }
@@ -91,16 +97,14 @@
       text-decoration: none;
     }
     .logo-icon {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, #00ff9d, #00f5d4);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      color: #0a0e17;
-      font-size: 18px;
-      box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
-    }
+  width: 42px;
+  height: 42px;
+  object-fit: contain; /* Сохраняет пропорции картинки */
+  display: block;      /* Убирает лишний отступ снизу у изображений */
+  border-radius: 10px; /* Оставьте, если хотите скруглённые углы. Удалите строку, если логотип должен быть "как есть" */
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.4); /* Неоновое свечение останется */
+  /* ⚠️ Старые стили для текста (background, font, color, display:flex) удалены */
+}
     .logo-text {
       font-family: 'Orbitron', sans-serif;
       font-size: 20px;
@@ -278,7 +282,7 @@
       position: absolute;
       right: -10%; top: 20%;
       width: 50vw; height: 60vh;
-      background: 
+      background:
         radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.08), transparent 40%),
         radial-gradient(circle at 70% 70%, rgba(100, 180, 255, 0.06), transparent 45%);
       border-radius: 50%;
@@ -334,9 +338,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, 
-        rgba(255, 107, 53, 0.03), 
-        transparent 40%, 
+      background: linear-gradient(135deg,
+        rgba(255, 107, 53, 0.03),
+        transparent 40%,
         rgba(100, 180, 255, 0.03) 80%);
       opacity: 0;
       transition: opacity 0.4s ease;
@@ -517,7 +521,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1), transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(100, 180, 255, 0.08), transparent 45%);
       pointer-events: none;
@@ -635,35 +639,34 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .menu-toggle { display: flex; }
-      
+
       .hero { padding-top: 100px; text-align: center; }
       .hero-content { margin: 0 auto; }
       .hero-buttons { justify-content: center; }
-      
+
       .section { padding: 80px 5%; }
       .section-title { margin-bottom: 50px; }
-      
+
       .product-specs { grid-template-columns: 1fr; }
-      
+
       .cta-section { padding: 90px 5%; }
     }
 
     @media (max-width: 480px) {
       .navbar { padding: 14px 5%; }
       .logo-text { font-size: 18px; }
-      .logo-icon { width: 36px; height: 36px; font-size: 16px; }
-      
+      .logo-icon { width: 36px;height: 36px;}
       .hero h1 { font-size: 32px; }
       .hero p { font-size: 16px; }
-      
+
       .btn-primary, .btn-secondary {
         padding: 12px 24px;
         font-size: 14px;
       }
-      
+
       .product-card { padding: 24px; }
       .product-icon { width: 60px; height: 60px; font-size: 24px; }
-      
+
       footer { padding: 40px 5% 24px; }
     }
 
@@ -699,7 +702,7 @@
 .btn-primary,
 .nav-cta,
 .product-card:hover {
-  box-shadow: 
+  box-shadow:
     0 0 10px rgba(0, 255, 157, 0.5),
     0 0 25px rgba(0, 255, 157, 0.3),
     0 0 50px rgba(0, 255, 157, 0.1);
@@ -714,7 +717,7 @@
 
 /* Свечение для логотипа */
 .logo-icon {
-  box-shadow: 
+  box-shadow:
     0 0 15px rgba(0, 255, 157, 0.6),
     0 0 30px rgba(0, 255, 157, 0.3);
 }
@@ -729,6 +732,49 @@
 .hero-badge {
   animation: neonPulse 3s ease-in-out infinite;
 }
+ /* Лого в футере + текст в одну строку */
+.footer-brand {
+  display: flex;
+  flex-direction: column;  /* Лого сверху, текст снизу */
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;             /* Занимает всю ширину колонки */
+}
+
+/* Большое изображение логотипа */
+.footer-logo {
+  width: 100%;             /* Растягивается на всю ширину колонки */
+  max-width: 220px;        /* Но не больше 220px, чтобы не было гигантским */
+  height: auto;            /* Пропорции сохраняются автоматически */
+  object-fit: contain;
+  border-radius: 16px;     /* Чуть больше скругление для крупного лого */
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.5); /* Усиленное неоновое свечение */
+  flex-shrink: 0;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Текст под лого */
+.footer-text h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.footer-text p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Мобильная версия: лого по центру, текст тоже */
+@media (max-width: 600px) {
+  .footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-logo {
+    max-width: 180px;  /* Чуть меньше на телефонах */
+  }
+}
   </style>
 </head>
 <body>
@@ -736,19 +782,19 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <a href="#" class="logo">
-      <div class="logo-icon">YI</div>
-      <div class="logo-text">YALOS <span>INDICATOR</span></div>
+    <img src="images/logo.png" alt="YALOS INDICATOR" class="logo-icon">
+      <div class="logo-text">КОМПАНИЯ <span>ЯЛОС</span></div>
     </a>
-    
+
     <ul class="nav-links">
-      <li><a href="#products" class="active">Продукция</a></li>
       <li><a href="#applications">Отрасли</a></li>
-      <li><a href="#benefits">Преимущества</a></li>
+      <li><a href="#products" class="active">Продукция</a></li>
+      <li><a href="#benefits">Проекты</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
-    
+
     <a href="#contact" class="nav-cta">Запросить КП</a>
-    
+
     <div class="menu-toggle" id="menuToggle">
       <span></span><span></span><span></span>
     </div>
@@ -756,9 +802,9 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#products">Продукция</a>
     <a href="#applications">Отрасли</a>
-    <a href="#benefits">Преимущества</a>
+    <a href="#products">Продукция</a>
+    <a href="#benefits">Проекты</a>
     <a href="#contact">Контакты</a>
     <a href="#contact" class="nav-cta">Запросить КП</a>
   </div>
@@ -767,15 +813,43 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">🔥 Точность в экстремальных условиях</div>
-      <h1>Температурные индикаторы промышленного класса</h1>
-      <p>Надёжные решения для нефтегазовой, химической и энергетической промышленности. Работают при температурах от -60°С до +650°С.</p>
+      <h1>Цветовые химические индикаторы параметров внешней среды</h1>
+      <p>Инновационная компания "Ялос" разработчик перспективных проектов, как в новых технологических направлениях, так и в области импортозамещения</p>
       <div class="hero-buttons">
         <a href="#products" class="btn-primary">
           <span>▶</span> Каталог продукции
         </a>
-        <a href="#contact" class="btn-secondary">
-          <span>✉</span> Получить консультацию
-        </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="section applications" id="applications">
+    <div class="section-title reveal">
+      <h2>ОТРАСЛИ ПРИМЕНЕНИЯ</h2>
+      <p>Наши индикаторы обеспечивают надёжный контроль температуры в критически важных процессах</p>
+    </div>
+
+    <div class="apps-grid">
+      <div class="app-card reveal">
+        <div class="app-icon">🛢️</div>
+        <h3>Нефтегазовая</h3>
+        <p>Добыча, транспортировка, переработка нефти и газа. Работают в условиях высоких давлений и вибраций.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">⚗️</div>
+        <h3>Химическая</h3>
+        <p>Производство полимеров, удобрений, фармацевтики. Устойчивость к агрессивным средам.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">⚡</div>
+        <h3>Энергетика</h3>
+        <p>ТЭЦ, АЭС, котельные. Контроль температуры теплоносителей и технологических сред.</p>
+      </div>
+      <div class="app-card reveal">
+        <div class="app-icon">🏭</div>
+        <h3>Металлургия</h3>
+        <p>Плавка, прокат, термообработка. Работа при экстремальных температурах до +650°С.</p>
       </div>
     </div>
   </section>
@@ -874,37 +948,6 @@
     </div>
   </section>
 
-  <!-- APPLICATIONS -->
-  <section class="section applications" id="applications">
-    <div class="section-title reveal">
-      <h2>Отрасли применения</h2>
-      <p>Наши индикаторы обеспечивают надёжный контроль температуры в критически важных процессах</p>
-    </div>
-
-    <div class="apps-grid">
-      <div class="app-card reveal">
-        <div class="app-icon">🛢️</div>
-        <h3>Нефтегазовая</h3>
-        <p>Добыча, транспортировка, переработка нефти и газа. Работают в условиях высоких давлений и вибраций.</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">⚗️</div>
-        <h3>Химическая</h3>
-        <p>Производство полимеров, удобрений, фармацевтики. Устойчивость к агрессивным средам.</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">⚡</div>
-        <h3>Энергетика</h3>
-        <p>ТЭЦ, АЭС, котельные. Контроль температуры теплоносителей и технологических сред.</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">🏭</div>
-        <h3>Металлургия</h3>
-        <p>Плавка, прокат, термообработка. Работа при экстремальных температурах до +650°С.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- BENEFITS -->
   <section class="section" id="benefits">
     <div class="section-title reveal">
@@ -961,25 +1004,15 @@
   <!-- CTA / CONTACT -->
   <section class="cta-section" id="contact">
     <div class="cta-content reveal">
-      <h2>Готовы повысить надёжность вашего производства?</h2>
-      <p>Оставьте заявку — наш инженер свяжется с вами в течение 2 часов, подберёт решение и подготовит коммерческое предложение.</p>
-      
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.');">
-        <input type="text" placeholder="Ваше имя *" required>
-        <input type="tel" placeholder="Телефон *" required>
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Предприятие / Компания">
-        <textarea placeholder="Какая задача? (опционально)"></textarea>
-        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
-          Отправить заявку
-        </button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
-      </form>
-      
+      <h2>КОНТАКТЫ</h2>
+      <p>Напишите нам — наш менеджер свяжется с вами в течение 2 часов, подберёт решение и подготовит коммерческое предложение.</p>
+
       <div style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
-        Или свяжитесь напрямую:<br>
-        <strong style="color:#fff;">📞 +7 (495) 123-45-67</strong> | 
-        <strong style="color:#fff;">✉️ sales@yalosindicator.com</strong>
+
+        <strong style="color:#fff;">ООО "Инновационная компания "ЯЛОС"</strong><br>
+        <strong style="color:#fff;">г.Москва, ул.Плющиха 9 стр.2</strong><br>
+        <strong style="color:#fff;">📞 +7 (495) 118-09-80</strong> <br>
+        <strong style="color:#fff;">✉️ info@yalos-project.com</strong>
       </div>
     </div>
   </section>
@@ -987,13 +1020,13 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
-      <div class="footer-col">
-        <h4>YALOS INDICATOR</h4>
-        <p style="opacity:0.8; margin-top:12px;">
-          Промышленные температурные индикаторы премиум-класса.<br>
-          Надёжность в каждой детали.
-        </p>
+      <div class="footer-col footer-brand">
+  <img src="images/logo.png" alt="YALOS" class="footer-logo">
+  <div class="footer-text">
+    <h4>ООО ИННОВАЦИОННАЯ<br>
+      КОМПАНИЯ "ЯЛОС"</h4>
       </div>
+</div>
       <div class="footer-col">
         <h4>Продукция</h4>
         <a href="#products">YI-PRO Series</a>
@@ -1010,9 +1043,9 @@
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
-        <a href="tel:+74951234567">+7 (495) 123-45-67</a>
-        <a href="mailto:sales@yalosindicator.com">sales@yalosindicator.com</a>
-        <a href="#">г. Москва, Промзона «Север»</a>
+        <a href="tel:+74951180980">+7 (495) 118-09-80</a>
+        <a href="mailto:info@yalos-project.com">info@yalos-project.com</a>
+        <a href="#">г. Москва, ул.Плющиха 9 стр.2</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1035,12 +1068,12 @@
     // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('active');
       menuToggle.classList.toggle('active');
     });
-    
+
     // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
@@ -1051,7 +1084,7 @@
 
     // Reveal on scroll animation
     const revealElements = document.querySelectorAll('.reveal');
-    
+
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1059,7 +1092,7 @@
         }
       });
     }, { threshold: 0.15 });
-    
+
     revealElements.forEach(el => revealObserver.observe(el));
 
     // Smooth scroll for anchor links
