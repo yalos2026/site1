@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Маркер - индикатор перегревов| ООО ИК ЯЛОС</title>
+  <meta name="description" content="Маркер - индикатор перегревов"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================== */
+    /* БАЗОВЫЕ СТИЛИ (как на главном сайте) */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Фоновое изображение */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #00ff9d; }
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* ===================================================== */
+    /* СТИЛИ СТРАНИЦЫ ПРОДУКТА */
+    /* ===================================================== */
+    .product-page {
+      padding: 140px 8% 80px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr; /* Текст узкий, картинки широкие */
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Левая колонка: фото + видео */
+    .product-media {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .product-image:hover img { transform: scale(1.03); }
+
+    .product-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(100, 180, 255, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-video video,
+    .product-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: cover;
+    }
+
+    /* Правая колонка: инфо */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 157, 0.15);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      color: #00ff9d;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+    }
+
+   .product-specs {
+  display: block;              /* ← Убираем grid */
+  padding: 24px;
+  background: rgba(20, 26, 42, 0.7);
+  border: 1px solid rgba(100, 180, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* === ХАРАКТЕРИСТИКИ — ВЕРТИКАЛЬНЫЙ СПИСОК === */
+.product-specs {
+  display: block;              /* ← Убираем grid/flex */
+  padding: 24px;
+  background: rgba(20, 26, 42, 0.7);
+  border: 1px solid rgba(100, 180, 255, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.spec-item {
+  display: block;              /* ← Вертикальная укладка */
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00ff9d;              /* ← Неоновый акцент для заголовка */
+  margin-bottom: 8px;
+}
+
+.spec-value {
+  display: block;
+  font-size: 14px;
+  color: rgba(230, 233, 240, 0.9);
+  line-height: 1.6;
+  white-space: pre-line;       /* ← Сохраняет переносы строк из текста */
+}
+    /* Кнопка скачивания */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      width: fit-content;
+      margin-top: 8px;
+    }
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    /* Доп. кнопки */
+    .product-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: #00ff9d;
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    /* Футер (упрощённый) */
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    /* Адаптив */
+    @media (max-width: 1024px) {
+      .product-page {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+      }
+      .product-specs { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .navbar { padding: 14px 5%; }
+      .nav-links { display: none; }
+      .product-page { padding: 100px 5% 60px; }
+      .product-title { font-size: 24px; }
+      .btn-download, .btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* Неоновое свечение */
+    .product-image,
+    .btn-download {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+      50% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.6); }
+    }
+    .btn-download { animation: neonPulse 3s ease-in-out infinite; }
+
+/* Центрируем кнопку в колонке с текстом */
+.product-info .btn-download {
+  margin: 32px auto 0 !important;  /* 32px сверху, авто по бокам = центр */
+  display: flex !important;
+  justify-content: center !important;
+}
+    /* LIGHTBOX STYLES */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 14, 23, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  backdrop-filter: blur(5px);
+}
+
+.lightbox.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+  border: 2px solid rgba(0, 255, 157, 0.3);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  color: #00ff9d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="YALOS" class="logo-icon">
+      <div class="logo-text">КОМПАНИЯ <span>ЯЛОС</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#applications">Индикаторы</a></li>
+      <li><a href="index.html#benefits">О нас</a></li>
+      <li><a href="index.html#products" class="active">Продукция</a></li>
+      <li><a href="index.html#projects">Проекты</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Запросить КП</a>
+  </nav>
+
+  <!-- ПРОДУКТ -->
+
+  <main class="product-page">
+
+    <div class="product-info">
+        <h1 class="product-title">Маркер-индикатор перегревов</h1>
+
+      <div class="product-specs">
+
+      <p class="product-description">
+        ООО "Инновационная компания "Ялос" является эксклюзивным поставщиком термомаркеров японской компании Matsui International Co., Inc. на российский рынок. Термомаркер применяется для индикации повышенного нагрева шин, клемм, шинопроводов, различных узлов шкафов управления, трансформаторов и иного энергетического оборудования. Визуально сигнализирует о возникшем перегреве, облегчает контроль и уменьшает аварийность оборудования. Можно использовать для головок винтов и медных поверхностей.  Термомаркер является индикатором необратимого типа, это значит что после изменения своего цвета при достижении температуры контроля, его цвет не возвращается в исходный, что позволяет контролировать перегревы круглосуточно. Поэтому, при проверке, даже после отключения электропитания, можно легко обнаружить те детали и узлы, где температура превышала +65°С.
+      </p>
+      </div>
+
+      <!-- Характеристики -->
+      <div class="product-specs">
+        <div class="spec-item">
+          <span class="spec-label">ВНИМАНИЕ: Цветовой, индикатор температуры в виде маркера заменяет свыше 300 шт. обычных пленочных термоиндикаторов </span>
+          <span class="spec-value">Предназначен для применения только внутри помещений. Индикаторная полоса прочерченная маркером, начнет менять свой цвет при +65°C или немного выше и станет полностью красной при +80°C или немного выше.</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Пожалуйста используйте Термомаркер только для нанесения на объекты контроля.</span>
+          <span class="spec-value">
+            • Не подходит для изделий из ПВХ, на хлорэтиленовых предметах, резине, упаковочных лентах и тефлоновых продуктах.
+• Чернила содержат легковоспламеняющиеся продукты, поэтому, пожалуйста, не используйте маркер вблизи источников огня. Не сжигайте при утилизации. Пожалуйста, используйте маркер в проветриваемом помещении.
+• Так как чернила плохо реагируют на свет, пожалуйста, не подвергайте объекты, помеченные маркером, воздействию прямых солнечных лучей (этот продукт сконструирован для использования в закрытых помещениях и в электрических шкафах).
+• Пожалуйста, обратите внимание, что метки, оставленные этим продуктом, имеют более слабую сцепляемость, чем у нормальных чернил т.е. чернила могут быть содраны, если их поцарапать твердыми предметами.
+• Срок годности продукта составляет один год со дня изготовления.
+• Не оставляйте маркер в местах, которые подвержены воздействию прямого солнечного света и высокой температуры.</span>
+        </div>
+        </div>
+
+        <!-- Кнопка скачивания PDF -->
+        <div style="text-align: center; margin-top: 32px;">
+    <a href="images/6.pdf" class="btn-download" download>
+      <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      Скачать презентацию
+    </a>
+  </div>
+      </div>
+
+<!-- Медиа -->
+    <div class="product-media">
+      <div class="product-image">
+        <img src="images/6.jpg" alt="Маркер - индикатор перегревов">
+      </div>
+      <div class="product-image">
+        <img src="images/mark.png" alt="Маркер - индикатор перегревов">
+      </div>
+
+      <!-- Видео (опционально) -->
+      <div class="product-video">
+        <!-- Вариант 1: Локальное видео -->
+        <!-- <video controls poster="images/video-poster.jpg">
+          <source src="videos/product-demo.mp4" type="video/mp4">
+          Ваш браузер не поддерживает видео.
+        </video> -->
+
+        <!-- Вариант 2: YouTube/Vimeo -->
+        <iframe
+          src="https://www.youtube.com/embed/SboyURlj4Nc?start=2&rel=0&modestbranding=1"
+          title="Обзор продукта"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </main>
+    <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>© 2026 ООО «Инновационная компания «ЯЛОС». Все права защищены.</p>
+  </footer>
+
+  <!-- ✅ LIGHTBOX HTML — ДОЛЖЕН БЫТЬ ПЕРЕД СКРИПТОМ! -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Увеличенное изображение" id="lightbox-img">
+  </div>
+
+  <!-- ✅ СКРИПТ — ТЕПЕРЬ НАЙДЁТ СВЕТБОКС -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
