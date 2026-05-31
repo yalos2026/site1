@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Температурные индикаторы| ООО ИК ЯЛОС</title>
+  <meta name="description" content="Температурные индикаторы"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================== */
+    /* БАЗОВЫЕ СТИЛИ (как на главном сайте) */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Фоновое изображение */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #00ff9d; }
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* ===================================================== */
+    /* СТИЛИ СТРАНИЦЫ ПРОДУКТА - ОДНА КОЛОНКА ПО ЦЕНТРУ */
+    /* ===================================================== */
+    .product-page {
+      padding: 140px 5% 80px;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Заголовок */
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Текстовые блоки */
+    .content-block {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Характеристики */
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 10px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    /* Галерея фото - 2 в ряд */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+      cursor: zoom-in;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Кнопка скачивания */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    /* Футер */
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+      margin-top: 40px;
+    }
+
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr; /* На мобильных - 1 фото в ряд */
+      }
+      .product-page {
+        padding: 120px 4% 60px;
+      }
+      .content-block, .product-specs {
+        padding: 20px;
+      }
+    }
+
+    /* Неоновое свечение */
+    .product-image {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover { color: #00ff9d; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="YALOS" class="logo-icon">
+      <div class="logo-text">КОМПАНИЯ <span>ЯЛОС</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#applications">Индикаторы</a></li>
+      <li><a href="index.html#benefits">О нас</a></li>
+      <li><a href="index.html#products" class="active">Продукция</a></li>
+      <li><a href="index.html#projects">Проекты</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Запросить КП</a>
+  </nav>
+<!-- ПРОДУКТ -->
+
+  <main class="product-page">
+
+    <div class="product-info">
+        <h1 class="product-title">Температурные индикаторы ООО ИК ЯЛОС</h1>
+
+      <div class="product-specs">
+
+      <p class="product-description">
+ООО "Инновационная компания «Ялос» представляет на российском рынке широкую серию химических термоиндикаторов, активно используемые  в разных отраслях промышленности и энергетике.
+На протяжении 35 лет, опыт практического применения термоиндикаторов доказал их высокую эффективность и надежность эксплуатации.
+Тысячи потребителей и многомиллионные тиражи различных видов термоиндикаторов, показывают устойчивый и нарастающий к ним спрос на отраслевых предприятиях многих стран. С каждым годом расширяются и возможные области их применения, а это в немалой степени определяется их великолепными техническими характеристиками.  </p>
+      </div>
+      </div>
+
+      <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/yal.jpeg" alt="Температурные индикаторы">
+      </div>
+      <div class="product-image">
+        <img src="images/yal1.jpeg" alt="Температурные индикаторы">
+      </div>
+    </div>
+
+      <!-- Характеристики -->
+      <div class="product-specs">
+        <div class="spec-item">
+          <span class="spec-label">ПРИМЕНЕНИЕ ТЕРМОИНДИКАТОРОВ ПОЗВОЛЯЕТ СНИЖАТЬ АВАРИЙНОСТЬ ОБОРУДОВАНИЯ НА ПРОИЗВОДСТВЕННЫХ МОЩНОСТЯХ ПО ПРИЧИНЕ ПЕРЕГРЕВОВ НА 15%-25%. </span>
+          <span class="spec-value">НАША ЗАЯВКА НА ПАТЕНТ "СПОСОБ НАНЕСЕНИЯ ТЕРМОПЛАВКИХ СОСТАВОВ" №2019138066</span>
+        </div>
+
+        <div class="spec-item">
+          <span class="spec-label">В чем преимущества работы с нашей компанией:</span>
+          <span class="spec-value">
+1) Мы специализируемся на разработке и продвижении на промышленный рынок, термоиндикаторов, проверенных на практике в течении 35 лет;
+
+2) Мы представляем специализированные, профессиональные термоиндикаторы с очень высокой степенью надежности ( работа от 5 до 10 лет);
+
+3) Мы сопровождаем каждый заказ клиента и консультируем по всем вопросам;
+
+4) Мы предлагаем для предприятий, целостную систему предупреждения аварий, на основе применения различных схем установок термоиндикаторов;
+
+5) Мы даем ГАРАНТИЮ на работу индикаторов на улице - 3 года, в помещении 5 лет. Это лучшие гарантии на рынке.</span>
+        </div>
+        </div>
+
+        <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/tiii.png" alt="Температурные индикаторы">
+      </div>
+      <div class="product-image">
+        <img src="images/ti3.png" alt="Температурные индикаторы">
+      </div>
+    </div>
+
+        <div class="product-specs">
+        <div class="spec-item">
+          <span class="spec-label">Химические термоиндикаторы подразделяются на 2 вида:
+          </span>
+          <span class="spec-value">
+1 вид – обратимые термоиндикаторы;
+
+2 вид – необратимые термоиндикаторы.
+
+Отличительной особенностью их между собой является тот факт, что при перегревах на оборудовании, необратимые термоиндикаторы после своего срабатывания путем изменения цвета, в условиях падения температуры ниже порогового значения не возвращаются в свой первоначальный цвет. В то время, как обратимые термоиндикаторы возвращаются в свой исходный цвет.
+Оба вида термоиндикаторов имеют свои преимущества и области применения. Необратимые термоиндикаторы применяются там, где обслуживающий персонал, должен точно знать, был ли за время его отсутствия на поверхности оборудования нагрев до контролируемой температуры, а обратимые термоиндикаторы применяются там, где на момент осмотра персонала, можно наглядно увидеть текущую температуру на контролируемой поверхности обследуемого оборудования.
+Термоиндикаторы усиливают эффективность визуального метода выявления перегрева энергетического и теплового оборудования.</span>
+        </div>
+                  </div>
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/yal2.jpg" alt="Температурные индикаторы">
+      </div>
+      <div class="product-image">
+        <img src="images/yal4.jpg" alt="Температурные индикаторы">
+      </div>
+    </div>
+
+        <div class="product-specs">
+
+          <span class="spec-label">В чем состоит их эффективность применения?
+
+ </span>
+          <span class="spec-value">
+- Гарантированное обнаружение перегрева на оборудовании (постоянная запись температуры у необратимых индикаторов);
+- Прямое считывание температуры на контролируемых поверхностях оборудования;
+- Независимость от погодных условий;
+- Устойчив к различным видам загрязнений;
+- Независимость от энергоснабжения, технического обслуживания и настроек;
+- Cверхлегкие,  малоразмерные (имеют размер и вес стикера);
+- Подходят для установки в труднодоступные места;
+- Свидетельствует о факте перегрева (подшиваются как доказательство в журналы осмотров и ремонтов);
+- Гарантия на работу индикаторов - на улице 3 года, в помещении 5 лет;
+- Срок эксплуатации 4-10 лет;
+- Многократное использование обратимых термоиндикаторов в течении нескольких лет;
+- Экономичное решение вопросов безопасности на производствах;
+- Простота и легкость считывания показаний термоиндикаторов;
+- Функционально дополняют действующие автоматизированные системы;
+- При одновременной установке индикаторов с шкалой или нескольких одинарных индикаторов с различными температурами срабатывания, позволит контролировать как пороговую температуру, так и предварительную, для профилактического ремонта;
+- Низкая цена;</span>
+        </div>
+        </div>
+
+<div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/ya6.jpg" alt="Температурные индикаторы">
+      </div>
+      <div class="product-image">
+        <img src="images/ya7.jpg" alt="Температурные индикаторы">
+      </div>
+    </div>
+
+
+    <div class="product-specs">
+        <div class="spec-item">
+          <span class="spec-label">Сравнение с использованием тепловизоров и цифровых термометров</span>
+          <span class="spec-value">Термоиндикаторы занимают свою нишу в средствах контроля температурных перегревов теплового и энергетического оборудования, однако, они не заменяют различные электронные системы безопасности, в том числе не заменяют использование тепловизоров и цифровых термометров, у которых есть свои ограничения на применение. Также важен тот факт, что применяемые тепловизоры и цифровые термометры позволяет увидеть только текущую температуру объектов.</span>
+        </div>
+    <div class="spec-item">
+          <span class="spec-label">Ограничения и условия использования Тепловизоров «Инструкция по тепловому контролю и диагностике»</span>
+          <span class="spec-value">
+- тепловизионный метод контроля температур используется с целью обнаружения и идентификации участков нагрева;
+- контроль температур тепловизионным методом рекомендовано проводить на наружных поверхностях, не подвергающихся воздействию солнечной радиации в течение предшествующих 12 часов;
+- контроль температур тепловизионным методом проводится на устройствах, находящихся на открытом воздухе. Однако, не рекомендуется проводить во влажную погоду, а именно: в дождь,  туман, снегопад, при наличии инея, и любой другой влаги. Также такой метод температурного контроля ограничивает скорость ветра, которая не должна превышать 7 м/с и  температуру воздуха , которая должна быть в пределах рабочего диапазона температур эксплуатации тепловизора;
+- контроль температур тепловизионным методом не рекомендуется проводить на поверхностях,коэффициент излучения который ниже 0,7;
+- при проведении температурного контроля на объектах с коэффициентом излучения ниже 0,7, поверхность объекта обрабатывают  специальными средствами окрашивания, чернения, окисления и т.д., при этом температура окружающего воздуха на рабочем месте, должна быть в диапазоне от + 5 С до + 30 С;
+-при проведении температурного контроля в зимний период, устройство необходимо транспортировать и хранить в специальном кейсе-термосе с подогревом;
+- время эксплуатации тепловизора не должно превышать значения, установленного в его техническом паспорте. При низких температурах происходит запотевание оптики, быстрый разряд аккумулятора, образование конденсата внутри устройства, что негативным образом сказывается на работе и как следствие, приводит к неисправности прибора;
+- при работе с тепловизором, необходимо акцентировать внимание на правильный выбор коэффициента излучательной способности контролируемого объекта;
+При этом, для последующего проведения расчетов фактических характеристик контролируемого объекта и обнаруженных дефектов следует применять расчетные модели с учетом особенностей стационарных и нестационарных процессов теплопередачи.
+          </span>
+        </div>
+        </div>
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/pi2.png" alt="Температурные индикаторы">
+      </div>
+      <div class="product-image">
+        <img src="images/pir.png" alt="Температурные индикаторы">
+      </div>
+    </div>
+
+    <div class="product-specs">
+
+    <div class="spec-item">
+          <span class="spec-label">Ограничения и условия использования Инфракрасных пирометров
+</span>
+          <span class="spec-value">
+            Для определения точной температуры любым инфракрасным радиационным термометром, необходимо обладать определенными знаниями с соблюдением правильной методики измерений:
+
+- Перед каждым измерением необходим контроль правильного выбора значений излучательной способности на измеряемой поверхности.  Измерения, проведенные с иным значением, недостоверны.
+- Каждый материал имеет своё значение излучательной способности (в том числе, имеет значение и состояние поверхности этого материала: шероховатости, окисления, и т. д.). Этот факт также необходимо учитывать при выборе правильного коэффициента излучения, и в случае, если они неизвестны, то измерения будут не верными.
+- Индицируемая температура будет не верна, если размер объекта меньше поля зрения.
+- Если объект, температура которого должна быть измерена, не заполняет все поле зрения, прибор принимает излучение от других объектов окружающей среды, тем самым вызывая погрешность измерения.
+- Необходимо исключить боковую подсветку от окружающих объектов или непременно учитывать её влияния на результат измерения.
+- Измерения делаются только в момент проверки. В случае, если перегрев имел место быть до измерения контроля температуры, установить это невозможно.
+- У пирометров со стандартно установленной фиксированной излучательной способностью 0,95, температуру объектов с коэффициентом излучения отличным от 0,95 необходимо вычислять по специальным таблицам.
+- Необходимо учитывать наличие погрешности измерений в зимних условиях эксплуатации.
+
+          </span>
+        </div>
+          </div>
+
+
+
+
+    </main>
+
+  <!-- LIGHTBOX: Модальное окно для фото -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Увеличенное изображение" id="lightbox-img">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>© 2026 ООО «Инновационная компания «ЯЛОС».Все права защищены.</p>
+  </footer>
+
+  <!-- SCRIPT для lightbox -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

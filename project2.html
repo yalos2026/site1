@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Дискон| ООО ИК ЯЛОС</title>
+  <meta name="description" content="Дискон"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================== */
+    /* БАЗОВЫЕ СТИЛИ (как на главном сайте) */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Фоновое изображение */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #00ff9d; }
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* ===================================================== */
+    /* СТИЛИ СТРАНИЦЫ ПРОДУКТА - ОДНА КОЛОНКА ПО ЦЕНТРУ */
+    /* ===================================================== */
+    .product-page {
+      padding: 140px 5% 80px;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Заголовок */
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Текстовые блоки */
+    .content-block {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Характеристики */
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 10px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    /* Галерея фото - 2 в ряд */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+      cursor: zoom-in;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Кнопка скачивания */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    /* Футер */
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+      margin-top: 40px;
+    }
+
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr; /* На мобильных - 1 фото в ряд */
+      }
+      .product-page {
+        padding: 120px 4% 60px;
+      }
+      .content-block, .product-specs {
+        padding: 20px;
+      }
+    }
+
+    /* Неоновое свечение */
+    .product-image {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover { color: #00ff9d; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="YALOS" class="logo-icon">
+      <div class="logo-text">КОМПАНИЯ <span>ЯЛОС</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#applications">Индикаторы</a></li>
+      <li><a href="index.html#benefits">О нас</a></li>
+      <li><a href="index.html#products" class="active">Продукция</a></li>
+      <li><a href="index.html#projects">Проекты</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Запросить КП</a>
+  </nav>
+
+  <!-- ПРОДУКТ -->
+  <main class="product-page">
+
+    <!-- Заголовок -->
+    <h1 class="product-title">Автоматизированная система контроля тепловых параметров оборудования "ДИСКОН"</h1>
+
+    <!-- Текст 1 -->
+    <div class="content-block">
+      <p class="product-description">
+        Цифровизация и оперативный контроль в реальном масштабе времени, является стратегическим направлением развития управления производственными процессами и предупреждения аварий. Широкое развитие автоматизированных систем сдерживает только стоимость их внедрения. Существующие формы контроля тепловых параметров в экранированных пространствах (шкафах, ячейках, щитах, стойках и т.д.) предлагают различные стоимости внедрения.
+        Автоматизированный аппаратно-программный комплекс (ПАК) «ДИСКОН» запатентован и предлагает экономичный и эффективный способ температуры в экранированных пространствах и позволит широко внедрить автоматизированные средства контроля для снижения аварийности электросетей и оборудования.
+      </p>
+    </div>
+
+    <!-- Фото 1-2 -->
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/diskon.png" alt="Дискон">
+      </div>
+      <div class="product-image">
+        <img src="images/disko2.png" alt="Дискон">
+      </div>
+    </div>
+
+    <!-- Текст 2 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">ПАК «ДИСКОН» разработан, в рамках стартапа, который:</span>
+        <span class="spec-value">
+          - Победил 16.11.2021 в финале конкурса «Большая Разведка» получен грант на разработку элементов комплекса.
+          - Победил 28.10.2021 в Финале конкурса «АСТАРТ» Новосибирского Академгородка
+          - Победил и получил приз 15.08.21 в финале конкурса «Технопрорыв» Оренбург - Хризолитовая долина
+          - Победил в 2022 году в финале конкурса СТАРТ-1 Фонда Содействия Инновациям и получил грант на разработку проекта
+        </span>
+      </div>
+    </div>
+
+    <!-- Фото 3-4 -->
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/dis4.jpg" alt="Дискон">
+      </div>
+      <div class="product-image">
+        <img src="images/dis3.jpg" alt="Дискон">
+      </div>
+    </div>
+      <!-- Фото 5-6 -->
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/dis.jpg" alt="Дискон">
+      </div>
+      <div class="product-image">
+        <img src="images/dis5.png" alt="Дискон">
+      </div>
+    </div>
+
+    <!-- Текст 3 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">Целями применения ДИСКОН является:</span>
+        <span class="spec-value">
+          1. Повышение удобства, быстроты и эффективности контроля критических уровней температуры важнейших узлов теплового оборудования, позволяющих обслуживающему немедленно реагировать на сверхнормативный нагрев мест контроля;
+          2. Повышение уровня пожаробезопасности теплового оборудования;
+          3. Уменьшения аварий от перегревов оборудования за счет их раннего обнаружения;
+          4. Повышение эксплуатационных и экономических показателей работы оборудования;
+          5. Сокращение сроков обнаружения тепловых перегревов оборудования;
+          6. Применение экономичного и надежного способа температурного мониторинга;
+          7. Экономия расходных материалов, делая профилактические, а не аварийные ремонты;
+          8. Повышение безопасности персонала за счет уменьшения аварийности
+        </span>
+      </div>
+    </div>
+
+
+
+    <!-- Текст 4 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">Испытательный стенд ПАК «ДИСКОН»</span>
+        <span class="spec-value">
+          Приглашаем заинтересованных энергетиков и промышленников посетить наш испытательный стенд, на котором мы продемонстрируем, работу ПАК «ДИСКОН», на всех режимах, а также покажем на практике обнаружение предаварийных и аварийных ситуаций на оборудовании, при повышенной температуре. Нагрев датчиков осуществляется до температуры +150С.
+        </span>
+      </div>
+    </div>
+
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/disk.png" alt="Дискон">
+      </div>
+      <div class="product-image">
+        <img src="images/dow.png" alt="Дискон">
+      </div>
+    </div>
+
+    <!-- Текст 5 - Основные характеристики -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">Основные характеристики ПАК «ДИСКОН»</span>
+        <span class="spec-value">
+          1. Предназначен для работы в режиме 24/7;
+          2. Может контролировать оборудование подключенное к 1 считывателю на площади диаметром до 200 метров. Одним считывателем можно охватить практически любую подстанцию;
+          3. Технология RFID (Radio Frequency Identification) - радиочастотная идентификация UHF;
+          4. Протокол связи RFID считывателя и датчиков - EPC Class 1 Gen 2 V1.2;
+          5. Используемый радиоинтерфейс - ISO/IEC 18000-6:2013 (российский аналог ГОСТ 34693.6-2020);
+          6. Рабочая частота обмена информацией с датчиками от 868 МГц до 928 МГц;
+          7. Скорость передачи данных по интерфейсу RS485, до 57600 бит/с;
+          8. Разрешение ГКРЧ не требуется;
+          9. Поддерживаемые интерфейсы RS-485 (RS-232);
+          10. Связь с ПК через проводной интерфейс или через сети GSM (900-1800 МГц)/ GPRS / 3G / LTE («ДИСКОН» можно устанавливать в любом месте где есть сотовая связь);
+          11. Модем поддерживает 2 SIM-карты со статическими IP-адресами, и автоматическим переключением;
+          12. ПАК «ДИСКОН» — это не измерительная, а индикаторная система, его не нужно поверять каждые 2 года, затрачивая время и финансовые средства
+        </span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">13. Датчики RFID:</span>
+        <span class="spec-value">
+          • Беспроводные, не требуют питания, с диапазоном контроля температуры от -40С до +150С;
+          • В герметичном корпусе, уровень защиты датчиков по ГОСТ 14254-15 - IP65;
+          • Специализированные для работы на металле, вес не более 50 граммов;
+          • Измеряют температуру поверхности под установленным датчиком;
+          • Выполнены из диэлектрического материала;
+          • Устойчивы к любым загрязнениям, не боятся воды, масла и пыли;
+          • Пассивные, срок службы до 15 лет;
+          • Не требуют питания, обслуживания, калибровки и настройки;
+          • Датчики крепятся гайками, зажимами и клеем, это позволяет ставить датчики на любые контролируемые поверхности (на кабели, шины, контакты, моторы, подшипники и т.д.);
+          • Точность измерения температуры до ± 0,1 градуса;
+          • Дальность связи на открытой поверхности до 8 м, при экранировании, в ячейке, до 1,5 м;
+          • Диапазон температур окружающей среды от -40℃ до +225℃;
+          • 5 типоразмеров датчиков (длины от 1,3 см до 9 см, ширина от 0,9 см, до 2 см, толщины от 0,2 см до 0,3 см ). Устанавливать можно в любых, самых труднодоступных местах;
+
+          14. Считыватель 4-х канальный (возможна установка 8 канального), поддерживает до 16 RFID антенн;
+          15. К одному считывателю можно подключить до 96 температурных датчиков;
+          16. Комплекс отражает в реальном масштабе времени:
+                 a. нормативную температуру (зеленый цвет);
+                 b. предаварийную температуру (желтый цвет);
+                 c. аварийную температуру (красный цвет);
+                 d. отказ датчика (серый цвет);
+          17. Заказчик сам определяет нужные для контроля температуры в диапазоне от 0 до +150 градусов и устанавливает их значения в ПО комплекса;
+          18. Электромагнитные поля промышленной частоты, в оборудовании, не влияют на работу комплекса;
+          19. Время обновления показаний температуры на ПК и Смартфоне от 1 минуты;
+          20. В каждой экранированной секции можно контролировать 15 датчиков температуры;
+          21. Вывод информации на ПК и смартфоны обслуживающего персонала синхронизирован;
+          22. По факту ПО на ПК можно пользоваться только для просмотра отчетов о работе комплекса, основное оборудование комплекса — это СМАРТФОН пользователя, который круглосуточно оповещает обо всех ненормативных ситуациях теплового контроля оборудования;
+          23. Применимо на оборудовании с высоким напряжением и большими токами;
+          24. Зарегистрированное российское ПО;
+          25. ПО передает данные только в корпоративную сеть заказчика;
+          26. Данные о текущей температуре, всех датчиков, выводятся с адресом места их установки;
+          27. ПО заказчику предоставляется БЕСПЛАТНО;
+          28. Гарантия 12 месяцев, полное сервисное обслуживание, бесплатное ПО
+        </span>
+      </div>
+      <div class="spec-item">
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отрасли применения ПАК ДИСКОН</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+            gap: 15px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #00ffff, #ffa500) 1;
+            border-radius: 12px;
+            padding: 15px 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+        }
+
+        .number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #00ffff, #ffa500);
+            border-radius: 50%;
+            color: #0a0e27;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .card {
+                break-inside: avoid;
+                border: 2px solid #00ffff;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Отрасли применения ПАК ДИСКОН</h1>
+
+        <div class="grid">
+            <div class="card">
+                <div class="number">1</div>
+                <div class="icon">⛏️</div>
+                <div class="text">Добывающая промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">2</div>
+                <div class="icon">🏭</div>
+                <div class="text">Металлургия</div>
+            </div>
+
+            <div class="card">
+                <div class="number">3</div>
+                <div class="icon">⚙️</div>
+                <div class="text">Машиностроение</div>
+            </div>
+
+            <div class="card">
+                <div class="number">4</div>
+                <div class="icon">🛡️</div>
+                <div class="text">Оборонно-промышленный комплекс</div>
+            </div>
+
+            <div class="card">
+                <div class="number">5</div>
+                <div class="icon">🚢</div>
+                <div class="text">Судостроение</div>
+            </div>
+
+            <div class="card">
+                <div class="number">6</div>
+                <div class="icon">🚗</div>
+                <div class="text">Автомобильная промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">7</div>
+                <div class="icon">🚀</div>
+                <div class="text">Авиакосмическая промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">8</div>
+                <div class="icon">🚆</div>
+                <div class="text">Железнодорожное машиностроение</div>
+            </div>
+
+            <div class="card">
+                <div class="number">9</div>
+                <div class="icon">⚡</div>
+                <div class="text">Электротехника</div>
+            </div>
+
+            <div class="card">
+                <div class="number">10</div>
+                <div class="icon">☢️</div>
+                <div class="text">Атомная промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">11</div>
+                <div class="icon">🛢️</div>
+                <div class="text">Нефтеперерабатывающая промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">12</div>
+                <div class="icon">🧪</div>
+                <div class="text">Химическая промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">13</div>
+                <div class="icon">📄</div>
+                <div class="text">Целлюлозно-бумажная промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">14</div>
+                <div class="icon">💻</div>
+                <div class="text">Электронная промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">15</div>
+                <div class="icon">💊</div>
+                <div class="text">Фармацевтическая промышленность</div>
+            </div>
+
+            <div class="card">
+                <div class="number">16</div>
+                <div class="icon">🔌</div>
+                <div class="text">Электроэнергетика</div>
+            </div>
+
+            <div class="card">
+                <div class="number">17</div>
+                <div class="icon">🌊</div>
+                <div class="text">Гидроэнергетика</div>
+            </div>
+
+            <div class="card">
+                <div class="number">18</div>
+                <div class="icon">⚛️</div>
+                <div class="text">Атомная энергетика</div>
+            </div>
+
+            <div class="card">
+                <div class="number">19</div>
+                <div class="icon">🌋</div>
+                <div class="text">Геотермальная энергетика</div>
+            </div>
+            <div class="card">
+                <div class="number">20</div>
+                <div class="icon">🔧</div>
+                <div class="text">Инженерия</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+      </div>
+      <div class="spec-item">
+        <span class="spec-label">Информация о температуре передаваемая круглосуточно на ПК и смартфоны обслуживающего персонала.</span>
+        <span class="spec-value">
+          ПАК "ДИСКОН" в круглосуточном режиме, в реальном масштабе времени, передает данные от температуре на ПК и смартфоны обслуживающего персонала. Контроль температур ведется в диапазоне от -40С до +150С. В ПО можно настроить любую температуру в этом диапазоне как низкую (минусовую), предаварийную и аварийную. При обнаружении низкой температуры датчик на ПК станет синего цвета, предаварийной температуры желтого цвета, аварийной температуры красного цвета. На каждом датчике указано его месторасположение, для быстрого определения места установки. Информация о датчиках и их температуре синхронно выводится на смартфоны персонала. На смартфоне в случае обнаружения критических температур также подается звуковой сигнал. ПО в ПАК "ДИСКОН" позволяет получить различные отчеты по температурным режимам контролируемого оборудования. Более подробно о работе ПАК "ДИСКОН" можно узнать связавшись с нами.
+        </span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- LIGHTBOX: Модальное окно для фото -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Увеличенное изображение" id="lightbox-img">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>© 2026 ООО «Инновационная компания «ЯЛОС».Все права защищены.</p>
+  </footer>
+
+  <!-- SCRIPT для lightbox -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

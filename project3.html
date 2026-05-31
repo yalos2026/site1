@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>СТРИМ| ООО ИК ЯЛОС</title>
+  <meta name="description" content="Стрим"/>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================== */
+    /* БАЗОВЫЕ СТИЛИ (как на главном сайте) */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Фоновое изображение */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #00ff9d; }
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* ===================================================== */
+    /* СТИЛИ СТРАНИЦЫ ПРОДУКТА - ОДНА КОЛОНКА ПО ЦЕНТРУ */
+    /* ===================================================== */
+    .product-page {
+      padding: 140px 5% 80px;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* Заголовок */
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Текстовые блоки */
+    .content-block {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Характеристики */
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 10px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    /* Галерея фото - 2 в ряд */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+      cursor: zoom-in;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Кнопка скачивания */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    /* Футер */
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+      margin-top: 40px;
+    }
+
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr; /* На мобильных - 1 фото в ряд */
+      }
+      .product-page {
+        padding: 120px 4% 60px;
+      }
+      .content-block, .product-specs {
+        padding: 20px;
+      }
+    }
+
+    /* Неоновое свечение */
+    .product-image {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover { color: #00ff9d; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+      .product-video {
+  width: 100%;
+  aspect-ratio: 16/9; /* или уберите эту строку */
+  min-height: 400px; /* Добавьте эту строку - увеличит высоту */
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(100, 180, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+}
+
+.product-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="YALOS" class="logo-icon">
+      <div class="logo-text">КОМПАНИЯ <span>ЯЛОС</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#applications">Индикаторы</a></li>
+      <li><a href="index.html#benefits">О нас</a></li>
+      <li><a href="index.html#products" class="active">Продукция</a></li>
+      <li><a href="index.html#projects">Проекты</a></li>
+      <li><a href="index.html#contact">Контакты</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Запросить КП</a>
+  </nav>
+
+  <!-- ПРОДУКТ -->
+  <main class="product-page">
+
+    <!-- Заголовок -->
+    <h1 class="product-title">Технология коллективной, звуковой виртуальной реальности "Yalos Stream"</h1>
+
+    <!-- Текст 1 -->
+    <div class="content-block">
+      <p class="product-description">Новая прорывная технологию формирования и управления «близкими» звуками «Yalos Stream» превращения кинотеатра в аттракцион (тем самым повышая его посещаемость)
+      Технология «Yalos Stream» предназначена для создания у зрителей эффекта «присутствия» в месте событий, происходящих на экране кинотеатров и концертных залах (коллективная звуковая виртуальная реальность).</p>
+    </div>
+
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/stream.jpg" alt="Стрим">
+      </div>
+      <div class="product-image">
+        <img src="images/str.png" alt="Стрим">
+      </div>
+    </div>
+
+    <!-- Текст 2 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">В феврале 2017 года, компания получила патент № 9,584,936 "METHOD FOR CONTROLLING SOUND IN AN AUDITORIUM" в США на технологию управления звуком, а 14 марта 2017 года патент RU2612997 в России (информация опубликована в официальном бюллетене РОСПАТЕНТА №8-2017 от 11.03.2017-20.03.2017). </span>
+        <span class="spec-value">
+          Ссылаясь на полученные патенты, с августа 2018 года специалистами компании начата разработка звукового процессора "Yalos Stream", предназначенного для кластерного воспроизведения "близких" звуков и управления их траекториями движения по всему зрительному залу.
+
+27 декабря 2019 года наш стартап победил в всероссийском конкурсе программы СТАРТ-1, объявленного Фондом Содействия Инновациям, Договор 0057518, заявка №С1-66645, конкурс Старт-19-1 (4 очередь) Нам выделен грант на НИОКР по созданию ПРОТОТИПА №2, звукового процессора виртуальной реальности "Yalos Stream".
+        </span>
+      </div>
+    </div>
+
+
+    <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/patent_ros.jpg" alt="Стрим">
+      </div>
+
+      <div class="product-image">
+        <img src="images/patent_am.jpg" alt="Стрим">
+      </div>
+    </div>
+
+    <!-- Текст 3 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">ВСТУПЛЕНИЕ В ПРОБЛЕМУ КОТОРУЮ РЕШАЕТ ПРОЕКТ:</span>
+        <span class="spec-value">
+        Согласно исследованиям, проведенные компанией «DOLBY», все звуки в окружающем нас мире подразделяются на «верхние», «средние» и «близкие». Звуковые системы кинотеатров с помощью звуковых колонок, расположенных на стенах и потолке кинозалов, реалистично воспроизводят только «верхние» и «средние» звуки.
+1) наиболее реалистично под углами, близкими к 90 градусам, зритель слышит «верхние звуки». Их излучают потолочные звуковые системы или аудиоколонки, установленные высоко на стенах кинотеатра.
+2) «средние звуки» также реалистично воспроизводятся зрителями в кинотеатре. Однако, эти звуки  излучаются уже под углом от 15 до 45 градусов, и для этих целей отлично подходят аудиоколонки, размещенные на боковых и торцевых стенах кинозалов.
+ВНИМАНИЕ:
+3) «Близкие звуки» не могут быть реалистично воспроизведены ни одной звуковой системой, так как они распространяются под углом 0 градусов (в горизонтальной плоскости к органам слуха зрителей) и должны воспроизводится рядом с зрителем на расстоянии 1-2 метра.
+В кинотеатрах ввиду наличия акустических устройств на стенах и потолке, а не рядом с зрителем, «близкие звуки» реалистично, воспроизвести не возможно, т.е. эффекта «присутствия», как в реальном мире, достичь практически не возможно. Даже с такими современными многоканальными системами звука, как Dolby Atmos или IMAX, у зрителя никогда не будет ощущения полного присутствия на месте развития событий, которые демонстрируются на экране.
+Звуковое окружение в кинотеатре будет наиболее реалистичным, только при условии, что оно будет похоже на окружающий мир человека. Зрители в кинотеатрах, смогут в полном объеме ощутить себя участниками происходящих событий на экране, только при наличии «близких звуков», то есть звуков, которые происходят в жизни рядом с людьми на расстоянии от 15 см до нескольких метров, в горизонтальной плоскости слышимости (шаги, шум дождя, ветер и т.д.).
+«Близкие звуки» существенно (до 70%) влияют на ощущение реалистичности окружающих человека событий.
+        </span>
+      </div>
+    </div>
+
+      <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/st3.png" alt="Стрим">
+      </div>
+
+      <div class="product-image">
+        <img src="images/st7.png" alt="Стрим">
+      </div>
+    </div>
+
+
+    <!-- Текст 4 -->
+    <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label">ТЕХНОЛОГИЯ «Yalos Stream» воспроизводит только "близкие звуки"
+        </span>
+        <span class="spec-value">
+“Yalos Stream” подает «близкие звуки» зрителю в горизонтальной плоскости, через звуковые воспроизводящие устройства (динамики), встроенные в кресла кинотеатра.
+      Главная идея проекта –превращение любого кинотеатра в кино аттракцион, с наилучшим эффектом «присутствия» зрителя в событиях, которые демонстрируются на экране, (как в окружающем мире), тем самым увеличивая посещаемость кинотеатров и увеличивая стоимость просмотра.
+Еще один существенный плюс технологии «Yalos Stream» состоит в том, что данная технология позволяет зрителю испытать коллективные эмоции, т.е. зрители в зале, получают захватывающие впечатления не только от нового вида звуковой реальности, но и от эмоций своих соседей. Подобный эффект сопоставим с эффектом участников аттракциона «американские» горки.
+Эффект «присутствия», созданный новой технологией может быть использован не только в кино, но и при проведениях различных шоу, концертов и аттракционов в парках развлечений.
+Система «YALOS STREAM» не конкурирует ни с одной существующей звуковой системой, она их удачно дополняет, создавая ощущение коллективного, погружения в события, происходящие на экране.
+      </span>
+      </div>
+    </div>
+
+  <!-- Видео 1 -->
+    <div class="product-video">
+    <iframe
+      src="https://www.youtube.com/embed/lgUPxcA1Kzw?si=wgnt9di0TbRPTI3H"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+    <!-- Текст 5 - Основные характеристики -->
+    <div class="product-specs">
+      <div class="spec-item">
+          <span class="spec-value">
+<span class="spec-label">Стратегическая цель проекта</span> – создание массовой, доступной и не дорогой, звуковой системы, коллективной виртуальной реальности, предоставляющей зрителям эффект «присутствия» при просмотре фильмов , концертов и шоу в виде дополнительной опции к уже существующему звуковому оборудованию.
+<span class="spec-label">Целевые клиенты</span> - мировая киноиндустрия, концертные организации, парки развлечений, производители домашней электроники, автомобильная промышленность.
+<span class="spec-label">Целевая ниша проекта</span> – залы для коллективного просмотра фильмов и концертов, бытовое (домашнее) применение, киноаттракционы в парках развлечений.
+<span class="spec-label">Ближайшая цель проекта</span> – завершение стадии создания прототипа №2- Мини кинотеатр (успешно создан прототип №1, который подтвердил запатентованные характеристики технологии “Yalos Stream”).
+<span class="spec-label">Перспективы проекта</span> - создание мобильного прототипа №3 для его демонстрации на мировых выставках инноваций и новых технологий (например выставка NAB в Лас-Вегасе, выставка AMF в Санта-Монике и т.д.) для нахождения стратегического партнера для совместной работе по внедрению технологии в мировую киноиндустрию.
+Как дополнительный вариант, создание на безе мобильной версии прототипа №3, коммерческой версии Мини кинотеатра, использующего технологию коллективной виртуальной реальности "Yalos Stream", для использования в вокзальной сети железных дорог, в аэропортах, в небольших населенных пунктах, как школьного кинотеатра для системы образования.         </span>
+      </div>
+            </div>
+
+
+        <div class="photo-gallery">
+      <div class="product-image">
+        <img src="images/stream.png" alt="Стрим">
+      </div>
+
+      <div class="product-image">
+        <img src="images/str4.jpg" alt="Стрим">
+      </div>
+    </div>
+
+          <div class="product-specs">
+      <div class="spec-item">
+        <span class="spec-label"> Основные преимущества Yalos Stream</span>
+        <span class="spec-value">
+- Технология не использует звуковую дорожку фильма
+- Окружает зрителя «близкими» звуками, создает эффект присутствия зрителя в месте событий на экране кинотеатра
+- Вызывает коллективные эмоции зрителей при совместном просмотре фильмов в окружении «близких» звуков
+- Воспроизводит только горизонтальные «близкие звуки» рядом с зрителем
+- Не использует канальную запись звука
+- Использует только динамики, размещенные в креслах зрительного зала
+- Может управлять движением звуков по любым направлениям в зале
+- Может воспроизводить звуки в любом количестве динамиков
+- Звуки воспроизводит в виде звуковых кластеров любого размера
+- Позволяет создавать различные звуковые сценарии для одного и того же фильма
+- Позволяет создавать звуковые сценарии для старых фильмов
+- Небольшая стоимость до 35 тыс. долларов на кинотеатр 300-500 мест
+- Имеет варианты установки динамиков, без замены кресел в зрительном зале
+- Имеет разные комплектации от «Эконом» до «VIP»
+- Технология защищена патентами в США и России
+- Не конкурирует ни с одной звуковой системой, установленной в кинотеатрах, это их опция
+- Быстрая адаптация к любому кинотеатру, не требует звуковой настройки.
+        </span>
+      </div>
+
+
+      <div class="spec-item">
+        <span class="spec-label">Стадии проекта</span>
+        <span class="spec-value">
+В феврале 2019 года изготовлен прототип №1, подтверждающий запатентованные характеристики технологии “Yalos Stream” по формированию и управлению движением звуковых кластеров «близких звуков».
+В состав прототипа №1 входит звуковой процессор, звуковая матрица и  программное обеспечение.
+При начале работ над прототипом №2 (мини кинотеатр) были протестированы аналоги звуковых динамиков, которые могут быть установлены в креслах кинотеатра. Тест показал отличные результаты. В видеоклипе, можно наглядно увидеть движение нескольких звуковых кластеров,  разных размеров, перемещающихся по заданным траекториям.
+В декабре 2020 года создана работающая модель звуковой матрицы имитирущая кинотеатр и новая версия звукового процессора "Yalos Stream" 2.0
+        </span>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- LIGHTBOX: Модальное окно для фото -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Увеличенное изображение" id="lightbox-img">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>© 2026 ООО «Инновационная компания «ЯЛОС».Все права защищены.</p>
+  </footer>
+
+  <!-- SCRIPT для lightbox -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
