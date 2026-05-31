@@ -512,7 +512,7 @@ body::after {
     }
     .benefit-icon {
       min-width: 50px; height: 70px;
-      background: rgba(255, 107, 53, 0.15);
+      background: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 20px;
@@ -863,7 +863,21 @@ body::after {
     align-items: center !important;
   }
 }
+/* ===================================================== */
+/* ОДИНАКОВЫЙ РАЗМЕР ФОТО ВО ВСЕХ КАРТОЧКАХ */
+/* ===================================================== */
 
+.product-card img,
+.app-card img,
+.benefit-card img,
+.footer-logo {
+  width: 100%;
+  max-width: 200px;        /* ← Ширина (одинаковая для всех) */
+  height: 130px;           /* ← Высота (фиксирует размер) */
+  object-fit: cover;     /* ← Сохраняет пропорции, не сплющивает */
+  display: block;
+  margin: 0 auto 24px;     /* ← Центрирование + отступ до текста */
+}
   </style>
 </head>
 <body>
@@ -966,7 +980,7 @@ body::after {
         <div class="benefit-icon">Научный<br> потенциал</div>
         <div>
   <img src="images/deyatelnost.png" alt="YALOS" class="footer-logo">
-          <p>Собственная технологическая база для проведения научных исследований и сотрудничество с лучшими научными лабораториями России. У нас есть договорные научные отношения с Центром фотохимии, отделением ФНИЦ "Кристаллография и фотоника" РАН и Федеральным государственным бюджетным учреждением науки, Межведомственного центра аналитических исследований в области физики, химии и биологии при Президиуме Российской академии наук.</p>
+          <p>Собственная технологическая база для проведения научных исследований и сотрудничество с лучшими научными лабораториями России. Договор с Центром фотохимии, отделением ФНИЦ "Кристаллография и фотоника" РАН и ФГБУН, Межведомственного центра аналитических исследований в области физики, химии и биологии при Президиуме Российской академии наук.</p>
         </div>
         </div>
       <div class="product-card reveal">
@@ -974,7 +988,7 @@ body::after {
         <div>
   <img src="images/technology.jpg" alt="YALOS" class="footer-logo">
 
-          <p>Перспективный инновационный проект, по массовому внедрению в промышленности и для населения химических индикаторов заданных уровней внешней среды: радиации, температуры, газов, электро-магнитных полей, ультрафиолета и влажности. Индикаторы позволяют визуально и быстро обнаруживать опасные или контрольные уровни среды, что повышает безопасность персонала, эффективность в промышленности, энергетике и транспорте.</p>
+          <p>Индикаторы заданных уровней внешней среды: радиации, температуры, газов, электро-магнитных полей, ультрафиолета и влажности позволяют визуально и быстро обнаруживать опасные или контрольные уровни среды, что повышает безопасность персонала, эффективность в промышленности, энергетике и транспорте.</p>
         </div>
       </div>
     </div>
@@ -990,50 +1004,50 @@ body::after {
     <div class="products-grid">
       <!-- Product 1 -->
       <div class="product-card reveal">
-        <div class="product-icon">🌡️</div>
-        <h3>YI-PRO Series</h3>
-        <p>Универсальные биметаллические термометры для трубопроводов и резервуаров.</p>
-        <a href="#contact" class="product-cta">Запросить спецификацию →</a>
+  <img src="images/marker.png" alt="YALOS" class="footer-logo">
+        <h3>Маркер-индикатор перегревов</h3>
+        <p>Термомаркер японской компании Matsui International Co., Inc.</p>
+        <a href="product-detail1.html" class="product-cta">Читать дальше →</a>
     </div>
 
       <!-- Product 2 -->
       <div class="product-card reveal">
-        <div class="product-icon">⚡</div>
-        <h3>YI-EX Series</h3>
-        <p>Взрывозащищённые индикаторы для опасных производственных зон (Ex d IIC T6).</p>
-        <a href="#contact" class="product-cta">Запросить сертификат →</a>
+  <img src="images/cryst.png" alt="YALOS" class="footer-logo">
+        <h3>Термометры на жидких кристаллах</h3>
+        <p>Жидкокристаллические термометры нескольких типов, для промышленности и верхней одежды</p>
+        <a href="product-detail2.html" class="product-cta">Читать дальше →</a>
     </div>
 
       <!-- Product 3 -->
       <div class="product-card reveal">
-        <div class="product-icon">🔗</div>
-        <h3>YI-REMOTE Series</h3>
-        <p>Дистанционные термометры с капилляром до 25 м для труднодоступных точек контроля.</p>
-        <a href="#contact" class="product-cta">Рассчитать конфигурацию →</a>
+  <img src="images/iti.png" alt="YALOS" class="footer-logo">
+        <h3>Термоиндикаторы</h3>
+        <p>Температурные индикаторы от компании "NiGK", зарекомендовали себя как надежный инструмент контроля температуры .</p>
+        <a href="product-detail3.html" class="product-cta">Читать дальше →</a>
     </div>
 
       <!-- Product 4 -->
       <div class="product-card reveal">
-        <div class="product-icon">📊</div>
-        <h3>YI-DIGITAL Series</h3>
-        <p>Цифровые индикаторы с выходом 4-20 мА и протоколом Modbus для интеграции в АСУ ТП.</p>
-        <a href="#contact" class="product-cta">Запросить документацию →</a>
+  <img src="images/izo1.png" alt="YALOS" class="footer-logo">
+        <h3>Изолента - индикатор перегревов</h3>
+        <p>Индикаторная обратимая термочувствительная изолента позволяет сохранить изоляцию различных кабельных соединений.</p>
+        <a href="product-detail4.html" class="product-cta">Читать дальше →</a>
     </div>
 
       <!-- Product 5 -->
       <div class="product-card reveal">
-        <div class="product-icon">🛡️</div>
-        <h3>YI-CORR Series</h3>
-        <p>Коррозионностойкие исполнения для агрессивных сред (кислоты, щёлочи, морская вода).</p>
-        <a href="#contact" class="product-cta">Подобрать материал →</a>
+  <img src="images/logo.png" alt="YALOS" class="footer-logo">
+        <h3>Химические индикаторы</h3>
+        <p>Индикаторы утечки водорода</p>
+        <a href="product-detail5.html" class="product-cta">Читать дальше →</a>
     </div>
 
       <!-- Product 6 -->
       <div class="product-card reveal">
-        <div class="product-icon">🔧</div>
-        <h3>YI-CUSTOM</h3>
-        <p>Индивидуальные решения под ваши технические требования: нестандартные размеры, диапазоны, материалы.</p>
-        <a href="#contact" class="product-cta">Обсудить проект →</a>
+  <img src="images/telejka.png" alt="YALOS" class="footer-logo">
+        <h3>Super Telezhka 3000</h3>
+        <p>Наша компания поставляет для аэропортов пассажирские багажные тележки. Они имеют большое рекламное пространство и легкую алюминиевую конструкцию.</p>
+        <a href="product-detail6.html" class="product-cta">Читать дальше →</a>
     </div>
       </div>
 
@@ -1044,40 +1058,36 @@ body::after {
     <div class="section-title reveal">
       <h2>ПРОЕКТЫ</h2>
     </div>
-<!-- Product 3 -->
-      <div class="product-card reveal">
-        <div class="product-icon">🔗</div>
-        <h3>ИК ЯЛОС</h3>
-        <p>Представляет на российском рынке серию химических термоиндикаторов, термометры на жидких кристаллах, маркер и изоленту контроля перегревов и др.</p>
-        <a href="#contact" class="product-cta">Читать дальше →</a>
-      </div>
 
     <div class="products-grid">
       <!-- Product 1 -->
       <div class="product-card reveal">
-        <div class="product-icon">🌡️</div>
-        <h3>ДИСКОН</h3>
-        <p>Цифровизация и оперативный контроль в реальном масштабе времени, является стратегическим направлением развития управления производственными процессами и предупреждения аварий. </p>
-        <a href="#contact" class="product-cta">Читать дальше →</a>
-      </div>
+        <h3>ИК ЯЛОС</h3>
+          <img src="images/download.jpg" alt="YALOS" class="footer-logo">
 
+        <p>Представляет на российском рынке серию химических термоиндикаторов, термометры на жидких кристаллах, маркер и изоленту контроля перегревов и др.</p>
+        <a href="project1.html" class="product-cta">Читать дальше →</a>
+      </div>
       <!-- Product 2 -->
       <div class="product-card reveal">
-        <div class="product-icon">⚡</div>
-        <h3>ЯЛОС СТРИМ</h3>
-        <p>Технология коллективной, звуковой виртуальной реальности. Новая технология формирования и управления «близкими» звуками «Yalos Stream». Превращаем каждый кинотеатр в аттракцион.</p>
-        <a href="#contact" class="product-cta">Читать дальше →</a>
+        <h3>ДИСКОН</h3>
+          <img src="images/diskon.jpeg" alt="YALOS" class="footer-logo">
+
+        <p>Цифровизация и оперативный контроль в реальном масштабе времени, является стратегическим направлением развития управления производственными процессами и предупреждения аварий. </p>
+        <a href="project2.html" class="product-cta">Читать дальше →</a>
       </div>
 
-
-
-      <!-- Product 4 -->
+      <!-- Product 3 -->
       <div class="product-card reveal">
-        <div class="product-icon">📊</div>
-        <h3>Super Telezhka 3000</h3>
-        <p>Наша компания поставляет для аэропортов пассажирские багажные тележки. Они имеют большое рекламное пространство и легкую алюминиевую конструкцию.</p>
-        <a href="#contact" class="product-cta">Читать дальше →</a>
+        <h3>ЯЛОС СТРИМ</h3>
+          <img src="images/stream.jpg" alt="YALOS" class="footer-logo">
+
+        <p>Технология коллективной, звуковой виртуальной реальности. Новая технология формирования и управления «близкими» звуками «Yalos Stream». Превращаем каждый кинотеатр в аттракцион.</p>
+        <a href="project3.html" class="product-cta">Читать дальше →</a>
       </div>
+
+
+
 
 
     </div>
@@ -1089,12 +1099,12 @@ body::after {
       <h2>КОНТАКТЫ</h2>
       <p>Напишите нам — наш менеджер свяжется с вами в течение 2 часов, подберёт решение и подготовит коммерческое предложение.</p>
 
-      <div style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+      <div style="margin-top: 20px; font-size: 20px; opacity: 0.8;">
 
         <strong style="color:#fff;">ООО "Инновационная компания "ЯЛОС"</strong><br>
         <strong style="color:#fff;">г.Москва, ул.Плющиха 9 стр.2</strong><br>
-        <strong style="color:#fff;">📞 +7 (495) 118-09-80</strong> <br>
-        <strong style="color:#fff;">✉️ info@yalos-project.com</strong>
+        <strong style="color:#fff;">Телефон:+7 (495) 118-09-80</strong> <br>
+        <strong style="color:#fff;">Электронная почта: info@yalos-project.com</strong>
       </div>
     </div>
   </section>
@@ -1111,17 +1121,20 @@ body::after {
 </div>
       <div class="footer-col">
         <h4>Продукция</h4>
-        <a href="#products">YI-PRO Series</a>
-        <a href="#products">YI-EX Series</a>
-        <a href="#products">YI-REMOTE Series</a>
-        <a href="#products">YI-DIGITAL Series</a>
+        <a href="product-detail1.html">Маркер-индикатор перегревов</a>
+        <a href="product-detail2.html">Термометры на жидких кристаллах</a>
+        <a href="product-detail3.html">Термоиндикаторы</a>
+        <a href="product-detail4.html">Изолента - индикатор перегревов</a>
+        <a href="product-detail5.html">Химические индикаторы</a>
+        <a href="product-detail6.html">Super Telezhka 3000</a>
+
       </div>
       <div class="footer-col">
-        <h4>Документация</h4>
-        <a href="#">Каталог 2026 (PDF)</a>
-        <a href="#">Сертификаты</a>
-        <a href="#">Руководства по монтажу</a>
-        <a href="#">Паспорта изделий</a>
+        <h4>Навигация</h4>
+        <a href="#applications">Индикаторы</a>
+        <a href="#benefits">О нас</a>
+        <a href="#products">Продукция</a>
+        <a href="#projects">Проекты</a>
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
@@ -1131,7 +1144,7 @@ body::after {
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 YALOS INDICATOR. Все права защищены. | Политика конфиденциальности
+      © 2026 YALOS INDICATOR. Все права защищены.
     </div>
   </footer>
 
