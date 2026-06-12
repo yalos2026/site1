@@ -7,7 +7,7 @@
   <meta name="description" content="Индикация.Контроль.Безопасность."/>
 
   <!-- Fonts -->
-  <link href="images/water.png" rel="stylesheet">
+  <link href="/images/water.png" rel="stylesheet">
 
   <style>
     /* ===================================================== */
@@ -29,18 +29,16 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;          /* ← БЫЛО: -3 (слишком глубоко) */
+  z-index: -1;          /* ← БЫЛО: -3 ( глубоко) */
 
-  /* Добавляем темный цвет сюда как подложку, на случай если картинка не загрузится */
   background-color: #0a0e17;
 
-  background-image: url('images/water.png'); /* Убедитесь, что тут слэш в начале */
+  background-image: url('/images/water.png');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 
   /* ⚠️ ВНИМАНИЕ: filter: brightness(0.5) делает темные фото ЧЕРНЫМИ */
-  /* Попробуйте сначала убрать filter или поставить 0.8, чтобы убедиться, что фото видно */
   filter: brightness(0.8) contrast(1.1);
 }
 
@@ -101,7 +99,7 @@ body::after {
   height: 42px;
   object-fit: contain; /* Сохраняет пропорции картинки */
   display: block;      /* Убирает лишний отступ снизу у изображений */
-  border-radius: 10px; /* Оставьте, если хотите скруглённые углы. Удалите строку, если логотип должен быть "как есть" */
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 255, 157, 0.4); /* Неоновое свечение останется */
   /* ⚠️ Старые стили для текста (background, font, color, display:flex) удалены */
 }
@@ -890,9 +888,10 @@ body::after {
     </a>
 
     <ul class="nav-links">
-      <li><a href="#applications">Индикаторы</a></li>
+<!--      <li><a href="#applications">Индикаторы</a></li>-->
       <li><a href="#benefits">О нас</a></li>
       <li><a href="#products" class="active">Продукция</a></li>
+      <li><a href="#dist">Дистрибуция</a></li>
       <li><a href="#projects">Проекты</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
@@ -906,9 +905,10 @@ body::after {
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#applications">Индикаторы</a>
+<!--    <a href="#applications">Индикаторы</a>-->
     <a href="#benefits">О нас</a>
     <a href="#products">Продукция</a>
+    <a href="#dist">Дистрибуция</a>
     <a href="#projects">Проекты</a>
     <a href="#contact">Контакты</a>
     <a href="#contact" class="nav-cta">Запросить КП</a>
@@ -929,35 +929,35 @@ body::after {
   </section>
 
   <!-- APPLICATIONS -->
-  <section class="section applications" id="applications">
-    <div class="section-title reveal">
-      <h2>ИНДИКАТОРЫ</h2>
-      <p>Наши индикаторы обеспечивают надёжный контроль в критически важных процессах</p>
-    </div>
+<!--  <section class="section applications" id="applications">-->
+<!--    <div class="section-title reveal">-->
+<!--      <h2>ИНДИКАТОРЫ</h2>-->
+<!--      <p>Наши индикаторы обеспечивают надёжный контроль в критически важных процессах</p>-->
+<!--    </div>-->
 
-    <div class="apps-grid">
-      <div class="app-card reveal">
-        <div class="app-icon">🦺</div>
-        <h3>Цветовые химические индикаторы параметров внешней среды для спецодежды персонала</h3>
-        <p>Инновационный взгляд на повышение безопасности труда и сохранения здоровья работников</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">🏭️</div>
-        <h3>Цветовые химические индикаторы утечек водорода</h3>
-        <p>Новейшая технология облегчения контроля аварийных ситуаций в космической, нефтяной и химической промышленности.</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">🌡️</div>
-        <h3>Цветовые химические индикаторы температуры</h3>
-        <p>Передовая технология контроля перегревов знергетического оборудования и силовых линий, уменьшает аварийность и повышает безопасность труда</p>
-      </div>
-      <div class="app-card reveal">
-        <div class="app-icon">⚗️</div>
-        <h3>Цветовые химические индикаторы утечек газа, кислот, щелочей и растворителей</h3>
-        <p>Технология профилактики аварийных ситуаций газовых и химических производственных объектов</p>
-      </div>
-    </div>
-  </section>
+<!--    <div class="apps-grid">-->
+<!--      <div class="app-card reveal">-->
+<!--        <div class="app-icon">🦺</div>-->
+<!--        <h3>Цветовые химические индикаторы параметров внешней среды для спецодежды персонала</h3>-->
+<!--        <p>Инновационный взгляд на повышение безопасности труда и сохранения здоровья работников</p>-->
+<!--      </div>-->
+<!--      <div class="app-card reveal">-->
+<!--        <div class="app-icon">🏭️</div>-->
+<!--        <h3>Цветовые химические индикаторы утечек водорода</h3>-->
+<!--        <p>Новейшая технология облегчения контроля аварийных ситуаций в космической, нефтяной и химической промышленности.</p>-->
+<!--      </div>-->
+<!--      <div class="app-card reveal">-->
+<!--        <div class="app-icon">🌡️</div>-->
+<!--        <h3>Цветовые химические индикаторы температуры</h3>-->
+<!--        <p>Передовая технология контроля перегревов знергетического оборудования и силовых линий, уменьшает аварийность и повышает безопасность труда</p>-->
+<!--      </div>-->
+<!--      <div class="app-card reveal">-->
+<!--        <div class="app-icon">⚗️</div>-->
+<!--        <h3>Цветовые химические индикаторы утечек газа, кислот, щелочей и растворителей</h3>-->
+<!--        <p>Технология профилактики аварийных ситуаций газовых и химических производственных объектов</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
 
   <!-- BENEFITS -->
   <section class="section" id="benefits">
@@ -1001,57 +1001,89 @@ body::after {
       <h2>ПРОДУКЦИЯ</h2>
 </div>
 
-    <div class="products-grid">
-      <!-- Product 1 -->
-      <div class="product-card reveal">
-  <img src="images/marker.png" alt="YALOS" class="footer-logo">
-        <h3>Маркер-индикатор перегревов</h3>
-        <p>Термомаркер японской компании Matsui International Co., Inc.</p>
-        <a href="product-detail1.html" class="product-cta">Читать дальше →</a>
-    </div>
+<!--    <div class="products-grid">-->
+<!--      &lt;!&ndash; Product 1 &ndash;&gt;-->
+<!--      <div class="product-card reveal">-->
+<!--  <img src="images/marker.png" alt="YALOS" class="footer-logo">-->
+<!--        <h3>Маркер-индикатор перегревов</h3>-->
+<!--        <p>Термомаркер японской компании Matsui International Co., Inc.</p>-->
+<!--        <a href="product-detail1.html" class="product-cta">Читать дальше →</a>-->
+<!--    </div>-->
 
-      <!-- Product 2 -->
-      <div class="product-card reveal">
-  <img src="images/cryst.png" alt="YALOS" class="footer-logo">
-        <h3>Термометры на жидких кристаллах</h3>
-        <p>Жидкокристаллические термометры нескольких типов, для промышленности и верхней одежды</p>
-        <a href="product-detail2.html" class="product-cta">Читать дальше →</a>
-    </div>
+<!--      &lt;!&ndash; Product 2 &ndash;&gt;-->
+<!--      <div class="product-card reveal">-->
+<!--  <img src="images/cryst.png" alt="YALOS" class="footer-logo">-->
+<!--        <h3>Термометры на жидких кристаллах</h3>-->
+<!--        <p>Жидкокристаллические термометры нескольких типов, для промышленности и верхней одежды</p>-->
+<!--        <a href="product-detail2.html" class="product-cta">Читать дальше →</a>-->
+<!--    </div>-->
 
       <!-- Product 3 -->
       <div class="product-card reveal">
-  <img src="images/iti.png" alt="YALOS" class="footer-logo">
+  <img src="images/ji2.png" alt="YALOS" class="footer-logo">
         <h3>Термоиндикаторы</h3>
         <p>Температурные индикаторы от компании "NiGK", зарекомендовали себя как надежный инструмент контроля температуры .</p>
         <a href="product-detail3.html" class="product-cta">Читать дальше →</a>
     </div>
 
-      <!-- Product 4 -->
-      <div class="product-card reveal">
-  <img src="images/izo1.png" alt="YALOS" class="footer-logo">
-        <h3>Изолента - индикатор перегревов</h3>
-        <p>Индикаторная обратимая термочувствительная изолента позволяет сохранить изоляцию различных кабельных соединений.</p>
-        <a href="product-detail4.html" class="product-cta">Читать дальше →</a>
-    </div>
+<!--      &lt;!&ndash; Product 4 &ndash;&gt;-->
+<!--      <div class="product-card reveal">-->
+<!--  <img src="images/izo1.png" alt="YALOS" class="footer-logo">-->
+<!--        <h3>Изолента - индикатор перегревов</h3>-->
+<!--        <p>Индикаторная обратимая термочувствительная изолента позволяет сохранить изоляцию различных кабельных соединений.</p>-->
+<!--        <a href="product-detail4.html" class="product-cta">Читать дальше →</a>-->
+<!--    </div>-->
 
       <!-- Product 5 -->
-      <div class="product-card reveal">
-  <img src="images/logo.png" alt="YALOS" class="footer-logo">
-        <h3>Химические индикаторы</h3>
-        <p>Индикаторы утечки водорода</p>
-        <a href="product-detail5.html" class="product-cta">Читать дальше →</a>
-    </div>
+<!--      <div class="product-card reveal">-->
+<!--  <img src="images/logo.png" alt="YALOS" class="footer-logo">-->
+<!--        <h3>Химические индикаторы</h3>-->
+<!--        <p>Индикаторы утечки водорода</p>-->
+<!--        <a href="product-detail5.html" class="product-cta">Читать дальше →</a>-->
+<!--    </div>-->
 
       <!-- Product 6 -->
+<!--      <div class="product-card reveal">-->
+<!--  <img src="images/telejka.png" alt="YALOS" class="footer-logo">-->
+<!--        <h3>Super Telezhka 3000</h3>-->
+<!--        <p>Наша компания поставляет для аэропортов пассажирские багажные тележки. Они имеют большое рекламное пространство и легкую алюминиевую конструкцию.</p>-->
+<!--        <a href="product-detail6.html" class="product-cta">Читать дальше →</a>-->
+<!--    </div>-->
+<!--      </div>-->
+
+  </section>
+
+<!--   DIST -->
+  <section class="section" id="dist">
+    <div class="section-title reveal">
+      <h2>ДИСТРИБУЦИЯ</h2>
+    </div>
+
+    <div class="products-grid">
+      <!-- Product 1 -->
       <div class="product-card reveal">
-  <img src="images/telejka.png" alt="YALOS" class="footer-logo">
+        <img src="images/telejka.png" alt="YALOS" class="footer-logo">
         <h3>Super Telezhka 3000</h3>
         <p>Наша компания поставляет для аэропортов пассажирские багажные тележки. Они имеют большое рекламное пространство и легкую алюминиевую конструкцию.</p>
         <a href="product-detail6.html" class="product-cta">Читать дальше →</a>
     </div>
+      <!-- Product 2 -->
+      <div class="product-card reveal">
+        <h3>Функциональные клапаны Dofun</h3>
+          <img src="images/Dofun.jpg" alt="YALOS" class="footer-logo">
+        <p>Функциональные клапаны, предназначенные для систем промышленного охлаждения </p>
+        <a href="product-detail7.html" class="product-cta">Читать дальше →</a>
       </div>
 
-  </section>
+      <!-- Product 3 -->
+      <div class="product-card reveal">
+        <h3>Металлопрокат Wuxi Moyu Keji Co., Ltd</h3>
+          <img src="images/Tube.jpg" alt="YALOS" class="footer-logo">
+
+        <p>Прямые поставки металлопроката из КНР на правах представителя компании Wuxi Moyu Keji Co., Ltd (КНР)</p>
+        <a href="product-detail8.html" class="product-cta">Читать дальше →</a>
+      </div>
+        </div>
 
   <!-- PROJECTS -->
   <section class="section" id="projects">
@@ -1070,7 +1102,7 @@ body::after {
       </div>
       <!-- Product 2 -->
       <div class="product-card reveal">
-        <h3>ДИСКОН</h3>
+        <h3>ПАК ДИСКОН</h3>
           <img src="images/diskon.jpeg" alt="YALOS" class="footer-logo">
 
         <p>Цифровизация и оперативный контроль в реальном масштабе времени, является стратегическим направлением развития управления производственными процессами и предупреждения аварий. </p>
@@ -1121,19 +1153,20 @@ body::after {
 </div>
       <div class="footer-col">
         <h4>Продукция</h4>
-        <a href="product-detail1.html">Маркер-индикатор перегревов</a>
-        <a href="product-detail2.html">Термометры на жидких кристаллах</a>
+<!--        <a href="product-detail1.html">Маркер-индикатор перегревов</a>-->
+<!--        <a href="product-detail2.html">Термометры на жидких кристаллах</a>-->
         <a href="product-detail3.html">Термоиндикаторы</a>
-        <a href="product-detail4.html">Изолента - индикатор перегревов</a>
-        <a href="product-detail5.html">Химические индикаторы</a>
-        <a href="product-detail6.html">Super Telezhka 3000</a>
+<!--        <a href="product-detail4.html">Изолента - индикатор перегревов</a>-->
+<!--        <a href="product-detail5.html">Химические индикаторы</a>-->
+<!--        <a href="product-detail6.html">Super Telezhka 3000</a>-->
 
       </div>
       <div class="footer-col">
         <h4>Навигация</h4>
-        <a href="#applications">Индикаторы</a>
+<!--        <a href="#applications">Индикаторы</a>-->
         <a href="#benefits">О нас</a>
         <a href="#products">Продукция</a>
+        <a href="#dist">Дистрибуция</a>
         <a href="#projects">Проекты</a>
       </div>
       <div class="footer-col">
