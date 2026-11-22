@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- ========== FAVICON ========== -->
+<!-- Основной favicon (для всех браузеров) -->
+<link href="/images/favicon.png" rel="icon" type="image/png"/>
+<!-- Для старых браузеров -->
+<link href="/images/favicon.png" rel="shortcut icon" type="image/png"/>
+<!-- Для iPhone/iPad (иконка при добавлении на главный экран) -->
+<link href="/images/favicon.png" rel="apple-touch-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NiGK Japan Thermal Indicators | NiGK Corporation Temperature Indicators — YALOS IC</title>
+<meta content="NiGK Japan thermal indicators for reliable equipment temperature control. Reversible, irreversible and combined thermal indicators from NiGK Corporation. Official supply." name="description"/>
+<meta content="NiGK Japan, NiGK Corporation, thermal indicators, temperature indicators, reversible thermal indicator, irreversible thermal indicator, temperature control" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://yalosindicator.com/en/product-detail3.html" rel="canonical"/>
+  <link href="https://yalosindicator.com/product-detail3.html" hreflang="ru" rel="alternate"/>
+  <link href="https://yalosindicator.com/en/product-detail3.html" hreflang="en" rel="alternate"/>
+  <link href="https://yalosindicator.com/product-detail3.html" hreflang="x-default" rel="alternate"/>
+  <meta content="website" property="og:type"/>
+  <meta content="YALOS INDICATOR" property="og:site_name"/>
+  <meta content="https://yalosindicator.com/en/product-detail3.html" property="og:url"/>
+  <meta content="NiGK Japan Thermal Indicators | NiGK Corporation Temperature Indicators — YALOS IC" property="og:title"/>
+  <meta content="NiGK Japan thermal indicators for reliable equipment temperature control. Reversible, irreversible and combined thermal indicators from NiGK Corporation. Official supply." property="og:description"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="ru_RU" property="og:locale:alternate"/>
+  <meta content="https://yalosindicator.com/images/logo.png" property="og:image"/>
+  <style>
+    /* --- Переключатель языка: ссылки вместо кнопки --- */
+    .nav-links .lang-switch a.lang-option,
+    .mobile-menu .lang-switch a.lang-option {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      color: rgba(230, 233, 240, 0.5);
+      text-decoration: none;
+    }
+    .nav-links .lang-switch a.lang-option::after { content: none; }
+    .nav-links .lang-switch a.lang-option.active,
+    .mobile-menu .lang-switch a.lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+    .nav-links .lang-switch a.lang-option:hover,
+    .mobile-menu .lang-switch a.lang-option:hover { color: #ffd700; }
+    .lang-switch a.lang-option:focus-visible { outline: 2px solid #00ff9d; outline-offset: 2px; }
+  </style>
+</head>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Orbitron:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+
+    /* ===================================================== */
+    /* LANGUAGE SWITCHER - НЕОНОВЫЙ СТИЛЬ */
+    /* ===================================================== */
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      padding: 6px 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(0, 255, 157, 0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+    }
+
+    .lang-switch:hover {
+      border-color: rgba(0, 255, 157, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    }
+
+    .lang-option {
+      color: rgba(230, 233, 240, 0.5);
+      transition: all 0.3s;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .lang-option:hover {
+      color: #ffd700;
+    }
+
+    .lang-divider {
+      color: rgba(230, 233, 240, 0.3);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* Стили страницы продукта */
+    .product-page {
+      padding: 140px 8% 80px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .product-media {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .product-image:hover img { transform: scale(1.03); }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+    }
+
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 8px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      width: fit-content;
+      margin-top: 8px;
+    }
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    @media (max-width: 1024px) {
+      .product-page {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+      }
+      .product-specs { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .navbar { padding: 14px 5%; }
+      .nav-links { display: none; }
+      .product-page { padding: 100px 5% 60px; }
+      .product-title { font-size: 24px; }
+      .btn-download, .btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    .product-image,
+    .btn-download {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+      50% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.6); }
+    }
+    .btn-download { animation: neonPulse 3s ease-in-out infinite; }
+
+    .product-info .btn-download {
+      margin: 32px auto 0 !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 2px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 50px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 10000;
+    }
+
+    .lightbox-close:hover {
+      color: #00ff9d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<a class="logo" href="/en/index.html">
+<img alt="YALOS" class="logo-icon" src="/images/logo.png"/>
+<div class="logo-text" data-i18n="nav.logo">COMPANY <span>YALOS</span></div>
+</a>
+<ul class="nav-links">
+<li>
+<div class="lang-switch"><a class="lang-option" href="/product-detail3.html" hreflang="ru" lang="ru" title="Русская версия">RU</a>
+<span class="lang-divider">|</span>
+<a aria-current="page" class="lang-option active" href="/en/product-detail3.html" hreflang="en" lang="en">EN</a></div>
+</li>
+</ul>
+<a class="nav-cta" data-i18n="nav.cta" href="/en/index.html#contact">Request Quote</a>
+</nav>
+<!-- ПРОДУКТ -->
+<main class="product-page">
+<div class="product-info">
+<h1 class="product-title" data-i18n="product.title">Thermal Indicators</h1>
+<div class="product-specs">
+<p class="product-description" data-i18n="product.desc1">LLC "Innovative Company Yalos" is the exclusive distributor in the markets of Russia, Belarus, and Kazakhstan of specialized industrial and energy indicators from the world market leader, the Japanese company "NiGK". Temperature indicators from "NiGK" have proven themselves as a reliable tool for monitoring the temperature of heated surfaces, and their long-term use over 35 years has proven their reliability and efficiency. Hundreds of high-tech companies in Japan, Europe, the USA, and China use temperature indicators as a means of reducing accidents and ensuring the safety of production personnel.</p>
+<br/>
+<p class="product-description" data-i18n="product.desc2">Temperature indicators occupy their niche despite the large number of various automated means of monitoring temperature overheating. The positive characteristics of thermal indicators allow them to be used as an effective addition to any automated safety systems.</p>
+</div>
+<!-- Характеристики -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec1.label">Positive qualities of thermal indicators for monitoring overheating of equipment and transmission lines in the energy sector:</span>
+<span class="spec-value" data-i18n="product.spec1.value">- Overheating is guaranteed to be detected (Continuous temperature recording);
+- No weather conditions affect the operation of the indicator;
+- No maintenance or adjustment required;
+- No power supply required;
+- Direct reading from the monitored surface;
+- They have the size and weight of a sticker, ultra-light, can be small-sized;
+- Can be installed in hard-to-reach places where the monitored surfaces are located (where it is difficult to read indicators with a beam or thermal imager);
+- Will serve as proof of overheating, filed as evidence in inspection and repair logs;
+- When equipped with fluorescent additives, it will be clearly visible in flashlight light at night;
+- Service life 4-10 years;
+- Reversible thermal indicators can be used repeatedly;
+- Weather conditions do not affect the indicator design - frost, heat, humidity and other natural factors;
+- Not afraid of oils, vapors and dirt;
+- When choosing the appropriate size, it will be easily visible from afar (no need to look closely);
+- When simultaneously installing indicators with a scale or several identical indicators with different operating temperatures, it will allow you to monitor both the threshold temperature and the preliminary one, for preventive maintenance;
+- Small, affordable price for everyone;
+- Do not compete with existing automated systems - they functionally complement them</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec2.label">Thermal indicators do not replace measuring instruments, they functionally complement them, becoming a mass means of monitoring the threshold levels of power equipment operation.</span>
+<span class="spec-value" data-i18n="product.spec2.value">Their use will reduce accidents, increase energy savings, and improve equipment maintenance and monitoring.</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec3.label">EXAMPLE OF USING COLOR THERMAL INDICATORS FOR ENERGY AND HEATING EQUIPMENT</span>
+<span class="spec-label" data-i18n="product.spec3.sublabel">Monitoring abnormal temperatures in transformers:</span>
+<span class="spec-value" data-i18n="product.spec3.value">-Switches and fixed contact terminals
+- Protective switches with fixed or movable contact
+- Main transformer body
+- Capacitors</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec4.label">Power equipment monitoring:</span>
+<span class="spec-value" data-i18n="product.spec4.value">Monitoring the temperature of electromagnetic switches, electromagnetic contactors, electromagnetic relays, knife switches, high-voltage switches, high-voltage load switches, power capacitors and magnetic amplifiers</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec5.label">Power transmission equipment:</span>
+<span class="spec-value" data-i18n="product.spec5.value">- Monitoring for abnormal heat generation in connectors and jumper bushings.
+- Monitoring the temperature of terminals for feeder lines, negative feeder lines, overhead lines, support lines, branch connectors, jumper connectors, connectors and feeders.</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec6.label">Rotating electrical equipment:</span>
+<span class="spec-value" data-i18n="product.spec6.value">Monitoring the temperature of motors and monitoring the temperature of rotating parts of machines and windings,</span>
+</div>
+</div>
+<!-- Кнопка скачивания PDF -->
+<div style="text-align: center; margin-top: 32px;">
+<a class="btn-download" download="" href="/images/5.pdf">
+<svg viewbox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></svg>
+<span data-i18n="product.download">Download Presentation</span>
+</a>
+</div>
+</div>
+<!-- Медиа -->
+<div class="product-media">
+<br/>
+<div class="product-image">
+<img alt="Thermal indicators" src="/images/tiii.png"/>
+</div>
+<br/>
+<div class="product-image">
+<img alt="Thermal indicators" src="/images/tim.png"/>
+</div>
+<br/>
+<div class="product-image">
+<img alt="Thermal indicators" src="/images/ti3.png"/>
+</div>
+<br/>
+<div class="product-image">
+<img alt="Thermal indicators" src="/images/ti4.png"/>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="page-footer">
+<p data-i18n="footer.copyright">© 2026 LLC "Innovative Company YALOS". All rights reserved.</p>
+</footer>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close">×</span>
+<img alt="Enlarged image" id="lightbox-img" src=""/>
+</div>
+<!-- СКРИПТЫ -->
+<script>
+    /* ===================================================== */
+    /* TRANSLATIONS DICTIONARY */
+    /* ===================================================== */
+    const translations = {
+      ru: {
+        'nav.logo': 'КОМПАНИЯ <span>ЯЛОС</span>',
+        'nav.cta': 'Запросить КП',
+
+        'product.title': 'Термоиндикаторы',
+        'product.desc1': 'ООО "Инновационная компания "Ялос" является эксклюзивным дистрибьютором на рынке России, Белоруссии, Казахстана, специализированных промышленных и энергетических индикаторов, от лидера мирового рынка, японской компании "NiGK". Температурные индикаторы от компании "NiGK", зарекомендовали себя как надежный инструмент контроля температуры нагретых поверхностей, длительный срок их применения, в течении 35 лет, доказал их надежность и эффективность. Сотни высокотехнологичных компаний в Японии, Европы, США и Китая используют температурные индикаторы как средство уменьшения аварийности и безопасности труда производственного персонала.',
+        'product.desc2': 'Температурные индикаторы занимают свою нишу, несмотря на большое количество различных автоматизированных средств контроля температурного перегрева. Положительные характеристики термоиндикаторов, позволяют их использовать как эффективное дополнение к любым автоматизированным средствам безопасности.',
+        'product.spec1.label': 'Положительные качества термоиндикаторов по контролю перегревов оборудования и линий передачи в энергетике:',
+        'product.spec1.value': '- Гарантированно обнаруживается перегрев (Постоянная запись температуры);\n- Никакие погодные условия не влияют на срабатывание индикатора;\n- Не нужно обслуживание и настройка;\n- Не нужно энергоснабжение;\n- Прямое считывание с контролируемой поверхности;\n- Имеют размер и вес стикера, сверхлегкие, могут быть малоразмерными;\n- Можно установить в труднодоступные места, где находятся контролируемые поверхности (в которых трудно считать показатели лучом или тепловизором);\n- Будет являться доказательством перегрева, подшивается как доказательство, в журнал осмотров и ремонтов;\n- При снабжении индикатора флуоресцентными добавками, будет отлично виден при свете фонаря в ночное время;\n- Срок работы 4-10 лет;\n- Обратимые термоиндикаторы могут использоваться многократно;\n- На конструкцию индикатора не влияют погодные условия – мороз, жара, влажность и иные факторы природы;\n- Не боится масел, паров и грязи;\n- При выборе соответствующего размера будет легко виден из далека (не нужно присматриваться);\n- При одновременной установке индикаторов с шкалой или нескольких одинаковых индикаторов с различными температурами срабатывания, позволит контролировать как пороговую температуру, так и предварительную, для профилактического ремонта;\n- Небольшая, всем доступная цена;\n- Не конкурируют с действующими автоматизированными системами – они их функционально дополняют',
+        'product.spec2.label': 'Термоиндикаторы не заменяют измерительные приборы, они их функционально дополняют, становясь массовым средством контроля пороговых уровней работы энергетического оборудования.',
+        'product.spec2.value': 'Их применение позволит уменьшить аварийность, повысить энергосбережение, улучшить обслуживание и контроль работы оборудования.',
+        'product.spec3.label': 'ПРИМЕР ПРИМЕНЕНИЯ ЦВЕТОВЫХ ТЕРМОИНДИКАТОРОВ ДЛЯ ЭНЕРГЕТИКИ И ТЕПЛОВОГО ОБОРУДОВАНИЯ',
+        'product.spec3.sublabel': 'Мониторинг аномальных температур в трансформаторах:',
+        'product.spec3.value': '-Выключатели и фиксированные контактные клеммы\n- Защитные выключатели с фиксированным контактом или подвижным контактом\n- Основной корпус трансформатора\n- Конденсаторы',
+        'product.spec4.label': 'Контроль энергетического оборудования:',
+        'product.spec4.value': 'Мониторинг температуры электромагнитных выключателей, электромагнитных контакторов, электромагнитных реле, ножевых выключателей, высоковольтных выключателей, высоковольтных выключателей нагрузки, силовых конденсаторов и магнитных усилителей',
+        'product.spec5.label': 'Оборудование для передачи энергии:',
+        'product.spec5.value': '- Мониторинг для аномальной генерации тепла в разъемах и втулках для перемычек.\n- Контроль температуры клемм для фидерных линий, отрицательных фидерных линий, воздушных линий, опорных линий, соединителей ответвления, соединителей перемычек, разъемов и фидеров.',
+        'product.spec6.label': 'Вращающееся электрооборудование:',
+        'product.spec6.value': 'Мониторинг температуры двигателей и контроль температуры вращающихся частей машин и обмоток,',
+        'product.download': 'Скачать презентацию',
+
+        'footer.copyright': '© 2026 ООО «Инновационная компания «ЯЛОС». Все права защищены.'
+      },
+      en: {
+        'nav.logo': 'COMPANY <span>YALOS</span>',
+        'nav.cta': 'Request Quote',
+
+        'product.title': 'Thermal Indicators',
+        'product.desc1': 'LLC "Innovative Company Yalos" is the exclusive distributor in the markets of Russia, Belarus, and Kazakhstan of specialized industrial and energy indicators from the world market leader, the Japanese company "NiGK". Temperature indicators from "NiGK" have proven themselves as a reliable tool for monitoring the temperature of heated surfaces, and their long-term use over 35 years has proven their reliability and efficiency. Hundreds of high-tech companies in Japan, Europe, the USA, and China use temperature indicators as a means of reducing accidents and ensuring the safety of production personnel.',
+        'product.desc2': 'Temperature indicators occupy their niche despite the large number of various automated means of monitoring temperature overheating. The positive characteristics of thermal indicators allow them to be used as an effective addition to any automated safety systems.',
+        'product.spec1.label': 'Positive qualities of thermal indicators for monitoring overheating of equipment and transmission lines in the energy sector:',
+        'product.spec1.value': '- Overheating is guaranteed to be detected (Continuous temperature recording);\n- No weather conditions affect the operation of the indicator;\n- No maintenance or adjustment required;\n- No power supply required;\n- Direct reading from the monitored surface;\n- They have the size and weight of a sticker, ultra-light, can be small-sized;\n- Can be installed in hard-to-reach places where the monitored surfaces are located (where it is difficult to read indicators with a beam or thermal imager);\n- Will serve as proof of overheating, filed as evidence in inspection and repair logs;\n- When equipped with fluorescent additives, it will be clearly visible in flashlight light at night;\n- Service life 4-10 years;\n- Reversible thermal indicators can be used repeatedly;\n- Weather conditions do not affect the indicator design - frost, heat, humidity and other natural factors;\n- Not afraid of oils, vapors and dirt;\n- When choosing the appropriate size, it will be easily visible from afar (no need to look closely);\n- When simultaneously installing indicators with a scale or several identical indicators with different operating temperatures, it will allow you to monitor both the threshold temperature and the preliminary one, for preventive maintenance;\n- Small, affordable price for everyone;\n- Do not compete with existing automated systems - they functionally complement them',
+        'product.spec2.label': 'Thermal indicators do not replace measuring instruments, they functionally complement them, becoming a mass means of monitoring the threshold levels of power equipment operation.',
+        'product.spec2.value': 'Their use will reduce accidents, increase energy savings, and improve equipment maintenance and monitoring.',
+        'product.spec3.label': 'EXAMPLE OF USING COLOR THERMAL INDICATORS FOR ENERGY AND HEATING EQUIPMENT',
+        'product.spec3.sublabel': 'Monitoring abnormal temperatures in transformers:',
+        'product.spec3.value': '-Switches and fixed contact terminals\n- Protective switches with fixed or movable contact\n- Main transformer body\n- Capacitors',
+        'product.spec4.label': 'Power equipment monitoring:',
+        'product.spec4.value': 'Monitoring the temperature of electromagnetic switches, electromagnetic contactors, electromagnetic relays, knife switches, high-voltage switches, high-voltage load switches, power capacitors and magnetic amplifiers',
+        'product.spec5.label': 'Power transmission equipment:',
+        'product.spec5.value': '- Monitoring for abnormal heat generation in connectors and jumper bushings.\n- Monitoring the temperature of terminals for feeder lines, negative feeder lines, overhead lines, support lines, branch connectors, jumper connectors, connectors and feeders.',
+        'product.spec6.label': 'Rotating electrical equipment:',
+        'product.spec6.value': 'Monitoring the temperature of motors and monitoring the temperature of rotating parts of machines and windings,',
+        'product.download': 'Download Presentation',
+
+        'footer.copyright': '© 2026 LLC "Innovative Company YALOS". All rights reserved.'
+      }
+    };
+
+
+
+    
+    /* ===================================================== */
+    /* LIGHTBOX */
+    /* ===================================================== */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

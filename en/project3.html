@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- ========== FAVICON ========== -->
+<!-- Основной favicon (для всех браузеров) -->
+<link href="/images/favicon.png" rel="icon" type="image/png"/>
+<!-- Для старых браузеров -->
+<link href="/images/favicon.png" rel="shortcut icon" type="image/png"/>
+<!-- Для iPhone/iPad (иконка при добавлении на главный экран) -->
+<link href="/images/favicon.png" rel="apple-touch-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YALOS STREAM | Sound Virtual Reality Cinema Attraction — YALOS IC</title>
+<meta content="YALOS STREAM project: collective sound virtual reality technology for forming and controlling close-field sound. Turning every cinema into an attraction." name="description"/>
+<meta content="YALOS STREAM, Yalos Stream, sound virtual reality, close-field sound, cinema attraction, audio technology" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://yalosindicator.com/en/project3.html" rel="canonical"/>
+  <link href="https://yalosindicator.com/project3.html" hreflang="ru" rel="alternate"/>
+  <link href="https://yalosindicator.com/en/project3.html" hreflang="en" rel="alternate"/>
+  <link href="https://yalosindicator.com/project3.html" hreflang="x-default" rel="alternate"/>
+  <meta content="website" property="og:type"/>
+  <meta content="YALOS INDICATOR" property="og:site_name"/>
+  <meta content="https://yalosindicator.com/en/project3.html" property="og:url"/>
+  <meta content="YALOS STREAM | Sound Virtual Reality Cinema Attraction — YALOS IC" property="og:title"/>
+  <meta content="YALOS STREAM project: collective sound virtual reality technology for forming and controlling close-field sound. Turning every cinema into an attraction." property="og:description"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="ru_RU" property="og:locale:alternate"/>
+  <meta content="https://yalosindicator.com/images/logo.png" property="og:image"/>
+  <style>
+    /* --- Переключатель языка: ссылки вместо кнопки --- */
+    .nav-links .lang-switch a.lang-option,
+    .mobile-menu .lang-switch a.lang-option {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      color: rgba(230, 233, 240, 0.5);
+      text-decoration: none;
+    }
+    .nav-links .lang-switch a.lang-option::after { content: none; }
+    .nav-links .lang-switch a.lang-option.active,
+    .mobile-menu .lang-switch a.lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+    .nav-links .lang-switch a.lang-option:hover,
+    .mobile-menu .lang-switch a.lang-option:hover { color: #ffd700; }
+    .lang-switch a.lang-option:focus-visible { outline: 2px solid #00ff9d; outline-offset: 2px; }
+  </style>
+</head>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Orbitron:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      padding: 6px 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(0, 255, 157, 0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+    }
+
+    .lang-switch:hover {
+      border-color: rgba(0, 255, 157, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    }
+
+    .lang-option {
+      color: rgba(230, 233, 240, 0.5);
+      transition: all 0.3s;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .lang-option:hover {
+      color: #ffd700;
+    }
+
+    .lang-divider {
+      color: rgba(230, 233, 240, 0.3);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    .product-page {
+      padding: 140px 5% 80px;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content-block {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 10px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+      cursor: zoom-in;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+      margin-top: 40px;
+    }
+
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+      .product-page {
+        padding: 120px 4% 60px;
+      }
+      .content-block, .product-specs {
+        padding: 20px;
+      }
+    }
+
+    .product-image {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover { color: #00ff9d; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .product-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      min-height: 400px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(100, 180, 255, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+    }
+
+    .product-video iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+      .inline-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.inline-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.inline-link:hover {
+    color: var(--gold-light);
+}
+
+.inline-link:hover::after {
+    width: 100%;
+}
+
+/* Для белых секций */
+.bg-white .inline-link {
+    color: var(--gold-dark);
+}
+
+.bg-white .inline-link:hover {
+    color: var(--gold);
+}
+  </style>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<a class="logo" href="/en/index.html">
+<img alt="YALOS" class="logo-icon" src="/images/logo.png"/>
+<div class="logo-text" data-i18n="nav.logo">COMPANY <span>YALOS</span></div>
+</a>
+<ul class="nav-links">
+<li>
+<div class="lang-switch"><a class="lang-option" href="/project3.html" hreflang="ru" lang="ru" title="Русская версия">RU</a>
+<span class="lang-divider">|</span>
+<a aria-current="page" class="lang-option active" href="/en/project3.html" hreflang="en" lang="en">EN</a></div>
+</li>
+</ul>
+<a class="nav-cta" data-i18n="nav.cta" href="/en/index.html#contact">Request Quote</a>
+</nav>
+<!-- ПРОДУКТ -->
+<main class="product-page">
+<h1 class="product-title" data-i18n="product.title">Technology of Collective Sound Virtual Reality "Yalos Stream"</h1>
+<div class="content-block">
+<p class="product-description" data-i18n="product.desc1">New breakthrough technology for forming and controlling "close" sounds "Yalos Stream" for turning a cinema into an attraction (thereby increasing its attendance). The "Yalos Stream" technology <span>https://yalos-project.com/</span>is designed to create a "presence" effect for viewers at the location of events happening on the screens of cinemas and concert halls (collective sound virtual reality).</p>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="STREAM" src="/images/stream.jpg"/>
+</div>
+<div class="product-image">
+<img alt="STREAM" src="/images/str.png"/>
+</div>
+</div>
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec1.label">In February 2017, the company received patent No. 9,584,936 "METHOD FOR CONTROLLING SOUND IN AN AUDITORIUM" in the USA for sound control technology, and on March 14, 2017, patent RU2612997 in Russia (information published in the official ROSPATENT bulletin No. 8-2017 from 11.03.2017-20.03.2017).</span>
+<span class="spec-value" data-i18n="product.spec1.value">Referring to the obtained patents, since August 2018, the company's specialists have begun developing the "Yalos Stream" sound processor, designed for cluster reproduction of "close" sounds and controlling their movement trajectories throughout the auditorium.
+
+On December 27, 2019, our startup won the all-Russian START-1 program competition announced by the Foundation for Assistance to Innovation, Contract 0057518, application No. C1-66645, Start-19-1 competition (4th queue). We were awarded a grant for R&amp;D to create PROTOTYPE No. 2, the "Yalos Stream" virtual reality sound processor.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="STREAM" src="/images/patent_ros.jpg"/>
+</div>
+<div class="product-image">
+<img alt="STREAM" src="/images/patent_am.jpg"/>
+</div>
+</div>
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec2.label">INTRODUCTION TO THE PROBLEM THE PROJECT SOLVES:</span>
+<span class="spec-value" data-i18n="product.spec2.value">According to research conducted by "DOLBY", all sounds in the world around us are divided into "upper", "middle" and "close" sounds. Cinema sound systems using speakers located on the walls and ceiling of cinema halls realistically reproduce only "upper" and "middle" sounds.
+1) most realistically at angles close to 90 degrees, the viewer hears "upper sounds". They are emitted by ceiling sound systems or audio speakers installed high on the walls of the cinema.
+2) "middle sounds" are also realistically reproduced by viewers in the cinema. However, these sounds are emitted at an angle from 15 to 45 degrees, and for these purposes, audio speakers placed on the side and end walls of cinema halls are excellent.
+ATTENTION:
+3) "Close sounds" cannot be realistically reproduced by any sound system, as they propagate at an angle of 0 degrees (in the horizontal plane to the viewers' hearing organs) and should be reproduced next to the viewer at a distance of 1-2 meters.
+In cinemas, due to the presence of acoustic devices on the walls and ceiling, and not next to the viewer, it is impossible to realistically reproduce "close sounds", i.e. the effect of "presence", as in the real world, is practically impossible to achieve. Even with such modern multi-channel sound systems as Dolby Atmos or IMAX, the viewer will never have a sense of complete presence at the location of the events being shown on the screen.
+The sound environment in the cinema will be most realistic only if it resembles the human surrounding world. Viewers in cinemas will be able to fully feel themselves as participants in the events happening on the screen only with the presence of "close sounds", that is, sounds that occur in life next to people at a distance from 15 cm to several meters, in the horizontal plane of hearing (footsteps, rain noise, wind, etc.).
+"Close sounds" significantly (up to 70%) affect the sensation of the realism of events surrounding a person.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="STREAM" src="/images/st3.png"/>
+</div>
+<div class="product-image">
+<img alt="STREAM" src="/images/st7.png"/>
+</div>
+</div>
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec3.label">The "Yalos Stream" technology reproduces only "close sounds"</span>
+<span class="spec-value" data-i18n="product.spec3.value">"Yalos Stream" delivers "close sounds" to the viewer in the horizontal plane, through sound reproducing devices (speakers) built into the cinema seats.
+The main idea of the project is to turn any cinema into a cinema attraction, with the best effect of "presence" of the viewer in the events shown on the screen (as in the surrounding world), thereby increasing cinema attendance and increasing the cost of viewing.
+Another significant advantage of the "Yalos Stream" technology is that this technology allows the viewer to experience collective emotions, i.e. viewers in the hall receive exciting impressions not only from the new type of sound reality, but also from the emotions of their neighbors. This effect is comparable to the effect of participants in the "roller coaster" attraction.
+The "presence" effect created by the new technology can be used not only in cinema, but also during various shows, concerts and attractions in amusement parks.
+The "YALOS STREAM" system does not compete with any existing sound system, it successfully complements them, creating a sense of collective immersion in the events happening on the screen.</span>
+</div>
+</div>
+<div class="product-video">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="images/phc.mp4">
+</iframe>
+</div>
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-value" data-i18n="product.spec4.value"><span class="spec-label" data-i18n="product.spec4.goal">Strategic goal of the project</span> – creation of a mass, accessible and inexpensive sound system of collective virtual reality, providing viewers with a "presence" effect when watching films, concerts and shows as an additional option to existing sound equipment.
+<span class="spec-label" data-i18n="product.spec4.clients">Target customers</span> - the global film industry, concert organizations, amusement parks, home electronics manufacturers, automotive industry.
+<span class="spec-label" data-i18n="product.spec4.niche">Target niche of the project</span> – halls for collective viewing of films and concerts, household (home) use, cinema attractions in amusement parks.
+<span class="spec-label" data-i18n="product.spec4.near">Nearest goal of the project</span> – completion of the stage of creating prototype No. 2 - Mini cinema (prototype No. 1 has been successfully created, which confirmed the patented characteristics of the "Yalos Stream" technology).
+<span class="spec-label" data-i18n="product.spec4.perspectives">Project prospects</span> - creation of mobile prototype No. 3 for its demonstration at world exhibitions of innovations and new technologies (for example, the NAB exhibition in Las Vegas, the AMF exhibition in Santa Monica, etc.) to find a strategic partner for joint work on implementing the technology in the global film industry.
+As an additional option, creating based on the mobile version of prototype No. 3, a commercial version of the Mini cinema using the "Yalos Stream" collective virtual reality technology, for use in the railway station network, in airports, in small settlements, as a school cinema for the education system.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="STREAM" src="/images/stream.png"/>
+</div>
+<div class="product-image">
+<img alt="STREAM" src="/images/str4.jpg"/>
+</div>
+</div>
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec5.label">Main advantages of Yalos Stream</span>
+<span class="spec-value" data-i18n="product.spec5.value">- The technology does not use the film's sound track
+- Surrounds the viewer with "close" sounds, creates the effect of the viewer's presence at the location of events on the cinema screen
+- Causes collective emotions of viewers when watching films together surrounded by "close" sounds
+- Reproduces only horizontal "close sounds" next to the viewer
+- Does not use channel sound recording
+- Uses only speakers placed in the seats of the auditorium
+- Can control the movement of sounds in any direction in the hall
+- Can reproduce sounds in any number of speakers
+- Reproduces sounds in the form of sound clusters of any size
+- Allows you to create different sound scenarios for the same film
+- Allows you to create sound scenarios for old films
+- Low cost up to $35,000 per cinema with 300-500 seats
+- Has options for installing speakers without replacing seats in the auditorium
+- Has different configurations from "Economy" to "VIP"
+- Technology is protected by patents in the USA and Russia
+- Does not compete with any sound system installed in cinemas, this is their option
+- Quick adaptation to any cinema, does not require sound setup.</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec6.label">Project stages</span>
+<span class="spec-value" data-i18n="product.spec6.value">In February 2019, prototype No. 1 was manufactured, confirming the patented characteristics of the "Yalos Stream" technology for forming and controlling the movement of sound clusters of "close sounds".
+Prototype No. 1 includes a sound processor, a sound matrix and software.
+At the beginning of work on prototype No. 2 (mini cinema), analogues of sound speakers that can be installed in cinema seats were tested. The test showed excellent results. In the video clip, you can clearly see the movement of several sound clusters of different sizes moving along given trajectories.
+In December 2020, a working model of a sound matrix simulating a cinema and a new version of the "Yalos Stream" 2.0 sound processor were created.</span>
+</div>
+</div>
+<div style="text-align: center; margin-top: 32px;">
+<a class="btn-download" download="" href="/images/stream.pdf">
+<svg viewbox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></svg>
+<span data-i18n="product.download">download presentation</span>
+</a>
+</div>
+</main>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close">×</span>
+<img alt="Enlarged image" id="lightbox-img" src=""/>
+</div>
+<!-- FOOTER -->
+<footer class="page-footer">
+<p data-i18n="footer.copyright">© 2026 LLC "Innovative Company YALOS". All rights reserved.</p>
+</footer>
+<!-- СКРИПТЫ -->
+<script>
+    const translations = {
+      ru: {
+        'nav.logo': 'КОМПАНИЯ <span>ЯЛОС</span>',
+        'nav.cta': 'Запросить КП',
+
+        'product.title': 'Технология коллективной, звуковой виртуальной реальности "Yalos Stream"',
+        'product.desc1': 'Новая прорывная технологию формирования и управления «близкими» звуками «Yalos Stream» превращения кинотеатра в аттракцион (тем самым повышая его посещаемость) Технология «Yalos Stream» <span>https://yalos-project.com/</span>предназначена для создания у зрителей эффекта «присутствия» в месте событий, происходящих на экране кинотеатров и концертных залах (коллективная звуковая виртуальная реальность).',
+        'product.spec1.label': 'В феврале 2017 года, компания получила патент № 9,584,936 "METHOD FOR CONTROLLING SOUND IN AN AUDITORIUM" в США на технологию управления звуком, а 14 марта 2017 года патент RU2612997 в России (информация опубликована в официальном бюллетене РОСПАТЕНТА №8-2017 от 11.03.2017-20.03.2017).',
+        'product.spec1.value': 'Ссылаясь на полученные патенты, с августа 2018 года специалистами компании начата разработка звукового процессора "Yalos Stream", предназначенного для кластерного воспроизведения "близких" звуков и управления их траекториями движения по всему зрительному залу.\n\n27 декабря 2019 года наш стартап победил в всероссийском конкурсе программы СТАРТ-1, объявленного Фондом Содействия Инновациям, Договор 0057518, заявка №С1-66645, конкурс Старт-19-1 (4 очередь) Нам выделен грант на НИОКР по созданию ПРОТОТИПА №2, звукового процессора виртуальной реальности "Yalos Stream".',
+        'product.spec2.label': 'ВСТУПЛЕНИЕ В ПРОБЛЕМУ КОТОРУЮ РЕШАЕТ ПРОЕКТ:',
+        'product.spec2.value': 'Согласно исследованиям, проведенные компанией «DOLBY», все звуки в окружающем нас мире подразделяются на «верхние», «средние» и «близкие». Звуковые системы кинотеатров с помощью звуковых колонок, расположенных на стенах и потолке кинозалов, реалистично воспроизводят только «верхние» и «средние» звуки.\n1) наиболее реалистично под углами, близкими к 90 градусам, зритель слышит «верхние звуки». Их излучают потолочные звуковые системы или аудиоколонки, установленные высоко на стенах кинотеатра.\n2) «средние звуки» также реалистично воспроизводятся зрителями в кинотеатре. Однако, эти звуки излучаются уже под углом от 15 до 45 градусов, и для этих целей отлично подходят аудиоколонки, размещенные на боковых и торцевых стенах кинозалов.\nВНИМАНИЕ:\n3) «Близкие звуки» не могут быть реалистично воспроизведены ни одной звуковой системой, так как они распространяются под углом 0 градусов (в горизонтальной плоскости к органам слуха зрителей) и должны воспроизводится рядом с зрителем на расстоянии 1-2 метра.\nВ кинотеатрах ввиду наличия акустических устройств на стенах и потолке, а не рядом с зрителем, «близкие звуки» реалистично, воспроизвести не возможно, т.е. эффекта «присутствия», как в реальном мире, достичь практически не возможно. Даже с такими современными многоканальными системами звука, как Dolby Atmos или IMAX, у зрителя никогда не будет ощущения полного присутствия на месте развития событий, которые демонстрируются на экране.\nЗвуковое окружение в кинотеатре будет наиболее реалистичным, только при условии, что оно будет похоже на окружающий мир человека. Зрители в кинотеатрах, смогут в полном объеме ощутить себя участниками происходящих событий на экране, только при наличии «близких звуков», то есть звуков, которые происходят в жизни рядом с людьми на расстоянии от 15 см до нескольких метров, в горизонтальной плоскости слышимости (шаги, шум дождя, ветер и т.д.).\n«Близкие звуки» существенно (до 70%) влияют на ощущение реалистичности окружающих человека событий.',
+        'product.spec3.label': 'ТЕХНОЛОГИЯ «Yalos Stream» воспроизводит только "близкие звуки"',
+        'product.spec3.value': '"Yalos Stream" подает «близкие звуки» зрителю в горизонтальной плоскости, через звуковые воспроизводящие устройства (динамики), встроенные в кресла кинотеатра.\nГлавная идея проекта –превращение любого кинотеатра в кино аттракцион, с наилучшим эффектом «присутствия» зрителя в событиях, которые демонстрируются на экране, (как в окружающем мире), тем самым увеличивая посещаемость кинотеатров и увеличивая стоимость просмотра.\nЕще один существенный плюс технологии «Yalos Stream» состоит в том, что данная технология позволяет зрителю испытать коллективные эмоции, т.е. зрители в зале, получают захватывающие впечатления не только от нового вида звуковой реальности, но и от эмоций своих соседей. Подобный эффект сопоставим с эффектом участников аттракциона «американские» горки.\nЭффект «присутствия», созданный новой технологией может быть использован не только в кино, но и при проведениях различных шоу, концертов и аттракционов в парках развлечений.\nСистема «YALOS STREAM» не конкурирует ни с одной существующей звуковой системой, она их удачно дополняет, создавая ощущение коллективного, погружения в события, происходящие на экране.',
+        'product.spec4.value': '<span class="spec-label" data-i18n="product.spec4.goal">Стратегическая цель проекта</span> – создание массовой, доступной и не дорогой, звуковой системы, коллективной виртуальной реальности, предоставляющей зрителям эффект «присутствия» при просмотре фильмов , концертов и шоу в виде дополнительной опции к уже существующему звуковому оборудованию.\n<span class="spec-label" data-i18n="product.spec4.clients">Целевые клиенты</span> - мировая киноиндустрия, концертные организации, парки развлечений, производители домашней электроники, автомобильная промышленность.\n<span class="spec-label" data-i18n="product.spec4.niche">Целевая ниша проекта</span> – залы для коллективного просмотра фильмов и концертов, бытовое (домашнее) применение, киноаттракционы в парках развлечений.\n<span class="spec-label" data-i18n="product.spec4.near">Ближайшая цель проекта</span> – завершение стадии создания прототипа №2- Мини кинотеатр (успешно создан прототип №1, который подтвердил запатентованные характеристики технологии "Yalos Stream").\n<span class="spec-label" data-i18n="product.spec4.perspectives">Перспективы проекта</span> - создание мобильного прототипа №3 для его демонстрации на мировых выставках инноваций и новых технологий (например выставка NAB в Лас-Вегасе, выставка AMF в Санта-Монике и т.д.) для нахождения стратегического партнера для совместной работе по внедрению технологии в мировую киноиндустрию.\nКак дополнительный вариант, создание на безе мобильной версии прототипа №3, коммерческой версии Мини кинотеатра, использующего технологию коллективной виртуальной реальности "Yalos Stream", для использования в вокзальной сети железных дорог, в аэропортах, в небольших населенных пунктах, как школьного кинотеатра для системы образования.',
+        'product.spec4.goal': 'Стратегическая цель проекта',
+        'product.spec4.clients': 'Целевые клиенты',
+        'product.spec4.niche': 'Целевая ниша проекта',
+        'product.spec4.near': 'Ближайшая цель проекта',
+        'product.spec4.perspectives': 'Перспективы проекта',
+        'product.spec5.label': 'Основные преимущества Yalos Stream',
+        'product.spec5.value': '- Технология не использует звуковую дорожку фильма\n- Окружает зрителя «близкими» звуками, создает эффект присутствия зрителя в месте событий на экране кинотеатра\n- Вызывает коллективные эмоции зрителей при совместном просмотре фильмов в окружении «близких» звуков\n- Воспроизводит только горизонтальные «близкие звуки» рядом с зрителем\n- Не использует канальную запись звука\n- Использует только динамики, размещенные в креслах зрительного зала\n- Может управлять движением звуков по любым направлениям в зале\n- Может воспроизводить звуки в любом количестве динамиков\n- Звуки воспроизводит в виде звуковых кластеров любого размера\n- Позволяет создавать различные звуковые сценарии для одного и того же фильма\n- Позволяет создавать звуковые сценарии для старых фильмов\n- Небольшая стоимость до 35 тыс. долларов на кинотеатр 300-500 мест\n- Имеет варианты установки динамиков, без замены кресел в зрительном зале\n- Имеет разные комплектации от «Эконом» до «VIP»\n- Технология защищена патентами в США и России\n- Не конкурирует ни с одной звуковой системой, установленной в кинотеатрах, это их опция\n- Быстрая адаптация к любому кинотеатру, не требует звуковой настройки.',
+        'product.spec6.label': 'Стадии проекта',
+        'product.spec6.value': 'В феврале 2019 года изготовлен прототип №1, подтверждающий запатентованные характеристики технологии "Yalos Stream" по формированию и управлению движением звуковых кластеров «близких звуков».\nВ состав прототипа №1 входит звуковой процессор, звуковая матрица и программное обеспечение.\nПри начале работ над прототипом №2 (мини кинотеатр) были протестированы аналоги звуковых динамиков, которые могут быть установлены в креслах кинотеатра. Тест показал отличные результаты. В видеоклипе, можно наглядно увидеть движение нескольких звуковых кластеров, разных размеров, перемещающихся по заданным траекториям.\nВ декабре 2020 года создана работающая модель звуковой матрицы имитирущая кинотеатр и новая версия звукового процессора "Yalos Stream" 2.0',
+        'product.download': 'Скачать презентацию',
+        'footer.copyright': '© 2026 ООО «Инновационная компания «ЯЛОС». Все права защищены.'
+      },
+      en: {
+        'nav.logo': 'COMPANY <span>YALOS</span>',
+        'nav.cta': 'Request Quote',
+
+        'product.title': 'Technology of Collective Sound Virtual Reality "Yalos Stream"',
+        'product.desc1': 'New breakthrough technology for forming and controlling "close" sounds "Yalos Stream" for turning a cinema into an attraction (thereby increasing its attendance). The "Yalos Stream" technology <span>https://yalos-project.com/</span>is designed to create a "presence" effect for viewers at the location of events happening on the screens of cinemas and concert halls (collective sound virtual reality).',
+        'product.spec1.label': 'In February 2017, the company received patent No. 9,584,936 "METHOD FOR CONTROLLING SOUND IN AN AUDITORIUM" in the USA for sound control technology, and on March 14, 2017, patent RU2612997 in Russia (information published in the official ROSPATENT bulletin No. 8-2017 from 11.03.2017-20.03.2017).',
+        'product.spec1.value': 'Referring to the obtained patents, since August 2018, the company\'s specialists have begun developing the "Yalos Stream" sound processor, designed for cluster reproduction of "close" sounds and controlling their movement trajectories throughout the auditorium.\n\nOn December 27, 2019, our startup won the all-Russian START-1 program competition announced by the Foundation for Assistance to Innovation, Contract 0057518, application No. C1-66645, Start-19-1 competition (4th queue). We were awarded a grant for R&D to create PROTOTYPE No. 2, the "Yalos Stream" virtual reality sound processor.',
+        'product.spec2.label': 'INTRODUCTION TO THE PROBLEM THE PROJECT SOLVES:',
+        'product.spec2.value': 'According to research conducted by "DOLBY", all sounds in the world around us are divided into "upper", "middle" and "close" sounds. Cinema sound systems using speakers located on the walls and ceiling of cinema halls realistically reproduce only "upper" and "middle" sounds.\n1) most realistically at angles close to 90 degrees, the viewer hears "upper sounds". They are emitted by ceiling sound systems or audio speakers installed high on the walls of the cinema.\n2) "middle sounds" are also realistically reproduced by viewers in the cinema. However, these sounds are emitted at an angle from 15 to 45 degrees, and for these purposes, audio speakers placed on the side and end walls of cinema halls are excellent.\nATTENTION:\n3) "Close sounds" cannot be realistically reproduced by any sound system, as they propagate at an angle of 0 degrees (in the horizontal plane to the viewers\' hearing organs) and should be reproduced next to the viewer at a distance of 1-2 meters.\nIn cinemas, due to the presence of acoustic devices on the walls and ceiling, and not next to the viewer, it is impossible to realistically reproduce "close sounds", i.e. the effect of "presence", as in the real world, is practically impossible to achieve. Even with such modern multi-channel sound systems as Dolby Atmos or IMAX, the viewer will never have a sense of complete presence at the location of the events being shown on the screen.\nThe sound environment in the cinema will be most realistic only if it resembles the human surrounding world. Viewers in cinemas will be able to fully feel themselves as participants in the events happening on the screen only with the presence of "close sounds", that is, sounds that occur in life next to people at a distance from 15 cm to several meters, in the horizontal plane of hearing (footsteps, rain noise, wind, etc.).\n"Close sounds" significantly (up to 70%) affect the sensation of the realism of events surrounding a person.',
+        'product.spec3.label': 'The "Yalos Stream" technology reproduces only "close sounds"',
+        'product.spec3.value': '"Yalos Stream" delivers "close sounds" to the viewer in the horizontal plane, through sound reproducing devices (speakers) built into the cinema seats.\nThe main idea of the project is to turn any cinema into a cinema attraction, with the best effect of "presence" of the viewer in the events shown on the screen (as in the surrounding world), thereby increasing cinema attendance and increasing the cost of viewing.\nAnother significant advantage of the "Yalos Stream" technology is that this technology allows the viewer to experience collective emotions, i.e. viewers in the hall receive exciting impressions not only from the new type of sound reality, but also from the emotions of their neighbors. This effect is comparable to the effect of participants in the "roller coaster" attraction.\nThe "presence" effect created by the new technology can be used not only in cinema, but also during various shows, concerts and attractions in amusement parks.\nThe "YALOS STREAM" system does not compete with any existing sound system, it successfully complements them, creating a sense of collective immersion in the events happening on the screen.',
+        'product.spec4.value': '<span class="spec-label" data-i18n="product.spec4.goal">Strategic goal of the project</span> – creation of a mass, accessible and inexpensive sound system of collective virtual reality, providing viewers with a "presence" effect when watching films, concerts and shows as an additional option to existing sound equipment.\n<span class="spec-label" data-i18n="product.spec4.clients">Target customers</span> - the global film industry, concert organizations, amusement parks, home electronics manufacturers, automotive industry.\n<span class="spec-label" data-i18n="product.spec4.niche">Target niche of the project</span> – halls for collective viewing of films and concerts, household (home) use, cinema attractions in amusement parks.\n<span class="spec-label" data-i18n="product.spec4.near">Nearest goal of the project</span> – completion of the stage of creating prototype No. 2 - Mini cinema (prototype No. 1 has been successfully created, which confirmed the patented characteristics of the "Yalos Stream" technology).\n<span class="spec-label" data-i18n="product.spec4.perspectives">Project prospects</span> - creation of mobile prototype No. 3 for its demonstration at world exhibitions of innovations and new technologies (for example, the NAB exhibition in Las Vegas, the AMF exhibition in Santa Monica, etc.) to find a strategic partner for joint work on implementing the technology in the global film industry.\nAs an additional option, creating based on the mobile version of prototype No. 3, a commercial version of the Mini cinema using the "Yalos Stream" collective virtual reality technology, for use in the railway station network, in airports, in small settlements, as a school cinema for the education system.',
+        'product.spec4.goal': 'Strategic goal of the project',
+        'product.spec4.clients': 'Target customers',
+        'product.spec4.niche': 'Target niche of the project',
+        'product.spec4.near': 'Nearest goal of the project',
+        'product.spec4.perspectives': 'Project prospects',
+        'product.spec5.label': 'Main advantages of Yalos Stream',
+        'product.spec5.value': '- The technology does not use the film\'s sound track\n- Surrounds the viewer with "close" sounds, creates the effect of the viewer\'s presence at the location of events on the cinema screen\n- Causes collective emotions of viewers when watching films together surrounded by "close" sounds\n- Reproduces only horizontal "close sounds" next to the viewer\n- Does not use channel sound recording\n- Uses only speakers placed in the seats of the auditorium\n- Can control the movement of sounds in any direction in the hall\n- Can reproduce sounds in any number of speakers\n- Reproduces sounds in the form of sound clusters of any size\n- Allows you to create different sound scenarios for the same film\n- Allows you to create sound scenarios for old films\n- Low cost up to $35,000 per cinema with 300-500 seats\n- Has options for installing speakers without replacing seats in the auditorium\n- Has different configurations from "Economy" to "VIP"\n- Technology is protected by patents in the USA and Russia\n- Does not compete with any sound system installed in cinemas, this is their option\n- Quick adaptation to any cinema, does not require sound setup.',
+        'product.spec6.label': 'Project stages',
+        'product.spec6.value': 'In February 2019, prototype No. 1 was manufactured, confirming the patented characteristics of the "Yalos Stream" technology for forming and controlling the movement of sound clusters of "close sounds".\nPrototype No. 1 includes a sound processor, a sound matrix and software.\nAt the beginning of work on prototype No. 2 (mini cinema), analogues of sound speakers that can be installed in cinema seats were tested. The test showed excellent results. In the video clip, you can clearly see the movement of several sound clusters of different sizes moving along given trajectories.\nIn December 2020, a working model of a sound matrix simulating a cinema and a new version of the "Yalos Stream" 2.0 sound processor were created.',
+        'product.download': 'download presentation',
+        'footer.copyright': '© 2026 LLC "Innovative Company YALOS". All rights reserved.'
+      }
+    };
+
+
+
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

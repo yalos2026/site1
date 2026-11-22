@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- ========== FAVICON ========== -->
+<!-- Основной favicon (для всех браузеров) -->
+<link href="/images/favicon.png" rel="icon" type="image/png"/>
+<!-- Для старых браузеров -->
+<link href="/images/favicon.png" rel="shortcut icon" type="image/png"/>
+<!-- Для iPhone/iPad (иконка при добавлении на главный экран) -->
+<link href="/images/favicon.png" rel="apple-touch-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IC YALOS Project | Thermal Indicators, Thermometers, Overheating Markers — YALOS IC</title>
+<meta content="IC YALOS project: a series of chemical thermal indicators, liquid crystal thermometers, overheating markers and indicator tapes, developed and introduced by Innovative Company YALOS." name="description"/>
+<meta content="IC YALOS project, chemical thermal indicators, liquid crystal thermometers, overheating markers, indicator tape, Yalos" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://yalosindicator.com/en/project1.html" rel="canonical"/>
+  <link href="https://yalosindicator.com/project1.html" hreflang="ru" rel="alternate"/>
+  <link href="https://yalosindicator.com/en/project1.html" hreflang="en" rel="alternate"/>
+  <link href="https://yalosindicator.com/project1.html" hreflang="x-default" rel="alternate"/>
+  <meta content="website" property="og:type"/>
+  <meta content="YALOS INDICATOR" property="og:site_name"/>
+  <meta content="https://yalosindicator.com/en/project1.html" property="og:url"/>
+  <meta content="IC YALOS Project | Thermal Indicators, Thermometers, Overheating Markers — YALOS IC" property="og:title"/>
+  <meta content="IC YALOS project: a series of chemical thermal indicators, liquid crystal thermometers, overheating markers and indicator tapes, developed and introduced by Innovative Company YALOS." property="og:description"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="ru_RU" property="og:locale:alternate"/>
+  <meta content="https://yalosindicator.com/images/logo.png" property="og:image"/>
+  <style>
+    /* --- Переключатель языка: ссылки вместо кнопки --- */
+    .nav-links .lang-switch a.lang-option,
+    .mobile-menu .lang-switch a.lang-option {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      color: rgba(230, 233, 240, 0.5);
+      text-decoration: none;
+    }
+    .nav-links .lang-switch a.lang-option::after { content: none; }
+    .nav-links .lang-switch a.lang-option.active,
+    .mobile-menu .lang-switch a.lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+    .nav-links .lang-switch a.lang-option:hover,
+    .mobile-menu .lang-switch a.lang-option:hover { color: #ffd700; }
+    .lang-switch a.lang-option:focus-visible { outline: 2px solid #00ff9d; outline-offset: 2px; }
+  </style>
+</head>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Orbitron:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px; }
+    }
+
+    /* Навбар */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+      display: block;
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .logo-text span { color: #00ff9d; }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+
+    /* ===================================================== */
+    /* LANGUAGE SWITCHER - НЕОНОВЫЙ СТИЛЬ */
+    /* ===================================================== */
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      padding: 6px 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(0, 255, 157, 0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+    }
+
+    .lang-switch:hover {
+      border-color: rgba(0, 255, 157, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    }
+
+    .lang-option {
+      color: rgba(230, 233, 240, 0.5);
+      transition: all 0.3s;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .lang-option:hover {
+      color: #ffd700;
+    }
+
+    .lang-divider {
+      color: rgba(230, 233, 240, 0.3);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    /* Стили страницы продукта */
+    .product-page {
+      padding: 140px 5% 80px;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .content-block {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .product-description {
+      font-size: 16px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .product-specs {
+      display: block;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      width: 100%;
+    }
+
+    .spec-item {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #00ff9d;
+      margin-bottom: 10px;
+    }
+
+    .spec-value {
+      display: block;
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.9);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+      cursor: zoom-in;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .btn-download svg {
+      width: 20px; height: 20px;
+      fill: currentColor;
+    }
+
+    .page-footer {
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+      margin-top: 40px;
+    }
+
+    .page-footer a { color: #00ff9d; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+      .product-page {
+        padding: 120px 4% 60px;
+      }
+      .content-block, .product-specs {
+        padding: 20px;
+      }
+    }
+
+    .product-image {
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.3), 0 0 25px rgba(0, 255, 157, 0.1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(10, 14, 23, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: zoom-out;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 255, 157, 0.4);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox-close:hover { color: #00ff9d; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<a class="logo" href="/en/index.html">
+<img alt="YALOS" class="logo-icon" src="/images/logo.png"/>
+<div class="logo-text" data-i18n="nav.logo">COMPANY <span>YALOS</span></div>
+</a>
+<ul class="nav-links">
+<li>
+<div class="lang-switch"><a class="lang-option" href="/project1.html" hreflang="ru" lang="ru" title="Русская версия">RU</a>
+<span class="lang-divider">|</span>
+<a aria-current="page" class="lang-option active" href="/en/project1.html" hreflang="en" lang="en">EN</a></div>
+</li>
+</ul>
+<a class="nav-cta" data-i18n="nav.cta" href="/en/index.html#contact">Request Quote</a>
+</nav>
+<!-- ПРОДУКТ -->
+<main class="product-page">
+<div class="product-info">
+<h1 class="product-title" data-i18n="product.title">Temperature Indicators by IC YALOS LLC</h1>
+<div class="product-specs">
+<p class="product-description" data-i18n="product.desc">Innovative Company Yalos LLC presents a wide range of chemical thermal indicators on the Russian market, actively used in various industries and power engineering. Over 35 years, the experience of practical application of thermal indicators has proven their high efficiency and operational reliability. Thousands of consumers and multi-million copies of various types of thermal indicators show a stable and growing demand at industry enterprises in many countries. Every year, the possible areas of their application are expanding, and this is largely determined by their excellent technical characteristics.</p>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/yal.jpeg"/>
+</div>
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/yal1.jpeg"/>
+</div>
+</div>
+<!-- Характеристики 1 -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec1.label">THE USE OF THERMAL INDICATORS ALLOWS REDUCING EQUIPMENT ACCIDENTS AT PRODUCTION FACILITIES DUE TO OVERHEATING BY 15%-25%.</span>
+<span class="spec-value" data-i18n="product.spec1.value">OUR PATENT APPLICATION "METHOD FOR APPLYING THERMOFUSIBLE COMPOSITIONS" No. 2019138066</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec2.label">What are the advantages of working with our company:</span>
+<span class="spec-value" data-i18n="product.spec2.value">1) We specialize in the development and promotion of thermal indicators to the industrial market, tested in practice for 35 years;
+
+2) We offer specialized, professional thermal indicators with a very high degree of reliability (operation from 5 to 10 years);
+
+3) We accompany each customer order and provide consultation on all issues;
+
+4) We offer enterprises a complete accident prevention system based on the use of various thermal indicator installation schemes;
+
+5) We provide a GUARANTEE for the operation of indicators outdoors - 3 years, indoors 5 years. These are the best guarantees on the market.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/tiii.png"/>
+</div>
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/ti3.png"/>
+</div>
+</div>
+<!-- Характеристики 2 -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec3.label">Chemical thermal indicators are divided into 2 types:</span>
+<span class="spec-value" data-i18n="product.spec3.value">Type 1 - reversible thermal indicators;
+
+Type 2 - irreversible thermal indicators.
+
+The distinctive feature between them is the fact that during equipment overheating, irreversible thermal indicators after their activation by changing color, under conditions of temperature drop below the threshold value, do not return to their original color. While reversible thermal indicators return to their original color.
+Both types of thermal indicators have their own advantages and areas of application. Irreversible thermal indicators are used where maintenance personnel must know exactly whether there was heating to the controlled temperature on the equipment surface during their absence, and reversible thermal indicators are used where, at the time of personnel inspection, it is possible to visually see the current temperature on the controlled surface of the equipment under examination.
+Thermal indicators enhance the effectiveness of the visual method for detecting overheating of power and thermal equipment.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/yal2.jpg"/>
+</div>
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/yal4.jpg"/>
+</div>
+</div>
+<!-- Характеристики 3 -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec4.label">What is the effectiveness of their application?</span>
+<span class="spec-value" data-i18n="product.spec4.value">- Guaranteed detection of overheating on equipment (continuous temperature recording for irreversible indicators);
+- Direct reading of temperature on controlled equipment surfaces;
+- Independence from weather conditions;
+- Resistant to various types of contamination;
+- Independence from power supply, maintenance and settings;
+- Ultra-light, small-sized (have the size and weight of a sticker);
+- Suitable for installation in hard-to-reach places;
+- Indicates the fact of overheating (filed as evidence in inspection and repair logs);
+- Guarantee for the operation of indicators - outdoors 3 years, indoors 5 years;
+- Service life 4-10 years;
+- Multiple use of reversible thermal indicators over several years;
+- Economical solution for safety issues at production facilities;
+- Simplicity and ease of reading thermal indicator readings;
+- Functionally complement existing automated systems;
+- When simultaneously installing indicators with a scale or several single indicators with different operating temperatures, it will allow you to control both the threshold temperature and the preliminary one, for preventive maintenance;
+- Low price;</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/ya6.jpg"/>
+</div>
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/ya7.jpg"/>
+</div>
+</div>
+<!-- Характеристики 4 -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec5.label">Comparison with the use of thermal imagers and digital thermometers</span>
+<span class="spec-value" data-i18n="product.spec5.value">Thermal indicators occupy their niche in the means of controlling temperature overheating of thermal and power equipment, however, they do not replace various electronic safety systems, including they do not replace the use of thermal imagers and digital thermometers, which have their own application limitations. It is also important that thermal imagers and digital thermometers used allow you to see only the current temperature of objects.</span>
+</div>
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec6.label">Limitations and conditions for using Thermal Imagers "Instructions for thermal control and diagnostics"</span>
+<span class="spec-value" data-i18n="product.spec6.value">- the thermal imaging method of temperature control is used to detect and identify heating areas;
+- temperature control by the thermal imaging method is recommended to be carried out on outdoor surfaces not exposed to solar radiation for the preceding 12 hours;
+- temperature control by the thermal imaging method is carried out on devices located outdoors. However, it is not recommended to carry out in wet weather, namely: in rain, fog, snowfall, in the presence of frost, and any other moisture. Also, this method of temperature control limits the wind speed, which should not exceed 7 m/s and the air temperature, which should be within the operating temperature range of the thermal imager;
+- temperature control by the thermal imaging method is not recommended on surfaces with an emissivity coefficient below 0.7;
+- when carrying out temperature control on objects with an emissivity coefficient below 0.7, the surface of the object is treated with special means of painting, blackening, oxidation, etc., while the ambient air temperature at the workplace should be in the range from + 5 C to + 30 C;
+- when carrying out temperature control in the winter period, the device must be transported and stored in a special thermos case with heating;
+- the operating time of the thermal imager should not exceed the value specified in its technical passport. At low temperatures, optics fogging, rapid battery discharge, and condensation inside the device occur, which negatively affects the operation and, as a result, leads to device failure;
+- when working with a thermal imager, it is necessary to focus on the correct choice of the emissivity coefficient of the controlled object;
+At the same time, for subsequent calculations of the actual characteristics of the controlled object and detected defects, calculation models should be used taking into account the features of stationary and non-stationary heat transfer processes.</span>
+</div>
+</div>
+<div class="photo-gallery">
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/pi2.png"/>
+</div>
+<div class="product-image">
+<img alt="Temperature indicators" src="/images/pir.png"/>
+</div>
+</div>
+<!-- Характеристики 5 -->
+<div class="product-specs">
+<div class="spec-item">
+<span class="spec-label" data-i18n="product.spec7.label">Limitations and conditions for using Infrared Pyrometers</span>
+<span class="spec-value" data-i18n="product.spec7.value">To determine the exact temperature with any infrared radiation thermometer, it is necessary to have certain knowledge with the observance of the correct measurement methodology:
+
+- Before each measurement, it is necessary to control the correct choice of emissivity values on the measured surface. Measurements carried out with a different value are unreliable.
+- Each material has its own emissivity value (including the state of the surface of this material matters: roughness, oxidation, etc.). This fact must also be taken into account when choosing the correct emission coefficient, and if they are unknown, the measurements will be incorrect.
+- The indicated temperature will be incorrect if the size of the object is smaller than the field of view.
+- If the object whose temperature should be measured does not fill the entire field of view, the device receives radiation from other objects of the surrounding environment, thereby causing measurement error.
+- It is necessary to eliminate side lighting from surrounding objects or necessarily take into account its influence on the measurement result.
+- Measurements are made only at the time of inspection. In the event that overheating occurred before the temperature control measurement, it is impossible to establish this.
+- For pyrometers with a standard fixed emissivity of 0.95, the temperature of objects with an emissivity coefficient different from 0.95 must be calculated using special tables.
+- It is necessary to take into account the presence of measurement errors in winter operating conditions.</span>
+</div>
+<!-- Кнопка скачивания PDF -->
+<div style="text-align: center; margin-top: 32px;">
+<a class="btn-download" download="" href="/images/5.pdf">
+<svg viewbox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path></svg>
+<span data-i18n="product.download">Download Presentation</span>
+</a>
+</div>
+</div>
+</main>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close">×</span>
+<img alt="Enlarged image" id="lightbox-img" src=""/>
+</div>
+<!-- FOOTER -->
+<footer class="page-footer">
+<p data-i18n="footer.copyright">© 2026 LLC "Innovative Company YALOS". All rights reserved.</p>
+</footer>
+<!-- СКРИПТЫ -->
+<script>
+    /* ===================================================== */
+    /* TRANSLATIONS DICTIONARY */
+    /* ===================================================== */
+    const translations = {
+      ru: {
+        'nav.logo': 'КОМПАНИЯ <span>ЯЛОС</span>',
+        'nav.cta': 'Запросить КП',
+
+        'product.title': 'Температурные индикаторы ООО ИК ЯЛОС',
+        'product.desc': 'ООО "Инновационная компания «Ялос» представляет на российском рынке широкую серию химических термоиндикаторов, активно используемые в разных отраслях промышленности и энергетике. На протяжении 35 лет, опыт практического применения термоиндикаторов доказал их высокую эффективность и надежность эксплуатации. Тысячи потребителей и многомиллионные тиражи различных видов термоиндикаторов, показывают устойчивый и нарастающий к ним спрос на отраслевых предприятиях многих стран. С каждым годом расширяются и возможные области их применения, а это в немалой степени определяется их великолепными техническими характеристиками.',
+        'product.spec1.label': 'ПРИМЕНЕНИЕ ТЕРМОИНДИКАТОРОВ ПОЗВОЛЯЕТ СНИЖАТЬ АВАРИЙНОСТЬ ОБОРУДОВАНИЯ НА ПРОИЗВОДСТВЕННЫХ МОЩНОСТЯХ ПО ПРИЧИНЕ ПЕРЕГРЕВОВ НА 15%-25%.',
+        'product.spec1.value': 'НАША ЗАЯВКА НА ПАТЕНТ "СПОСОБ НАНЕСЕНИЯ ТЕРМОПЛАВКИХ СОСТАВОВ" №2019138066',
+        'product.spec2.label': 'В чем преимущества работы с нашей компанией:',
+        'product.spec2.value': '1) Мы специализируемся на разработке и продвижении на промышленный рынок, термоиндикаторов, проверенных на практике в течении 35 лет;\n\n2) Мы представляем специализированные, профессиональные термоиндикаторы с очень высокой степенью надежности (работа от 5 до 10 лет);\n\n3) Мы сопровождаем каждый заказ клиента и консультируем по всем вопросам;\n\n4) Мы предлагаем для предприятий, целостную систему предупреждения аварий, на основе применения различных схем установок термоиндикаторов;\n\n5) Мы даем ГАРАНТИЮ на работу индикаторов на улице - 3 года, в помещении 5 лет. Это лучшие гарантии на рынке.',
+        'product.spec3.label': 'Химические термоиндикаторы подразделяются на 2 вида:',
+        'product.spec3.value': '1 вид – обратимые термоиндикаторы;\n\n2 вид – необратимые термоиндикаторы.\n\nОтличительной особенностью их между собой является тот факт, что при перегревах на оборудовании, необратимые термоиндикаторы после своего срабатывания путем изменения цвета, в условиях падения температуры ниже порогового значения не возвращаются в свой первоначальный цвет. В то время, как обратимые термоиндикаторы возвращаются в свой исходный цвет.\nОба вида термоиндикаторов имеют свои преимущества и области применения. Необратимые термоиндикаторы применяются там, где обслуживающий персонал, должен точно знать, был ли за время его отсутствия на поверхности оборудования нагрев до контролируемой температуры, а обратимые термоиндикаторы применяются там, где на момент осмотра персонала, можно наглядно увидеть текущую температуру на контролируемой поверхности обследуемого оборудования.\nТермоиндикаторы усиливают эффективность визуального метода выявления перегрева энергетического и теплового оборудования.',
+        'product.spec4.label': 'В чем состоит их эффективность применения?',
+        'product.spec4.value': '- Гарантированное обнаружение перегрева на оборудовании (постоянная запись температуры у необратимых индикаторов);\n- Прямое считывание температуры на контролируемых поверхностях оборудования;\n- Независимость от погодных условий;\n- Устойчив к различным видам загрязнений;\n- Независимость от энергоснабжения, технического обслуживания и настроек;\n- Cверхлегкие, малоразмерные (имеют размер и вес стикера);\n- Подходят для установки в труднодоступные места;\n- Свидетельствует о факте перегрева (подшиваются как доказательство в журналы осмотров и ремонтов);\n- Гарантия на работу индикаторов - на улице 3 года, в помещении 5 лет;\n- Срок эксплуатации 4-10 лет;\n- Многократное использование обратимых термоиндикаторов в течении нескольких лет;\n- Экономичное решение вопросов безопасности на производствах;\n- Простота и легкость считывания показаний термоиндикаторов;\n- Функционально дополняют действующие автоматизированные системы;\n- При одновременной установке индикаторов с шкалой или нескольких одинарных индикаторов с различными температурами срабатывания, позволит контролировать как пороговую температуру, так и предварительную, для профилактического ремонта;\n- Низкая цена;',
+        'product.spec5.label': 'Сравнение с использованием тепловизоров и цифровых термометров',
+        'product.spec5.value': 'Термоиндикаторы занимают свою нишу в средствах контроля температурных перегревов теплового и энергетического оборудования, однако, они не заменяют различные электронные системы безопасности, в том числе не заменяют использование тепловизоров и цифровых термометров, у которых есть свои ограничения на применение. Также важен тот факт, что применяемые тепловизоры и цифровые термометры позволяет увидеть только текущую температуру объектов.',
+        'product.spec6.label': 'Ограничения и условия использования Тепловизоров «Инструкция по тепловому контролю и диагностике»',
+        'product.spec6.value': '- тепловизионный метод контроля температур используется с целью обнаружения и идентификации участков нагрева;\n- контроль температур тепловизионным методом рекомендовано проводить на наружных поверхностях, не подвергающихся воздействию солнечной радиации в течение предшествующих 12 часов;\n- контроль температур тепловизионным методом проводится на устройствах, находящихся на открытом воздухе. Однако, не рекомендуется проводить во влажную погоду, а именно: в дождь, туман, снегопад, при наличии инея, и любой другой влаги. Также такой метод температурного контроля ограничивает скорость ветра, которая не должна превышать 7 м/с и температуру воздуха, которая должна быть в пределах рабочего диапазона температур эксплуатации тепловизора;\n- контроль температур тепловизионным методом не рекомендуется проводить на поверхностях, коэффициент излучения который ниже 0,7;\n- при проведении температурного контроля на объектах с коэффициентом излучения ниже 0,7, поверхность объекта обрабатывают специальными средствами окрашивания, чернения, окисления и т.д., при этом температура окружающего воздуха на рабочем месте, должна быть в диапазоне от + 5 С до + 30 С;\n- при проведении температурного контроля в зимний период, устройство необходимо транспортировать и хранить в специальном кейсе-термосе с подогревом;\n- время эксплуатации тепловизора не должно превышать значения, установленного в его техническом паспорте. При низких температурах происходит запотевание оптики, быстрый разряд аккумулятора, образование конденсата внутри устройства, что негативным образом сказывается на работе и как следствие, приводит к неисправности прибора;\n- при работе с тепловизором, необходимо акцентировать внимание на правильный выбор коэффициента излучательной способности контролируемого объекта;\nПри этом, для последующего проведения расчетов фактических характеристик контролируемого объекта и обнаруженных дефектов следует применять расчетные модели с учетом особенностей стационарных и нестационарных процессов теплопередачи.',
+        'product.spec7.label': 'Ограничения и условия использования Инфракрасных пирометров',
+        'product.spec7.value': 'Для определения точной температуры любым инфракрасным радиационным термометром, необходимо обладать определенными знаниями с соблюдением правильной методики измерений:\n\n- Перед каждым измерением необходим контроль правильного выбора значений излучательной способности на измеряемой поверхности. Измерения, проведенные с иным значением, недостоверны.\n- Каждый материал имеет своё значение излучательной способности (в том числе, имеет значение и состояние поверхности этого материала: шероховатости, окисления, и т. д.). Этот факт также необходимо учитывать при выборе правильного коэффициента излучения, и в случае, если они неизвестны, то измерения будут не верными.\n- Индицируемая температура будет не верна, если размер объекта меньше поля зрения.\n- Если объект, температура которого должна быть измерена, не заполняет все поле зрения, прибор принимает излучение от других объектов окружающей среды, тем самым вызывая погрешность измерения.\n- Необходимо исключить боковую подсветку от окружающих объектов или непременно учитывать её влияния на результат измерения.\n- Измерения делаются только в момент проверки. В случае, если перегрев имел место быть до измерения контроля температуры, установить это невозможно.\n- У пирометров со стандартно установленной фиксированной излучательной способностью 0,95, температуру объектов с коэффициентом излучения отличным от 0,95 необходимо вычислять по специальным таблицам.\n- Необходимо учитывать наличие погрешности измерений в зимних условиях эксплуатации.',
+        'product.download': 'Скачать презентацию',
+
+        'footer.copyright': '© 2026 ООО «Инновационная компания «ЯЛОС». Все права защищены.'
+      },
+      en: {
+        'nav.logo': 'COMPANY <span>YALOS</span>',
+        'nav.cta': 'Request Quote',
+
+        'product.title': 'Temperature Indicators by IC YALOS LLC',
+        'product.desc': 'Innovative Company Yalos LLC presents a wide range of chemical thermal indicators on the Russian market, actively used in various industries and power engineering. Over 35 years, the experience of practical application of thermal indicators has proven their high efficiency and operational reliability. Thousands of consumers and multi-million copies of various types of thermal indicators show a stable and growing demand at industry enterprises in many countries. Every year, the possible areas of their application are expanding, and this is largely determined by their excellent technical characteristics.',
+        'product.spec1.label': 'THE USE OF THERMAL INDICATORS ALLOWS REDUCING EQUIPMENT ACCIDENTS AT PRODUCTION FACILITIES DUE TO OVERHEATING BY 15%-25%.',
+        'product.spec1.value': 'OUR PATENT APPLICATION "METHOD FOR APPLYING THERMOFUSIBLE COMPOSITIONS" No. 2019138066',
+        'product.spec2.label': 'What are the advantages of working with our company:',
+        'product.spec2.value': '1) We specialize in the development and promotion of thermal indicators to the industrial market, tested in practice for 35 years;\n\n2) We offer specialized, professional thermal indicators with a very high degree of reliability (operation from 5 to 10 years);\n\n3) We accompany each customer order and provide consultation on all issues;\n\n4) We offer enterprises a complete accident prevention system based on the use of various thermal indicator installation schemes;\n\n5) We provide a GUARANTEE for the operation of indicators outdoors - 3 years, indoors 5 years. These are the best guarantees on the market.',
+        'product.spec3.label': 'Chemical thermal indicators are divided into 2 types:',
+        'product.spec3.value': 'Type 1 - reversible thermal indicators;\n\nType 2 - irreversible thermal indicators.\n\nThe distinctive feature between them is the fact that during equipment overheating, irreversible thermal indicators after their activation by changing color, under conditions of temperature drop below the threshold value, do not return to their original color. While reversible thermal indicators return to their original color.\nBoth types of thermal indicators have their own advantages and areas of application. Irreversible thermal indicators are used where maintenance personnel must know exactly whether there was heating to the controlled temperature on the equipment surface during their absence, and reversible thermal indicators are used where, at the time of personnel inspection, it is possible to visually see the current temperature on the controlled surface of the equipment under examination.\nThermal indicators enhance the effectiveness of the visual method for detecting overheating of power and thermal equipment.',
+        'product.spec4.label': 'What is the effectiveness of their application?',
+        'product.spec4.value': '- Guaranteed detection of overheating on equipment (continuous temperature recording for irreversible indicators);\n- Direct reading of temperature on controlled equipment surfaces;\n- Independence from weather conditions;\n- Resistant to various types of contamination;\n- Independence from power supply, maintenance and settings;\n- Ultra-light, small-sized (have the size and weight of a sticker);\n- Suitable for installation in hard-to-reach places;\n- Indicates the fact of overheating (filed as evidence in inspection and repair logs);\n- Guarantee for the operation of indicators - outdoors 3 years, indoors 5 years;\n- Service life 4-10 years;\n- Multiple use of reversible thermal indicators over several years;\n- Economical solution for safety issues at production facilities;\n- Simplicity and ease of reading thermal indicator readings;\n- Functionally complement existing automated systems;\n- When simultaneously installing indicators with a scale or several single indicators with different operating temperatures, it will allow you to control both the threshold temperature and the preliminary one, for preventive maintenance;\n- Low price;',
+        'product.spec5.label': 'Comparison with the use of thermal imagers and digital thermometers',
+        'product.spec5.value': 'Thermal indicators occupy their niche in the means of controlling temperature overheating of thermal and power equipment, however, they do not replace various electronic safety systems, including they do not replace the use of thermal imagers and digital thermometers, which have their own application limitations. It is also important that thermal imagers and digital thermometers used allow you to see only the current temperature of objects.',
+        'product.spec6.label': 'Limitations and conditions for using Thermal Imagers "Instructions for thermal control and diagnostics"',
+        'product.spec6.value': '- the thermal imaging method of temperature control is used to detect and identify heating areas;\n- temperature control by the thermal imaging method is recommended to be carried out on outdoor surfaces not exposed to solar radiation for the preceding 12 hours;\n- temperature control by the thermal imaging method is carried out on devices located outdoors. However, it is not recommended to carry out in wet weather, namely: in rain, fog, snowfall, in the presence of frost, and any other moisture. Also, this method of temperature control limits the wind speed, which should not exceed 7 m/s and the air temperature, which should be within the operating temperature range of the thermal imager;\n- temperature control by the thermal imaging method is not recommended on surfaces with an emissivity coefficient below 0.7;\n- when carrying out temperature control on objects with an emissivity coefficient below 0.7, the surface of the object is treated with special means of painting, blackening, oxidation, etc., while the ambient air temperature at the workplace should be in the range from + 5 C to + 30 C;\n- when carrying out temperature control in the winter period, the device must be transported and stored in a special thermos case with heating;\n- the operating time of the thermal imager should not exceed the value specified in its technical passport. At low temperatures, optics fogging, rapid battery discharge, and condensation inside the device occur, which negatively affects the operation and, as a result, leads to device failure;\n- when working with a thermal imager, it is necessary to focus on the correct choice of the emissivity coefficient of the controlled object;\nAt the same time, for subsequent calculations of the actual characteristics of the controlled object and detected defects, calculation models should be used taking into account the features of stationary and non-stationary heat transfer processes.',
+        'product.spec7.label': 'Limitations and conditions for using Infrared Pyrometers',
+        'product.spec7.value': 'To determine the exact temperature with any infrared radiation thermometer, it is necessary to have certain knowledge with the observance of the correct measurement methodology:\n\n- Before each measurement, it is necessary to control the correct choice of emissivity values on the measured surface. Measurements carried out with a different value are unreliable.\n- Each material has its own emissivity value (including the state of the surface of this material matters: roughness, oxidation, etc.). This fact must also be taken into account when choosing the correct emission coefficient, and if they are unknown, the measurements will be incorrect.\n- The indicated temperature will be incorrect if the size of the object is smaller than the field of view.\n- If the object whose temperature should be measured does not fill the entire field of view, the device receives radiation from other objects of the surrounding environment, thereby causing measurement error.\n- It is necessary to eliminate side lighting from surrounding objects or necessarily take into account its influence on the measurement result.\n- Measurements are made only at the time of inspection. In the event that overheating occurred before the temperature control measurement, it is impossible to establish this.\n- For pyrometers with a standard fixed emissivity of 0.95, the temperature of objects with an emissivity coefficient different from 0.95 must be calculated using special tables.\n- It is necessary to take into account the presence of measurement errors in winter operating conditions.',
+        'product.download': 'Download Presentation',
+
+        'footer.copyright': '© 2026 LLC "Innovative Company YALOS". All rights reserved.'
+      }
+    };
+
+
+
+    
+    /* ===================================================== */
+    /* LIGHTBOX */
+    /* ===================================================== */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const productImages = document.querySelectorAll('.product-image img');
+
+    productImages.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

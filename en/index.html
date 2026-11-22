@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- ========== FAVICON ========== -->
+<!-- Основной favicon (для всех браузеров) -->
+<link href="/images/favicon.png" rel="icon" type="image/png"/>
+<!-- Для старых браузеров -->
+<link href="/images/favicon.png" rel="shortcut icon" type="image/png"/>
+<!-- Для iPhone/iPad (иконка при добавлении на главный экран) -->
+<link href="/images/favicon.png" rel="apple-touch-icon"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- SEO для Яндекса -->
+<title>YALOS IC | Thermal Indicators, Baggage Carts, Metal Products — Industrial Equipment</title>
+<meta content="Innovative company YALOS: NiGK thermal indicators, Matsui overheating markers, airport baggage carts, metal products from China, Dofun valves. Temperature control and occupational safety." name="description"/>
+<meta content="thermal indicator, thermal indicators, NiGK Japan temperature indicators, overheating marker, Thermolock, Matsui International, airport baggage carts, Super Telezhka, liquid crystal thermometer, indicator tape, metal products, Wuxi Moyu Keji, Dofun valves, industrial cooling systems, overheating control, occupational safety, Yalos" name="keywords"/>
+<!-- Разрешаем Яндексу индексировать -->
+<meta content="index, follow" name="robots"/>
+<meta content="English" name="language"/>
+<meta content="en" http-equiv="Content-Language"/>
+<meta content="1306f5a891a1cc30" name="yandex-verification"/>
+<!-- Fonts -->
+<link href="/images/water.png" rel="stylesheet"/>
+<style>
+    /* ... весь твой CSS остаётся без изменений ... */
+    /* ===================================================== */
+    /* RESET & BASE */
+    /* ===================================================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: transparent;
+      color: #e6e9f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #0a0e17;
+      background-image: url('/images/water.png');
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,180,80,0.3), transparent),
+        radial-gradient(2px 2px at 80px 120px, rgba(100,180,255,0.2), transparent),
+        radial-gradient(1px 1px at 150px 60px, rgba(255,180,80,0.25), transparent),
+        radial-gradient(2px 2px at 200px 200px, rgba(100,180,255,0.3), transparent);
+      background-size: 400px 400px;
+      animation: steam 25s linear infinite;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    @keyframes steam {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 400px 400px, 300px 200px, 200px 500px, 500px 300px; }
+    }
+
+    /* ===================================================== */
+    /* NAVBAR */
+    /* ===================================================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(100, 180, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 12px 8%;
+      background: rgba(10, 14, 23, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    }
+    .logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .logo-text span { color: #ffc635; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: rgba(230, 233, 240, 0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffd700;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, #ffc635, #ffd700);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ===================================================== */
+    /* LANGUAGE SWITCHER - НЕОНОВЫЙ СТИЛЬ */
+    /* ===================================================== */
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      padding: 6px 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(0, 255, 157, 0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+    }
+
+    .lang-switch:hover {
+      border-color: rgba(0, 255, 157, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    }
+
+    .lang-option {
+      color: rgba(230, 233, 240, 0.5);
+      transition: all 0.3s;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .lang-option:hover {
+      color: #ffd700;
+    }
+
+    .lang-divider {
+      color: rgba(230, 233, 240, 0.3);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 255, 157, 0.3);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* ===================================================== */
+    /* HERO SECTION */
+    /* ===================================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 680px;
+      z-index: 2;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 157, 0.15);
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      color: #ffd700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff, #b8c5e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(230, 233, 240, 0.85);
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00ff9d, #00f5d4);
+      color: #0a0e17;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 25px rgba(0, 255, 157, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: #ffd700;
+      background: rgba(0, 245, 212, 0.1);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -10%; top: 20%;
+      width: 50vw; height: 60vh;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.08), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(100, 180, 255, 0.06), transparent 45%);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ===================================================== */
+    /* SECTIONS */
+    /* ===================================================== */
+    .section {
+      padding: 100px 8%;
+      position: relative;
+    }
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 70px;
+    }
+    .section-title h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, #a0b0d0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-title p {
+      color: rgba(230, 233, 240, 0.75);
+      font-size: 17px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 0 -8%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: 1fr !important; }
+    }
+
+    .product-card {
+      background: rgba(20, 26, 42, 0.7);
+      border: 1px solid rgba(100, 180, 255, 0.15);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        rgba(255, 107, 53, 0.03),
+        transparent 40%,
+        rgba(100, 180, 255, 0.03) 80%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 245, 212, 0.4);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .product-card:hover::before { opacity: 1; }
+
+    .product-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(0, 245, 212, 0.1));
+      border: 1px solid rgba(0, 255, 157, 0.3);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      font-size: 28px;
+      color: #ffd700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .product-card p {
+      color: rgba(230, 233, 240, 0.8);
+      font-size: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .spec-item::before {
+      content: "•";
+      color: #ffc635;
+      font-weight: bold;
+    }
+
+    .product-cta {
+      margin-top: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: gap 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .product-cta:hover { gap: 10px; }
+
+    /* BENEFITS */
+    #benefits.section { padding: 100px 0 !important; }
+    #benefits .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+      margin: 0;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 1024px) {
+      #benefits .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      #benefits .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    .benefit-card {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: rgba(20, 26, 42, 0.4);
+      border-radius: 16px;
+      border-left: 3px solid #ffc635;
+    }
+    .benefit-icon {
+      min-width: 50px; height: 70px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      color: #ffd700;
+      flex-shrink: 0;
+    }
+    .benefit-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .benefit-card p {
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.8);
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      text-align: center;
+      padding: 120px 8%;
+      background: linear-gradient(135deg, rgba(23, 42, 84, 0.8), rgba(15, 20, 35, 0.9));
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(100, 180, 255, 0.08), transparent 45%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 650px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-content h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .cta-content p {
+      font-size: 17px;
+      color: rgba(230, 233, 240, 0.85);
+      margin-bottom: 36px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 50px 8% 30px;
+      background: rgba(8, 11, 20, 0.95);
+      border-top: 1px solid rgba(100, 180, 255, 0.1);
+      font-size: 14px;
+      color: rgba(230, 233, 240, 0.7);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .footer-col a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+    .footer-col a:hover { color: #ffd700; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.17, 0.85, 0.438, 0.99);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: flex; }
+      .hero { padding-top: 100px; text-align: center; }
+      .hero-content { margin: 0 auto; }
+      .hero-buttons { justify-content: center; }
+      .section { padding: 80px 5%; }
+      .section-title { margin-bottom: 50px; }
+      .product-specs { grid-template-columns: 1fr; }
+      .cta-section { padding: 90px 5%; }
+    }
+
+    @media (max-width: 480px) {
+      .navbar { padding: 14px 5%; }
+      .logo-text { font-size: 18px; }
+      .logo-icon { width: 36px; height: 36px; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .btn-primary, .btn-secondary { padding: 12px 24px; font-size: 14px; }
+      .product-card { padding: 24px; }
+      .product-icon { width: 60px; height: 60px; font-size: 24px; }
+      footer { padding: 40px 5% 24px; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 14, 23, 0.98);
+      padding: 80px 5% 30px;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    .mobile-menu.active { transform: translateY(0); }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu .nav-cta {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* NEON GLOW */
+    .btn-primary, .nav-cta, .product-card:hover {
+      box-shadow:
+        0 0 10px rgba(0, 255, 157, 0.5),
+        0 0 25px rgba(0, 255, 157, 0.3),
+        0 0 50px rgba(0, 255, 157, 0.1);
+    }
+
+    .product-icon, .app-icon, .benefit-icon {
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+    }
+
+    .logo-icon {
+      box-shadow:
+        0 0 15px rgba(0, 255, 157, 0.6),
+        0 0 30px rgba(0, 255, 157, 0.3);
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.5); }
+      50% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.8); }
+    }
+
+    .logo-icon, .hero-badge {
+      animation: neonPulse 3s ease-in-out infinite;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .footer-logo {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+      flex-shrink: 0;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-text h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .footer-text p {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .footer-brand {
+        align-items: center;
+        text-align: center;
+      }
+      .footer-logo { max-width: 180px; }
+    }
+
+    .product-card, .app-card, .benefit-card {
+      text-align: center !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      padding: 32px 24px !important;
+    }
+
+    .product-icon, .app-icon, .benefit-icon, .footer-logo {
+      margin: 0 auto 20px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .product-card h3, .product-card p,
+    .app-card h3, .app-card p,
+    .benefit-card h3, .benefit-card p {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .product-cta {
+      justify-content: center !important;
+      margin: 20px auto 0 !important;
+    }
+
+    #benefits .benefit-icon {
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      margin-bottom: 16px !important;
+      width: 100% !important;
+      display: block !important;
+      text-align: center !important;
+    }
+
+    @media (max-width: 768px) {
+      .product-card, .app-card, .benefit-card {
+        text-align: center !important;
+        align-items: center !important;
+      }
+    }
+
+    .product-card img, .app-card img, .benefit-card img, .footer-logo {
+      width: 100%;
+      max-width: 200px;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 24px;
+    }
+
+    /* Mobile lang switch */
+    @media (max-width: 900px) {
+      .lang-switch {
+        margin-left: auto;
+      }
+    }
+  </style>
+<link href="https://yalosindicator.com/en/index.html" rel="canonical"/>
+  <link href="https://yalosindicator.com/index.html" hreflang="ru" rel="alternate"/>
+  <link href="https://yalosindicator.com/en/index.html" hreflang="en" rel="alternate"/>
+  <link href="https://yalosindicator.com/index.html" hreflang="x-default" rel="alternate"/>
+  <meta content="website" property="og:type"/>
+  <meta content="YALOS INDICATOR" property="og:site_name"/>
+  <meta content="https://yalosindicator.com/en/index.html" property="og:url"/>
+  <meta content="YALOS IC | Thermal Indicators, Baggage Carts, Metal Products — Industrial Equipment" property="og:title"/>
+  <meta content="Innovative company YALOS: NiGK thermal indicators, Matsui overheating markers, airport baggage carts, metal products from China, Dofun valves. Temperature control and occupational safety." property="og:description"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="ru_RU" property="og:locale:alternate"/>
+  <meta content="https://yalosindicator.com/images/logo.png" property="og:image"/>
+  <style>
+    /* --- Переключатель языка: ссылки вместо кнопки --- */
+    .nav-links .lang-switch a.lang-option,
+    .mobile-menu .lang-switch a.lang-option {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
+      color: rgba(230, 233, 240, 0.5);
+      text-decoration: none;
+    }
+    .nav-links .lang-switch a.lang-option::after { content: none; }
+    .nav-links .lang-switch a.lang-option.active,
+    .mobile-menu .lang-switch a.lang-option.active {
+      color: #00ff9d;
+      text-shadow: 0 0 8px rgba(0, 255, 157, 0.8);
+      background: rgba(0, 255, 157, 0.1);
+    }
+    .nav-links .lang-switch a.lang-option:hover,
+    .mobile-menu .lang-switch a.lang-option:hover { color: #ffd700; }
+    .lang-switch a.lang-option:focus-visible { outline: 2px solid #00ff9d; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<a class="logo" href="#">
+<img alt="YALOS INDICATOR" class="logo-icon" src="/images/logo.png"/>
+<div class="logo-text" data-i18n="nav.logo">COMPANY <span>"YALOS"</span></div>
+</a>
+<ul class="nav-links">
+<li><a data-i18n="nav.about" href="#benefits">About</a></li>
+<li><a class="active" data-i18n="nav.products" href="#products">Products</a></li>
+<li><a data-i18n="nav.dist" href="#dist">Distribution</a></li>
+<li><a data-i18n="nav.projects" href="#projects">Projects</a></li>
+<li><a data-i18n="nav.contact" href="#contact">Contacts</a></li>
+<li>
+<div class="lang-switch"><a class="lang-option" href="/index.html" hreflang="ru" lang="ru" title="Русская версия">RU</a>
+<span class="lang-divider">|</span>
+<a aria-current="page" class="lang-option active" href="/en/index.html" hreflang="en" lang="en">EN</a></div>
+</li>
+</ul>
+<a class="nav-cta" data-i18n="nav.cta" href="#contact">Request Quote</a>
+<div class="menu-toggle" id="menuToggle">
+<span></span><span></span><span></span>
+</div>
+</nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+<a data-i18n="nav.about" href="#benefits">About</a>
+<a data-i18n="nav.products" href="#products">Products</a>
+<a data-i18n="nav.dist" href="#dist">Distribution</a>
+<a data-i18n="nav.projects" href="#projects">Projects</a>
+<a data-i18n="nav.contact" href="#contact">Contacts</a>
+<a class="nav-cta" data-i18n="nav.cta" href="#contact">Request Quote</a>
+<div style="display:flex; justify-content:center; margin-top: 20px;">
+<div class="lang-switch"><a class="lang-option" href="/index.html" hreflang="ru" lang="ru" title="Русская версия">RU</a>
+<span class="lang-divider">|</span>
+<a aria-current="page" class="lang-option active" href="/en/index.html" hreflang="en" lang="en">EN</a></div>
+</div>
+</div>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge" data-i18n="hero.badge">Indication. Control. Safety.</div>
+<h1 data-i18n="hero.title">Color Chemical Indicators for Environmental Parameters</h1>
+<p data-i18n="hero.desc">Innovative company "Yalos" is a developer of promising projects in both new technological areas and import substitution.</p>
+<div class="hero-buttons">
+<a class="btn-primary" href="#products">
+<span>▶</span> <span data-i18n="hero.btn">Product Catalog</span>
+</a>
+</div>
+</div>
+</section>
+<!-- BENEFITS -->
+<section class="section" id="benefits">
+<div class="section-title reveal">
+<h2 data-i18n="benefits.title">ABOUT US</h2>
+</div>
+<div class="benefits-grid">
+<div class="product-card reveal">
+<div class="benefit-icon" data-i18n="benefits.b1.icon">Innovative Company<br/>"Yalos"</div>
+<div>
+<img alt="YALOS" class="footer-logo" src="/images/logo.png"/>
+<p data-i18n="benefits.b1.p1">Our company was founded in 2013 to develop and implement advanced technologies in industry, entertainment, and IT in the Russian market.</p>
+<p data-i18n="benefits.b1.p2">We have obtained patents and developed prototypes of new technological solutions.</p>
+</div>
+</div>
+<div class="product-card reveal">
+<div class="benefit-icon" data-i18n="benefits.b2.icon">Scientific<br/>Potential</div>
+<div>
+<img alt="YALOS" class="footer-logo" src="/images/deyatelnost.png"/>
+<p data-i18n="benefits.b2.p">Our own technological base for scientific research and cooperation with the best scientific laboratories in Russia. Agreement with the Center for Photochemistry, branch of FSRC "Crystallography and Photonics" of the Russian Academy of Sciences and the Interdepartmental Center for Analytical Research in Physics, Chemistry and Biology under the Presidium of the Russian Academy of Sciences.</p>
+</div>
+</div>
+<div class="product-card reveal">
+<div class="benefit-icon" data-i18n="benefits.b3.icon">Color Chemical<br/>Indicators</div>
+<div>
+<img alt="YALOS" class="footer-logo" src="/images/technology.jpg"/>
+<p data-i18n="benefits.b3.p">Indicators of specified environmental levels: radiation, temperature, gases, electromagnetic fields, ultraviolet and humidity allow visual and rapid detection of hazardous or control levels of the environment, which increases personnel safety, efficiency in industry, energy and transport.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PRODUCTS -->
+<section class="section" id="products">
+<div class="section-title reveal">
+<h2 data-i18n="products.title">PRODUCTS</h2>
+</div>
+<div class="product-card reveal">
+<img alt="YALOS" class="footer-logo" src="/images/iti.png"/>
+<h3 data-i18n="products.p1.title">Thermal Indicators</h3>
+<p data-i18n="products.p1.desc">Temperature indicators from "NiGK" have proven themselves as a reliable temperature control tool.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail3.html">Read more →</a>
+</div>
+</section>
+<div class="product-card reveal">
+<img alt="YALOS" class="footer-logo" src="/images/ji2.png"/>
+<h3 data-i18n="products.p2.title">Liquid Crystal Thermometers</h3>
+<p data-i18n="products.p2.desc">A liquid crystal thermometer in the form of a plastic strip.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail2.html">Read more →</a>
+</div>
+
+<!-- DIST -->
+<section class="section" id="dist">
+<div class="section-title reveal">
+<h2 data-i18n="dist.title">DISTRIBUTION</h2>
+</div>
+<div class="products-grid">
+<div class="product-card reveal">
+<h3 data-i18n="dist.p1.title">Super Telezhka</h3>
+<img alt="YALOS" class="footer-logo" src="/images/telejka.png"/>
+<p data-i18n="dist.p1.desc">Our company supplies passenger baggage carts for airports. They have a large advertising space and a lightweight aluminum construction.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail6.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="dist.p2.title">Dofun Functional Valves</h3>
+<img alt="YALOS" class="footer-logo" src="/images/Dofun.jpg"/>
+<p data-i18n="dist.p2.desc">Functional valves designed for industrial cooling systems</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail7.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="dist.p3.title">Metal Products Wuxi Moyu Keji Co., Ltd</h3>
+<img alt="YALOS" class="footer-logo" src="/images/Tube.jpg"/>
+<p data-i18n="dist.p3.desc">Direct supplies of metal products from China as a representative of Wuxi Moyu Keji Co., Ltd (China)</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail8.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="dist.p4.title">Tape - Overheating Indicator</h3>
+<img alt="YALOS" class="footer-logo" src="/images/izo1.png"/>
+<p data-i18n="dist.p4.desc">Reversible thermosensitive indicator tape allows you to preserve the insulation of various cable connections.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail4.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="dist.p5.title">Marker - Overheating Indicator</h3>
+<img alt="YALOS" class="footer-logo" src="/images/marker.png"/>
+<p data-i18n="dist.p5.desc">Thermomarker from the Japanese company Matsui International Co., Inc.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/product-detail1.html">Read more →</a>
+</div>
+</div>
+</section>
+<!-- PROJECTS -->
+<section class="section" id="projects">
+<div class="section-title reveal">
+<h2 data-i18n="projects.title">PROJECTS</h2>
+</div>
+<div class="products-grid">
+<div class="product-card reveal">
+<h3 data-i18n="projects.p1.title">IC YALOS</h3>
+<img alt="YALOS" class="footer-logo" src="/images/download.jpg"/>
+<p data-i18n="projects.p1.desc">Presents a series of chemical thermal indicators, liquid crystal thermometers, markers and overheating control tapes on the Russian market.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/project1.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="projects.p2.title">PAK DISKON</h3>
+<img alt="YALOS" class="footer-logo" src="/images/diskon.jpeg"/>
+<p data-i18n="projects.p2.desc">Digitalization and real-time operational control is a strategic direction for the development of production process management and accident prevention.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/project2.html">Read more →</a>
+</div>
+<div class="product-card reveal">
+<h3 data-i18n="projects.p3.title">YALOS STREAM</h3>
+<img alt="YALOS" class="footer-logo" src="/images/stream.jpg"/>
+<p data-i18n="projects.p3.desc">Collective sound virtual reality technology. New technology for forming and controlling "close" sounds "Yalos Stream". Turning every cinema into an attraction.</p>
+<a class="product-cta" data-i18n="products.readmore" href="/en/project3.html">Read more →</a>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="cta-section" id="contact">
+<div class="cta-content reveal">
+<h2 data-i18n="contact.title">CONTACTS</h2>
+<p data-i18n="contact.desc">Write to us — our manager will contact you within 2 hours, select a solution and prepare a commercial proposal.</p>
+<div style="margin-top: 20px; font-size: 20px; opacity: 0.8;">
+<strong data-i18n="contact.company" style="color:#fff;">LLC "Innovative Company "YALOS"</strong><br/>
+<strong data-i18n="contact.address" style="color:#fff;">Moscow, Plyushchikha St. 9 bldg. 2</strong><br/>
+<strong data-i18n="contact.phone" style="color:#fff;">Phone: +7 (495) 118-09-80</strong> <br/>
+<strong style="color:#fff;"><span data-i18n="contact.email">Email:</span> <a href="mailto:info@yalos-project.com">info@yalos-project.com</a></strong>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-grid">
+<div class="footer-col footer-brand">
+<img alt="YALOS" class="footer-logo" src="/images/logo.png"/>
+<div class="footer-text">
+<h4 data-i18n="footer.company">LLC INNOVATIVE<br/>COMPANY "YALOS"</h4>
+</div>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer.products">Products</h4>
+<a data-i18n="footer.p1" href="/en/product-detail3.html">Thermal Indicators</a>
+<a data-i18n="footer.p2" href="/en/product-detail2.html">Liquid Crystal Thermometers</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer.nav">Navigation</h4>
+<a data-i18n="nav.about" href="#benefits">About</a>
+<a data-i18n="nav.products" href="#products">Products</a>
+<a data-i18n="nav.dist" href="#dist">Distribution</a>
+<a data-i18n="nav.projects" href="#projects">Projects</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="nav.contact">Contacts</h4>
+<a href="tel:+74951180980">+7 (495) 118-09-80</a>
+<a href="mailto:info@yalos-project.com">info@yalos-project.com</a>
+<a data-i18n="contact.address" href="#">Moscow, Plyushchikha St. 9 bldg. 2</a>
+</div>
+</div>
+<div class="footer-bottom" data-i18n="footer.copyright">© 2026 YALOS INDICATOR. Website developed by Daria Afanaseva.</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    /* ===================================================== */
+    /* TRANSLATIONS DICTIONARY */
+    /* ===================================================== */
+    const translations = {
+      ru: {
+        'nav.logo': 'КОМПАНИЯ <span>"ЯЛОС"</span>',
+        'nav.about': 'О нас',
+        'nav.products': 'Продукция',
+        'nav.dist': 'Дистрибуция',
+        'nav.projects': 'Проекты',
+        'nav.contact': 'Контакты',
+        'nav.cta': 'Запросить КП',
+
+        'hero.badge': 'Индикация. Контроль. Безопасность.',
+        'hero.title': 'Цветовые химические индикаторы параметров внешней среды',
+        'hero.desc': 'Инновационная компания "Ялос" — разработчик перспективных проектов, как в новых технологических направлениях, так и в области импортозамещения',
+        'hero.btn': 'Каталог продукции',
+
+        'benefits.title': 'О НАС',
+        'benefits.b1.icon': 'Инновационная компания<br>"Ялос"',
+        'benefits.b1.p1': 'Наша компания основана в 2013 году, для разработки и внедрения на российском рынке передовых технологий в промышленности, индустрии развлечений, IT технологий.',
+        'benefits.b1.p2': 'Нами получены патенты и разработаны прототипы новых технологических решений.',
+        'benefits.b2.icon': 'Научный<br>потенциал',
+        'benefits.b2.p': 'Собственная технологическая база для проведения научных исследований и сотрудничество с лучшими научными лабораториями России. Договор с Центром фотохимии, отделением ФНИЦ "Кристаллография и фотоника" РАН и ФГБУН, Межведомственного центра аналитических исследований в области физики, химии и биологии при Президиуме Российской академии наук.',
+        'benefits.b3.icon': 'Цветовые химические<br>индикаторы',
+        'benefits.b3.p': 'Индикаторы заданных уровней внешней среды: радиации, температуры, газов, электро-магнитных полей, ультрафиолета и влажности позволяют визуально и быстро обнаруживать опасные или контрольные уровни среды, что повышает безопасность персонала, эффективность в промышленности, энергетике и транспорте.',
+
+        'products.title': 'ПРОДУКЦИЯ',
+        'products.p1.title': 'Термоиндикаторы',
+        'products.p1.desc': 'Температурные индикаторы от компании "NiGK", зарекомендовали себя как надежный инструмент контроля температуры.',
+        'products.p2.title': 'Термометры на жидких кристаллах',
+        'products.p2.desc': 'Жидкокристаллический термометр в виде пластиковой полосы.',
+        'products.readmore': 'Читать дальше →',
+
+        'dist.title': 'ДИСТРИБУЦИЯ',
+        'dist.p1.title': 'Super Telezhka',
+        'dist.p1.desc': 'Наша компания поставляет для аэропортов пассажирские багажные тележки. Они имеют большое рекламное пространство и легкую алюминиевую конструкцию.',
+        'dist.p2.title': 'Функциональные клапаны Dofun',
+        'dist.p2.desc': 'Функциональные клапаны, предназначенные для систем промышленного охлаждения',
+        'dist.p3.title': 'Металлопрокат Wuxi Moyu Keji Co., Ltd',
+        'dist.p3.desc': 'Прямые поставки металлопроката из КНР на правах представителя компании Wuxi Moyu Keji Co., Ltd (КНР)',
+        'dist.p4.title': 'Изолента - индикатор перегревов',
+        'dist.p4.desc': 'Индикаторная обратимая термочувствительная изолента позволяет сохранить изоляцию различных кабельных соединений.',
+        'dist.p5.title': 'Маркер-индикатор перегревов',
+        'dist.p5.desc': 'Термомаркер японской компании Matsui International Co., Inc.',
+
+        'projects.title': 'ПРОЕКТЫ',
+        'projects.p1.title': 'ИК ЯЛОС',
+        'projects.p1.desc': 'Представляет на российском рынке серию химических термоиндикаторов, термометры на жидких кристаллах, маркер и изоленту контроля перегревов и др.',
+        'projects.p2.title': 'ПАК ДИСКОН',
+        'projects.p2.desc': 'Цифровизация и оперативный контроль в реальном масштабе времени, является стратегическим направлением развития управления производственными процессами и предупреждения аварий.',
+        'projects.p3.title': 'ЯЛОС СТРИМ',
+        'projects.p3.desc': 'Технология коллективной, звуковой виртуальной реальности. Новая технология формирования и управления «близкими» звуками «Yalos Stream». Превращаем каждый кинотеатр в аттракцион.',
+
+        'contact.title': 'КОНТАКТЫ',
+        'contact.desc': 'Напишите нам — наш менеджер свяжется с вами в течение 2 часов, подберёт решение и подготовит коммерческое предложение.',
+        'contact.company': 'ООО "Инновационная компания "ЯЛОС"',
+        'contact.address': 'г.Москва, ул.Плющиха 9 стр.2',
+        'contact.phone': 'Телефон:+7 (495) 118-09-80',
+        'contact.email': 'Электронная почта:',
+
+        'footer.company': 'ООО ИННОВАЦИОННАЯ<br>КОМПАНИЯ "ЯЛОС"',
+        'footer.products': 'Продукция',
+        'footer.p1': 'Термоиндикаторы',
+        'footer.p2': 'Термометры на жидких кристаллах',
+        'footer.nav': 'Навигация',
+        'footer.copyright': '© 2026 YALOS INDICATOR. Сайт разработан Дарьей Афанасьевой.'
+      },
+      en: {
+        'nav.logo': 'COMPANY <span>"YALOS"</span>',
+        'nav.about': 'About',
+        'nav.products': 'Products',
+        'nav.dist': 'Distribution',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contacts',
+        'nav.cta': 'Request Quote',
+
+        'hero.badge': 'Indication. Control. Safety.',
+        'hero.title': 'Color Chemical Indicators for Environmental Parameters',
+        'hero.desc': 'Innovative company "Yalos" is a developer of promising projects in both new technological areas and import substitution.',
+        'hero.btn': 'Product Catalog',
+
+        'benefits.title': 'ABOUT US',
+        'benefits.b1.icon': 'Innovative Company<br>"Yalos"',
+        'benefits.b1.p1': 'Our company was founded in 2013 to develop and implement advanced technologies in industry, entertainment, and IT in the Russian market.',
+        'benefits.b1.p2': 'We have obtained patents and developed prototypes of new technological solutions.',
+        'benefits.b2.icon': 'Scientific<br>Potential',
+        'benefits.b2.p': 'Our own technological base for scientific research and cooperation with the best scientific laboratories in Russia. Agreement with the Center for Photochemistry, branch of FSRC "Crystallography and Photonics" of the Russian Academy of Sciences and the Interdepartmental Center for Analytical Research in Physics, Chemistry and Biology under the Presidium of the Russian Academy of Sciences.',
+        'benefits.b3.icon': 'Color Chemical<br>Indicators',
+        'benefits.b3.p': 'Indicators of specified environmental levels: radiation, temperature, gases, electromagnetic fields, ultraviolet and humidity allow visual and rapid detection of hazardous or control levels of the environment, which increases personnel safety, efficiency in industry, energy and transport.',
+
+        'products.title': 'PRODUCTS',
+        'products.p1.title': 'Thermal Indicators',
+        'products.p1.desc': 'Temperature indicators from "NiGK" have proven themselves as a reliable temperature control tool.',
+        'products.p2.title': 'Liquid Crystal Thermometers',
+        'products.p2.desc': 'A liquid crystal thermometer in the form of a plastic strip.',
+        'products.readmore': 'Read more →',
+
+        'dist.title': 'DISTRIBUTION',
+        'dist.p1.title': 'Super Telezhka',
+        'dist.p1.desc': 'Our company supplies passenger baggage carts for airports. They have a large advertising space and a lightweight aluminum construction.',
+        'dist.p2.title': 'Dofun Functional Valves',
+        'dist.p2.desc': 'Functional valves designed for industrial cooling systems',
+        'dist.p3.title': 'Metal Products Wuxi Moyu Keji Co., Ltd',
+        'dist.p3.desc': 'Direct supplies of metal products from China as a representative of Wuxi Moyu Keji Co., Ltd (China)',
+        'dist.p4.title': 'Tape - Overheating Indicator',
+        'dist.p4.desc': 'Reversible thermosensitive indicator tape allows you to preserve the insulation of various cable connections.',
+        'dist.p5.title': 'Marker - Overheating Indicator',
+        'dist.p5.desc': 'Thermomarker from the Japanese company Matsui International Co., Inc.',
+
+        'projects.title': 'PROJECTS',
+        'projects.p1.title': 'IC YALOS',
+        'projects.p1.desc': 'Presents a series of chemical thermal indicators, liquid crystal thermometers, markers and overheating control tapes on the Russian market.',
+        'projects.p2.title': 'PAK DISKON',
+        'projects.p2.desc': 'Digitalization and real-time operational control is a strategic direction for the development of production process management and accident prevention.',
+        'projects.p3.title': 'YALOS STREAM',
+        'projects.p3.desc': 'Collective sound virtual reality technology. New technology for forming and controlling "close" sounds "Yalos Stream". Turning every cinema into an attraction.',
+
+        'contact.title': 'CONTACTS',
+        'contact.desc': 'Write to us — our manager will contact you within 2 hours, select a solution and prepare a commercial proposal.',
+        'contact.company': 'LLC "Innovative Company "YALOS"',
+        'contact.address': 'Moscow, Plyushchikha St. 9 bldg. 2',
+        'contact.phone': 'Phone: +7 (495) 118-09-80',
+        'contact.email': 'Email:',
+
+        'footer.company': 'LLC INNOVATIVE<br>COMPANY "YALOS"',
+        'footer.products': 'Products',
+        'footer.p1': 'Thermal Indicators',
+        'footer.p2': 'Liquid Crystal Thermometers',
+        'footer.nav': 'Navigation',
+        'footer.copyright': '© 2026 YALOS INDICATOR. Website developed by Daria Afanaseva.'
+      }
+    };
+
+
+
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Reveal on scroll
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
