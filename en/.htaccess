@@ -1,0 +1,4 @@
+# Английская версия сайта: yalosindicator.com/en/
+# Нужен только на Apache (на nginx файл игнорируется).
+DirectoryIndex index.html
+Options -Indexes
